@@ -44,14 +44,17 @@ describe('content pipeline', () => {
           { filename: 'sample.jpg', tags: ['window'] },
           { filename: 'sample.jpg', tags: ['shadow'] },
         ],
-        new Map([['sample.jpg', { sourceHash: SAMPLE_HASH }]])
+        new Map([['sample.jpg', { sourceHash: SAMPLE_HASH, embeddedTags: [] }]])
       )
     ).toThrow(/Duplicate filename/);
   });
 
   it('rejects empty tag arrays', () => {
     expect(
-      validateCatalog([{ filename: 'sample.jpg', tags: [] }], new Map([['sample.jpg', { sourceHash: SAMPLE_HASH }]]))
+      validateCatalog(
+        [{ filename: 'sample.jpg', tags: [] }],
+        new Map([['sample.jpg', { sourceHash: SAMPLE_HASH, embeddedTags: [] }]])
+      )
     ).toEqual([{ filename: 'sample.jpg', tags: ['untagged'], alt: 'sample', sourceHash: SAMPLE_HASH }]);
   });
 
@@ -60,13 +63,63 @@ describe('content pipeline', () => {
       validateCatalog(
         [{ filename: 'sample.jpg', tags: ['window'] }],
         new Map([
-          ['sample.jpg', { sourceHash: SAMPLE_HASH }],
-          ['extra.jpg', { sourceHash: EXTRA_HASH }],
+          ['sample.jpg', { sourceHash: SAMPLE_HASH, embeddedTags: [] }],
+          ['extra.jpg', { sourceHash: EXTRA_HASH, embeddedTags: [] }],
         ])
       )
     ).toEqual([
       { filename: 'extra.jpg', tags: ['untagged'], alt: 'extra', sourceHash: EXTRA_HASH },
       { filename: 'sample.jpg', tags: ['window'], alt: 'sample', sourceHash: SAMPLE_HASH },
+    ]);
+  });
+
+  it('uses embedded keywords when catalog tags are missing or untagged', () => {
+    expect(
+      validateCatalog(
+        [{ filename: 'sample.jpg', tags: ['untagged'] }],
+        new Map([
+          [
+            'sample.jpg',
+            {
+              sourceHash: SAMPLE_HASH,
+              embeddedTags: ['shadow', 'Light', 'shadow'],
+              embeddedAlt: 'Embedded description',
+            },
+          ],
+        ])
+      )
+    ).toEqual([
+      {
+        filename: 'sample.jpg',
+        tags: ['shadow', 'light'],
+        alt: 'Embedded description',
+        sourceHash: SAMPLE_HASH,
+      },
+    ]);
+  });
+
+  it('preserves manual catalog tags over embedded keywords', () => {
+    expect(
+      validateCatalog(
+        [{ filename: 'sample.jpg', tags: ['manual-tag'], alt: 'Manual alt' }],
+        new Map([
+          [
+            'sample.jpg',
+            {
+              sourceHash: SAMPLE_HASH,
+              embeddedTags: ['shadow'],
+              embeddedAlt: 'Embedded description',
+            },
+          ],
+        ])
+      )
+    ).toEqual([
+      {
+        filename: 'sample.jpg',
+        tags: ['manual-tag'],
+        alt: 'Manual alt',
+        sourceHash: SAMPLE_HASH,
+      },
     ]);
   });
 

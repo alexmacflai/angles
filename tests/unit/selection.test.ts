@@ -6,6 +6,7 @@ function createImage(id: string, tags: string[]): ImageRecord {
     id,
     filename: `${id}.jpg`,
     slug: id,
+    sourceHash: `${id}-hash`,
     width: 100,
     height: 100,
     aspectRatio: 1,
