@@ -17,6 +17,7 @@ export interface ImageRecord {
   id: string;
   filename: string;
   slug: string;
+  sourceHash: string;
   width: number;
   height: number;
   aspectRatio: number;

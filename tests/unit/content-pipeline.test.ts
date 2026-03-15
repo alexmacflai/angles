@@ -6,6 +6,9 @@ import sharp from 'sharp';
 
 import { buildContent, validateCatalog } from '../../scripts/content-pipeline.mjs';
 
+const SAMPLE_HASH = 'b7f783baed8297f0db3cfaab512fd0150d678cb9';
+const EXTRA_HASH = '0f228715f94042053bc7f272e4ee44eb4b7e93c4';
+
 async function makeTempProject() {
   const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'angles-content-'));
   await fs.mkdir(path.join(rootDir, 'content', 'images', 'originals'), { recursive: true });
@@ -41,21 +44,30 @@ describe('content pipeline', () => {
           { filename: 'sample.jpg', tags: ['window'] },
           { filename: 'sample.jpg', tags: ['shadow'] },
         ],
-        new Set(['sample.jpg'])
+        new Map([['sample.jpg', { sourceHash: SAMPLE_HASH }]])
       )
     ).toThrow(/Duplicate filename/);
   });
 
   it('rejects empty tag arrays', () => {
-    expect(() =>
-      validateCatalog([{ filename: 'sample.jpg', tags: [] }], new Set(['sample.jpg']))
-    ).toThrow(/at least one tag/);
+    expect(
+      validateCatalog([{ filename: 'sample.jpg', tags: [] }], new Map([['sample.jpg', { sourceHash: SAMPLE_HASH }]]))
+    ).toEqual([{ filename: 'sample.jpg', tags: ['untagged'], alt: 'sample', sourceHash: SAMPLE_HASH }]);
   });
 
-  it('rejects images that exist on disk but are missing metadata', () => {
-    expect(() =>
-      validateCatalog([{ filename: 'sample.jpg', tags: ['window'] }], new Set(['sample.jpg', 'extra.jpg']))
-    ).toThrow(/missing metadata/);
+  it('auto-adds images that exist on disk but are missing metadata', () => {
+    expect(
+      validateCatalog(
+        [{ filename: 'sample.jpg', tags: ['window'] }],
+        new Map([
+          ['sample.jpg', { sourceHash: SAMPLE_HASH }],
+          ['extra.jpg', { sourceHash: EXTRA_HASH }],
+        ])
+      )
+    ).toEqual([
+      { filename: 'extra.jpg', tags: ['untagged'], alt: 'extra', sourceHash: EXTRA_HASH },
+      { filename: 'sample.jpg', tags: ['window'], alt: 'sample', sourceHash: SAMPLE_HASH },
+    ]);
   });
 
   it('builds the manifest and replaces the markdown image-count token', async () => {
@@ -71,5 +83,66 @@ describe('content pipeline', () => {
       tags: ['window'],
     });
     expect(aboutModule).toContain('Hello 1');
+  });
+
+  it('syncs catalog.json with discovered images and default metadata', async () => {
+    const rootDir = await makeTempProject();
+
+    await sharp({
+      create: {
+        width: 20,
+        height: 20,
+        channels: 3,
+        background: { r: 64, g: 64, b: 64 },
+      },
+    })
+      .jpeg()
+      .toFile(path.join(rootDir, 'content', 'images', 'originals', 'new-upload.jpg'));
+
+    await buildContent(rootDir);
+
+    const catalogJson = await fs.readFile(path.join(rootDir, 'content', 'images', 'catalog.json'), 'utf8');
+    expect(JSON.parse(catalogJson)).toEqual([
+      expect.objectContaining({ filename: 'new-upload.jpg', tags: ['untagged'], alt: 'new upload' }),
+      expect.objectContaining({ filename: 'sample.jpg', tags: ['window'], alt: 'Sample' }),
+    ]);
+  });
+
+  it('updates the stored hash when an existing filename is replaced', async () => {
+    const rootDir = await makeTempProject();
+
+    await buildContent(rootDir);
+    const originalCatalog = JSON.parse(
+      await fs.readFile(path.join(rootDir, 'content', 'images', 'catalog.json'), 'utf8')
+    );
+
+    await sharp({
+      create: {
+        width: 90,
+        height: 60,
+        channels: 3,
+        background: { r: 255, g: 128, b: 0 },
+      },
+    })
+      .jpeg()
+      .toFile(path.join(rootDir, 'content', 'images', 'originals', 'sample.jpg'));
+
+    const manifest = await buildContent(rootDir);
+    const updatedCatalog = JSON.parse(
+      await fs.readFile(path.join(rootDir, 'content', 'images', 'catalog.json'), 'utf8')
+    );
+
+    expect(updatedCatalog[0].sourceHash).not.toEqual(originalCatalog[0].sourceHash);
+    expect(updatedCatalog[0]).toMatchObject({
+      filename: 'sample.jpg',
+      tags: ['window'],
+      alt: 'Sample',
+    });
+    expect(manifest[0].sourceHash).toEqual(updatedCatalog[0].sourceHash);
+    expect(manifest[0]).toMatchObject({
+      filename: 'sample.jpg',
+      width: 90,
+      height: 60,
+    });
   });
 });
