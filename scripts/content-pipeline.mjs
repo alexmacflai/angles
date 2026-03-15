@@ -213,7 +213,8 @@ async function writeAboutModule({ aboutPath, outputPath, imageCount }) {
   await fs.writeFile(outputPath, moduleSource, 'utf8');
 }
 
-export async function buildContent(rootDir) {
+export async function buildContent(rootDir, options = {}) {
+  const { onProgress } = options;
   const contentDir = path.join(rootDir, 'content');
   const catalogPath = path.join(contentDir, 'images', 'catalog.json');
   const originalsDir = path.join(contentDir, 'images', 'originals');
@@ -260,7 +261,12 @@ export async function buildContent(rootDir) {
 
   await fs.writeFile(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`, 'utf8');
 
-  for (const record of catalog) {
+  for (const [index, record] of catalog.entries()) {
+    onProgress?.({
+      current: index + 1,
+      total: catalog.length,
+      filename: record.filename,
+    });
     manifest.push(await createImageVariants({ record, originalsDir, outputDir }));
   }
 
