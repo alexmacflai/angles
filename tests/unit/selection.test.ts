@@ -21,26 +21,27 @@ function createImage(id: string, tags: string[]): ImageRecord {
 }
 
 describe('selectImageCluster', () => {
-  it('returns the seed image first and prioritizes the strongest overlaps', () => {
+  it('keeps the seed first and builds a cohesive pool before sampling the final series', () => {
     const images = [
-      createImage('seed', ['window', 'shadow', 'light']),
-      createImage('best-match', ['window', 'shadow']),
-      createImage('second-best', ['window']),
-      createImage('no-overlap-a', ['forest']),
-      createImage('no-overlap-b', ['water']),
+      createImage('seed', ['window', 'shadow']),
+      createImage('match-a', ['window', 'shadow']),
+      createImage('match-b', ['window']),
+      createImage('match-c', ['shadow']),
+      createImage('cohesive-bridge', ['window', 'shadow']),
+      createImage('outsider-a', ['forest']),
+      createImage('outsider-b', ['water']),
+      createImage('outsider-c', ['road']),
     ];
 
-    const selected = selectImageCluster(images, { limit: 4, random: () => 0 });
+    const selected = selectImageCluster(images, { limit: 4, poolSize: 5, random: () => 0 });
 
-    expect(selected.map((image) => image.id)).toEqual([
-      'seed',
-      'best-match',
-      'second-best',
-      'no-overlap-a',
-    ]);
+    expect(selected[0].id).toBe('seed');
+    expect(selected).toHaveLength(4);
+    expect(new Set(selected.map((image) => image.id)).size).toBe(4);
+    expect(selected.every((image) => !image.id.startsWith('outsider'))).toBe(true);
   });
 
-  it('fills the remainder with the shuffled leftover images when overlaps are sparse', () => {
+  it('returns all images when the total count is already at or below the final limit', () => {
     const images = [
       createImage('seed', ['window']),
       createImage('other-a', ['forest']),
@@ -48,14 +49,32 @@ describe('selectImageCluster', () => {
       createImage('other-c', ['road']),
     ];
 
-    const sequence = [0, 0.7, 0.2, 0.9];
+    const selected = selectImageCluster(images, { limit: 6, random: () => 0.2 });
+    expect(selected).toHaveLength(4);
+    expect(selected.map((image) => image.id)).toEqual(['seed', 'other-a', 'other-b', 'other-c']);
+  });
+
+  it('samples a smaller final series from a larger cohesive pool', () => {
+    const images = [
+      createImage('seed', ['window', 'shadow']),
+      createImage('match-a', ['window', 'shadow']),
+      createImage('match-b', ['window']),
+      createImage('match-c', ['shadow']),
+      createImage('match-d', ['window', 'shadow']),
+      createImage('match-e', ['window']),
+      createImage('match-f', ['shadow']),
+      createImage('outsider', ['forest']),
+    ];
+
+    const sequence = [0, 0.9, 0.1, 0.8, 0.2, 0.7, 0.3];
     const selected = selectImageCluster(images, {
-      limit: 4,
-      random: () => sequence.shift() ?? 0,
+      limit: 3,
+      poolSize: 6,
+      random: () => sequence.shift() ?? 0.4,
     });
 
-    expect(selected).toHaveLength(4);
+    expect(selected).toHaveLength(3);
     expect(selected[0].id).toBe('seed');
-    expect(new Set(selected.map((image) => image.id)).size).toBe(4);
+    expect(selected.every((image) => image.id !== 'outsider')).toBe(true);
   });
 });

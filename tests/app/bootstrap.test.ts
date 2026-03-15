@@ -147,7 +147,7 @@ describe('bootstrapPage', () => {
 
   it('renders selection mode with the dark-theme body class', async () => {
     const { bootstrapPage } = await import('../../src/lib/page');
-    const images = Array.from({ length: 12 }, (_, index) => createImage(`selection-${index + 1}`));
+    const images = Array.from({ length: 18 }, (_, index) => createImage(`selection-${index + 1}`));
 
     const result = bootstrapPage({
       mode: 'selection',
@@ -158,7 +158,7 @@ describe('bootstrapPage', () => {
     });
 
     expect(document.body.classList.contains('page-selection')).toBe(true);
-    expect(document.querySelectorAll('.imageGrid')).toHaveLength(12);
-    expect(result.pageImages).toHaveLength(12);
+    expect(document.querySelectorAll('.imageGrid')).toHaveLength(6);
+    expect(result.pageImages).toHaveLength(6);
   });
 });

@@ -5,7 +5,7 @@ Angles is a photography site by [Alex Cruz](https://www.alexcruz.studio/).
 It has two modes:
 
 - `archive`: the full image collection
-- `selection`: a random 12-image cluster based on tag proximity
+- `selection`: a random 6-image series drawn from an 18-image pool with strong tag cohesion
 
 The app is built with Vite and TypeScript. Image originals live in `content/images/originals`, and a content pipeline generates the optimized assets and JSON manifest the site actually uses.
 
@@ -77,7 +77,9 @@ Existing `tags` and `alt` text stay in place when a file is replaced with the sa
 
 ## Metadata Notes
 
-If an image is missing metadata, the pipeline currently fills in:
+The pipeline reads embedded IPTC/XMP metadata from the image files for tags by default.
+
+If an image is missing usable metadata, the pipeline falls back to:
 
 - `tags: ["untagged"]`
 - `alt`: derived from the filename
