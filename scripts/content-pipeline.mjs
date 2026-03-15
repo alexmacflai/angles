@@ -35,6 +35,19 @@ export function slugifyFilename(value) {
     .replace(/-{2,}/g, '-');
 }
 
+function humanizeFilename(value) {
+  return value
+    .replace(/\.[^.]+$/, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+async function hashFile(filePath) {
+  const contents = await fs.readFile(filePath);
+  return crypto.createHash('sha1').update(contents).digest('hex');
+}
+
 function scaleToFit(width, height, maxWidth, maxHeight) {
   const scale = Math.min(maxWidth / width, maxHeight / height, 1);
 
@@ -53,24 +66,22 @@ function normalizeCatalogRecord(record) {
     throw new Error('Every catalog record requires a filename.');
   }
 
-  if (!Array.isArray(record.tags) || record.tags.length === 0) {
-    throw new Error(`Image "${record.filename}" must include at least one tag.`);
-  }
-
-  const tags = [...new Set(record.tags.map((tag) => String(tag).trim().toLowerCase()).filter(Boolean))];
-
-  if (tags.length === 0) {
-    throw new Error(`Image "${record.filename}" must include at least one non-empty tag.`);
-  }
+  const tags = Array.isArray(record.tags)
+    ? [...new Set(record.tags.map((tag) => String(tag).trim().toLowerCase()).filter(Boolean))]
+    : [];
 
   return {
     filename: record.filename.trim(),
-    tags,
-    alt: typeof record.alt === 'string' ? record.alt.trim() : '',
+    tags: tags.length > 0 ? tags : ['untagged'],
+    alt: typeof record.alt === 'string' && record.alt.trim() ? record.alt.trim() : humanizeFilename(record.filename),
+    sourceHash:
+      typeof record.sourceHash === 'string' && /^[a-f0-9]{40}$/i.test(record.sourceHash.trim())
+        ? record.sourceHash.trim().toLowerCase()
+        : '',
   };
 }
 
-export function validateCatalog(catalog, fileNames) {
+export function validateCatalog(catalog, filesOnDisk) {
   if (!Array.isArray(catalog)) {
     throw new Error('Image catalog must be an array.');
   }
@@ -85,18 +96,27 @@ export function validateCatalog(catalog, fileNames) {
 
     seen.add(record.filename);
 
-    if (!fileNames.has(record.filename)) {
-      throw new Error(`Catalog image "${record.filename}" does not exist in originals.`);
+    if (!filesOnDisk.has(record.filename)) {
+      continue;
     }
   }
 
-  for (const fileName of fileNames) {
-    if (!seen.has(fileName)) {
-      throw new Error(`Original image "${fileName}" is missing metadata in catalog.json.`);
-    }
+  const catalogByFilename = new Map(
+    normalized
+      .filter((record) => filesOnDisk.has(record.filename))
+      .map((record) => [record.filename, record])
+  );
+  const synced = [];
+
+  for (const [fileName, fileInfo] of [...filesOnDisk.entries()].sort(([left], [right]) => left.localeCompare(right))) {
+    const existing = catalogByFilename.get(fileName);
+    synced.push({
+      ...(existing ?? normalizeCatalogRecord({ filename: fileName })),
+      sourceHash: fileInfo.sourceHash,
+    });
   }
 
-  return normalized;
+  return synced;
 }
 
 async function writeVariantFormats(image, outputBasePath) {
@@ -158,6 +178,7 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
     aspectRatio: Number((metadata.width / metadata.height).toFixed(4)),
     tags: record.tags,
     alt: record.alt,
+    sourceHash: record.sourceHash,
     variants: {
       grid: {
         avif: `/generated/images/${slug}/grid.avif`,
@@ -192,7 +213,8 @@ async function writeAboutModule({ aboutPath, outputPath, imageCount }) {
   await fs.writeFile(outputPath, moduleSource, 'utf8');
 }
 
-export async function buildContent(rootDir) {
+export async function buildContent(rootDir, options = {}) {
+  const { onProgress } = options;
   const contentDir = path.join(rootDir, 'content');
   const catalogPath = path.join(contentDir, 'images', 'catalog.json');
   const originalsDir = path.join(contentDir, 'images', 'originals');
@@ -205,21 +227,46 @@ export async function buildContent(rootDir) {
   await fs.mkdir(outputDir, { recursive: true });
 
   const [catalogRaw, originalEntries] = await Promise.all([
-    fs.readFile(catalogPath, 'utf8'),
+    fs.readFile(catalogPath, 'utf8').catch((error) => {
+      if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
+        return '[]';
+      }
+
+      throw error;
+    }),
     fs.readdir(originalsDir, { withFileTypes: true }),
   ]);
 
-  const originalFileNames = new Set(
-    originalEntries
-      .filter((entry) => entry.isFile())
-      .map((entry) => entry.name)
-      .filter((fileName) => IMAGE_EXTENSIONS.has(path.extname(fileName).toLowerCase()))
+  const originalFileNames = originalEntries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((fileName) => IMAGE_EXTENSIONS.has(path.extname(fileName).toLowerCase()));
+
+  const filesOnDisk = new Map(
+    await Promise.all(
+      originalFileNames.map(async (fileName) => {
+        const filePath = path.join(originalsDir, fileName);
+        return [
+          fileName,
+          {
+            sourceHash: await hashFile(filePath),
+          },
+        ];
+      })
+    )
   );
 
-  const catalog = validateCatalog(JSON.parse(catalogRaw), originalFileNames);
+  const catalog = validateCatalog(JSON.parse(catalogRaw), filesOnDisk);
   const manifest = [];
 
-  for (const record of catalog) {
+  await fs.writeFile(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`, 'utf8');
+
+  for (const [index, record] of catalog.entries()) {
+    onProgress?.({
+      current: index + 1,
+      total: catalog.length,
+      filename: record.filename,
+    });
     manifest.push(await createImageVariants({ record, originalsDir, outputDir }));
   }
 

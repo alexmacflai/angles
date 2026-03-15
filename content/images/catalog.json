@@ -1,62 +1,1546 @@
 [
   {
-    "filename": "angles-placeholder-01.jpg",
-    "tags": ["window", "geometry", "light", "urban"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1243.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1243",
+    "sourceHash": "a9ef9b069460b56c617f9908967d8a58abb1afaa"
   },
   {
-    "filename": "angles-placeholder-02.jpg",
-    "tags": ["window", "reflection", "urban", "night"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1246.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1246",
+    "sourceHash": "d81f17730d44e75db6ee72a97624aa7440ed228b"
   },
   {
-    "filename": "angles-placeholder-03.jpg",
-    "tags": ["portrait", "shadow", "light", "interior"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1327.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1327",
+    "sourceHash": "816719bfd2e6fc26a762b31909b01e8b16e20672"
   },
   {
-    "filename": "angles-placeholder-04.jpg",
-    "tags": ["portrait", "shadow", "gesture", "night"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1331.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1331",
+    "sourceHash": "c905a6a0bdf447e05ea2f5b3171cf1ac2868b36d"
   },
   {
-    "filename": "angles-placeholder-05.jpg",
-    "tags": ["geometry", "pattern", "facade", "urban"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1332.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1332",
+    "sourceHash": "9699972ff272011ba36b1dc600ceff5461dd0092"
   },
   {
-    "filename": "angles-placeholder-06.jpg",
-    "tags": ["pattern", "shadow", "black-and-white", "window"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1336.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1336",
+    "sourceHash": "e16ab48f0984da6f9050c08140c656f23d2a2ae7"
   },
   {
-    "filename": "angles-placeholder-07.jpg",
-    "tags": ["nature", "texture", "light", "detail"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1355.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1355",
+    "sourceHash": "252e7e41864ad993cc6513e88dd47431afdd1e49"
   },
   {
-    "filename": "angles-placeholder-08.jpg",
-    "tags": ["nature", "reflection", "detail", "water"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1362.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1362",
+    "sourceHash": "03978a9ada6e9dba15dd16a1a356585358578299"
   },
   {
-    "filename": "angles-placeholder-09.jpg",
-    "tags": ["black-and-white", "urban", "facade", "contrast"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1408.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1408",
+    "sourceHash": "b7fd20e9734e88bb670fee5637dc38a77daa3a55"
   },
   {
-    "filename": "angles-placeholder-10.jpg",
-    "tags": ["contrast", "shadow", "geometry", "detail"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF1434.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF1434",
+    "sourceHash": "0439e28ee7ac1cc23fd96e02f242b3ef26007ba7"
   },
   {
-    "filename": "angles-placeholder-11.jpg",
-    "tags": ["portrait", "reflection", "window", "contrast"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF2004.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2004",
+    "sourceHash": "d6dcc3221c8683a5743f716c7390809f2df91e50"
   },
   {
-    "filename": "angles-placeholder-12.jpg",
-    "tags": ["water", "pattern", "light", "night"],
-    "alt": "Placeholder image for the Angles archive"
+    "filename": "_DSF2058.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2058",
+    "sourceHash": "bab8b5bd525db425b56adc7059c95e5af7ab2f52"
+  },
+  {
+    "filename": "_DSF2071.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2071",
+    "sourceHash": "b8f85020d5c650597fe0e6453ea65fa599bbcee5"
+  },
+  {
+    "filename": "_DSF2074.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2074",
+    "sourceHash": "7ed5680b59198b1d8ba84eb9913bc3b3df8fb18f"
+  },
+  {
+    "filename": "_DSF2077.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2077",
+    "sourceHash": "3755551257c2590060f4d10d8d5232d23375b762"
+  },
+  {
+    "filename": "_DSF2103.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2103",
+    "sourceHash": "85325262394c5e88c068fd9b4a4a29ea8edc3abb"
+  },
+  {
+    "filename": "_DSF2152.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2152",
+    "sourceHash": "f3e52bb917ea335ee6dcdfbe398b0b7c9cdeeb6d"
+  },
+  {
+    "filename": "_DSF2199.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2199",
+    "sourceHash": "aca9a2b7e1c0af7554f403ff243630a2e5f9a107"
+  },
+  {
+    "filename": "_DSF2202.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2202",
+    "sourceHash": "8e027810fbac3f2f9abc6813ee32dfb956cb8f93"
+  },
+  {
+    "filename": "_DSF2206.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2206",
+    "sourceHash": "cea03767311b968fb215e35c55034bee3c8efd1b"
+  },
+  {
+    "filename": "_DSF2215.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2215",
+    "sourceHash": "0ff513fa6970e2c55856cfb5d0a06780bf6e6017"
+  },
+  {
+    "filename": "_DSF2249.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2249",
+    "sourceHash": "b6207799c19eac83d51072a46833b2345f1dec90"
+  },
+  {
+    "filename": "_DSF2282.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2282",
+    "sourceHash": "6b887c53c426f72736d04305e38e25cfd84c2279"
+  },
+  {
+    "filename": "_DSF2434.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2434",
+    "sourceHash": "ccc8a940850498865676fa2dc9a68d3d999ab57c"
+  },
+  {
+    "filename": "_DSF2450.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2450",
+    "sourceHash": "8e2b65fa8f6bc7c597046d9cc877bb55f6543ef1"
+  },
+  {
+    "filename": "_DSF2553.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2553",
+    "sourceHash": "feec1027be8bdf5209f8e5bf58a4170a290fa137"
+  },
+  {
+    "filename": "_DSF2571.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2571",
+    "sourceHash": "75aa0354ef3c5a3b1d0c9624ccd6381d0fb60c00"
+  },
+  {
+    "filename": "_DSF2654.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2654",
+    "sourceHash": "80a6bbbc8d8d58b89f1b11c5d5f7f8c878699ca7"
+  },
+  {
+    "filename": "_DSF2779.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2779",
+    "sourceHash": "e68a40d592d6bbcaaacc18ba3f113bbb9da53fa1"
+  },
+  {
+    "filename": "_DSF2821.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2821",
+    "sourceHash": "330b81b168af8c108667e8995f5886add5d04ed6"
+  },
+  {
+    "filename": "_DSF2825.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2825",
+    "sourceHash": "e01b68eb067ebc719fd150cd13443c32b738e5ee"
+  },
+  {
+    "filename": "_DSF2835.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2835",
+    "sourceHash": "16bb7b48d9bcfc8578302e5829af5f2900bcb1ce"
+  },
+  {
+    "filename": "_DSF2837.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2837",
+    "sourceHash": "ab8c96d7b6789caeb4598e909a3a4495a1da36dd"
+  },
+  {
+    "filename": "_DSF2852.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2852",
+    "sourceHash": "453318a6aace3de6cf52535319d5545e038bd4d2"
+  },
+  {
+    "filename": "_DSF2870.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2870",
+    "sourceHash": "92f8617bc783c84f38689f8525c32cc2bcc48884"
+  },
+  {
+    "filename": "_DSF2874.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2874",
+    "sourceHash": "148e5338811a2a533448b06b3373d9810dc02f7c"
+  },
+  {
+    "filename": "_DSF2885.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2885",
+    "sourceHash": "9a6f88e6b4d3a031b0c9cda7ea64f0784bb5a126"
+  },
+  {
+    "filename": "_DSF2915.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2915",
+    "sourceHash": "866feb5b35d0069ee59138684f7068b877590a0e"
+  },
+  {
+    "filename": "_DSF2930-HDR.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF2930 HDR",
+    "sourceHash": "02aa93c74d6a7c7c78a633fd36b6e07da7121601"
+  },
+  {
+    "filename": "_DSF3015-HDR.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3015 HDR",
+    "sourceHash": "459487f169fdb1cac115294ccf304eab61c68e84"
+  },
+  {
+    "filename": "_DSF3241.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3241",
+    "sourceHash": "b8a6906112e9d5b574358cd78b91ba2179fa6be9"
+  },
+  {
+    "filename": "_DSF3261.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3261",
+    "sourceHash": "c57001585eee50efe72567485ed1ce6b5de17594"
+  },
+  {
+    "filename": "_DSF3264.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3264",
+    "sourceHash": "34dbc16e789fab173514f062d9352f240452247d"
+  },
+  {
+    "filename": "_DSF3357.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3357",
+    "sourceHash": "bb91c73066247664b9215e98b39b07d15f06eede"
+  },
+  {
+    "filename": "_DSF3358.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3358",
+    "sourceHash": "377203127e83ff895e5fe9a6747f5340b8509ab7"
+  },
+  {
+    "filename": "_DSF3377.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3377",
+    "sourceHash": "2035d1bbdc7dc6759e5fe132b84bc90f41c69bdb"
+  },
+  {
+    "filename": "_DSF3417.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3417",
+    "sourceHash": "ee8d949a6df19b70939bd04cc94f7fde04128167"
+  },
+  {
+    "filename": "_DSF3685.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3685",
+    "sourceHash": "10f5a6c58cff66aaa19ff1c157155e275a6d0f0e"
+  },
+  {
+    "filename": "_DSF3691.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3691",
+    "sourceHash": "77e18c2a94408f9f26adccde8ae9aa3cc0771d22"
+  },
+  {
+    "filename": "_DSF3707.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3707",
+    "sourceHash": "d0aa1c3779ed7ccee9f9991f45e5bc448e883c1e"
+  },
+  {
+    "filename": "_DSF3718.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3718",
+    "sourceHash": "681523b521c51280c87c9147b11a397e2725cddf"
+  },
+  {
+    "filename": "_DSF3737.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3737",
+    "sourceHash": "7ea21c46962af41ce18e65116e963b86185da908"
+  },
+  {
+    "filename": "_DSF3738.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3738",
+    "sourceHash": "8e3b88b12ab6ab4f77f4626c9c6a1eef1cde593e"
+  },
+  {
+    "filename": "_DSF3786.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3786",
+    "sourceHash": "c3c85ce4cdcfde53689ed621e2d2610acd66787d"
+  },
+  {
+    "filename": "_DSF3793.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3793",
+    "sourceHash": "847d502f4e9311b83b1e1f148e8565c975fb66da"
+  },
+  {
+    "filename": "_DSF3843.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3843",
+    "sourceHash": "960b3c0206692db33e6a9c450fb299947eb1f874"
+  },
+  {
+    "filename": "_DSF3865.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3865",
+    "sourceHash": "45963db9c48c1d4996452d4eacebfd5f65de7ff5"
+  },
+  {
+    "filename": "_DSF3869.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3869",
+    "sourceHash": "df056700f6ef9b38770dd555c57e9ad9a0ea79b4"
+  },
+  {
+    "filename": "_DSF3976.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3976",
+    "sourceHash": "467e616186fb6502a28a4e4b932fa5bef8f9ba65"
+  },
+  {
+    "filename": "_DSF3978.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3978",
+    "sourceHash": "9738bbc65561cb7e0c59a22d9ed13e8f79a7f2ad"
+  },
+  {
+    "filename": "_DSF3988.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF3988",
+    "sourceHash": "e5de8763e0ea1ead7749ea3c1ce20bcf06b9813f"
+  },
+  {
+    "filename": "_DSF4075.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4075",
+    "sourceHash": "d26e4233bb9097562a85014c8b40157c92e8059a"
+  },
+  {
+    "filename": "_DSF4096.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4096",
+    "sourceHash": "9b52a3800aca34e6a90b9b95256b85ca286b55a9"
+  },
+  {
+    "filename": "_DSF4100.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4100",
+    "sourceHash": "6b9e210c2d812ffbc63f6eafc620d161859f23fa"
+  },
+  {
+    "filename": "_DSF4115.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4115",
+    "sourceHash": "b9a6b2faebb9caef03b6ac2b781b797f485be08b"
+  },
+  {
+    "filename": "_DSF4123.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4123",
+    "sourceHash": "fdbb155fe47119d7a83e1ab166ea41bc07d3f6b7"
+  },
+  {
+    "filename": "_DSF4204.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4204",
+    "sourceHash": "aff2e65a8ad385c12c4c3361540609e538971f97"
+  },
+  {
+    "filename": "_DSF4381.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4381",
+    "sourceHash": "ac702cc7503798e4d0e27bccb95f8af4ad2443e7"
+  },
+  {
+    "filename": "_DSF4416.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4416",
+    "sourceHash": "f721b12a04f6b159b182bc38efdf876eadef8c77"
+  },
+  {
+    "filename": "_DSF4454.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4454",
+    "sourceHash": "e8b621987efb0b7a2538c800e6432942488cc416"
+  },
+  {
+    "filename": "_DSF4469.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4469",
+    "sourceHash": "bc41e1fcfe07de9dd88d3ca82796e437aa2a8b26"
+  },
+  {
+    "filename": "_DSF4483.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4483",
+    "sourceHash": "7a4e7d446a77357e839d01c6dee31bf533626bb9"
+  },
+  {
+    "filename": "_DSF4521.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4521",
+    "sourceHash": "3c4c32b571add38bf48dec49e6a9fbde80d1e626"
+  },
+  {
+    "filename": "_DSF4526.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4526",
+    "sourceHash": "51508eafacd2647abfabef49f152474b2df07d94"
+  },
+  {
+    "filename": "_DSF4568.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4568",
+    "sourceHash": "682af8c6d2c643b0b798b6077839fa425088d505"
+  },
+  {
+    "filename": "_DSF4597.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4597",
+    "sourceHash": "8bb0a6750b92ba950d1869a213105dc85701f971"
+  },
+  {
+    "filename": "_DSF4685.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4685",
+    "sourceHash": "a20a4701771050b15915a27a0ce01482881a8eb2"
+  },
+  {
+    "filename": "_DSF4711.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4711",
+    "sourceHash": "321ff83a627fc88bb9339a633c8567400d386aac"
+  },
+  {
+    "filename": "_DSF4715.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4715",
+    "sourceHash": "d0fbda4bd67d947750980d8a834b0d916a805d76"
+  },
+  {
+    "filename": "_DSF4757.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4757",
+    "sourceHash": "eea26a8b4cf7e7e06f41f51343899e41c6e7ea22"
+  },
+  {
+    "filename": "_DSF4893-HDR.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4893 HDR",
+    "sourceHash": "8da5de0fdac737ee069b08e8e4ca20a8e51fff1d"
+  },
+  {
+    "filename": "_DSF4951.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4951",
+    "sourceHash": "b334bfc542991bcca9228dd3a78b5c233dfe9882"
+  },
+  {
+    "filename": "_DSF4955.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4955",
+    "sourceHash": "06ce22ac7ef6e324efc3dd9a1645082f4a33fed3"
+  },
+  {
+    "filename": "_DSF4996.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF4996",
+    "sourceHash": "a27e0808eeae1f795e5dd5f699666797ed45933e"
+  },
+  {
+    "filename": "_DSF5030.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5030",
+    "sourceHash": "cad61571042a42d305364609a037c321bfcb16c0"
+  },
+  {
+    "filename": "_DSF5036.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5036",
+    "sourceHash": "15b271f77d70c1c723a300aebf54dd2951b74dc4"
+  },
+  {
+    "filename": "_DSF5069.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5069",
+    "sourceHash": "1d3e940a7316d6855eabe027e424acd30accc3e6"
+  },
+  {
+    "filename": "_DSF5083.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5083",
+    "sourceHash": "d9d68a6ec0bfe6ea6d2d1735747dcb48a4bf9795"
+  },
+  {
+    "filename": "_DSF5084.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5084",
+    "sourceHash": "85283872ac71893abd4dc0428538a3af5cece2a7"
+  },
+  {
+    "filename": "_DSF5115.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5115",
+    "sourceHash": "7679579cfb3b938068e088cc1ae93d97a5e31708"
+  },
+  {
+    "filename": "_DSF5121.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5121",
+    "sourceHash": "e6fb41a263fb4f4342f5255643d7c6f44360c030"
+  },
+  {
+    "filename": "_DSF5164.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5164",
+    "sourceHash": "a3fe007238989087d3032d991ee8c12233f54bc2"
+  },
+  {
+    "filename": "_DSF5166.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5166",
+    "sourceHash": "833036cd89c4fbefb40056ddb11311651bc7fcab"
+  },
+  {
+    "filename": "_DSF5177.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5177",
+    "sourceHash": "b1fd1c38d025a75260f674f5c2c403dedff7ebcd"
+  },
+  {
+    "filename": "_DSF5206.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5206",
+    "sourceHash": "0aae3604b16738ca3c7adf726f889f72424ff581"
+  },
+  {
+    "filename": "_DSF5211.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5211",
+    "sourceHash": "e4d517e08481d96561a7a484ebfaed540cf2f6d5"
+  },
+  {
+    "filename": "_DSF5246.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5246",
+    "sourceHash": "228b2f040d9c33b5527848fb01a9ee64f24d6deb"
+  },
+  {
+    "filename": "_DSF5352.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5352",
+    "sourceHash": "a9e34fb64003ae94aaa84d47f7529d9b4aa90b02"
+  },
+  {
+    "filename": "_DSF5375.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5375",
+    "sourceHash": "fabe503bef28402a8413f7d0f0570bb44e0cc9f5"
+  },
+  {
+    "filename": "_DSF5394.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5394",
+    "sourceHash": "dae85cdce51769c79e37f46693244e66c5c16aaf"
+  },
+  {
+    "filename": "_DSF5420.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5420",
+    "sourceHash": "ec18a6aedef6ef6cf15bcea12c621c69a7fb6bbd"
+  },
+  {
+    "filename": "_DSF5434.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5434",
+    "sourceHash": "5fff1dbc69cb6f809fbaac7755c953faae2d485e"
+  },
+  {
+    "filename": "_DSF5482.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5482",
+    "sourceHash": "6df916e6be6eb40f734b1639795ff71f5ddbdde5"
+  },
+  {
+    "filename": "_DSF5529.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "DSF5529",
+    "sourceHash": "b9b5f198d281b31d7e34f16c45cb3b89ef1f38f7"
+  },
+  {
+    "filename": "_FXT0572.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0572",
+    "sourceHash": "e97c2eb05f3d963eff1a5c0e3e219f4169dc898c"
+  },
+  {
+    "filename": "_FXT0579.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0579",
+    "sourceHash": "096a8f71dd292c3b263334d857d1b21bd3a01e87"
+  },
+  {
+    "filename": "_FXT0711.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0711",
+    "sourceHash": "b20ed6b64aaa915abd517f3612d1f41ed142b726"
+  },
+  {
+    "filename": "_FXT0714.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0714",
+    "sourceHash": "f86ce62b0a86d6395f12d762b7826c77a6709c17"
+  },
+  {
+    "filename": "_FXT0727.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0727",
+    "sourceHash": "498d11cc892b568f59b38bf7d6920b6aece81ba7"
+  },
+  {
+    "filename": "_FXT0744.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0744",
+    "sourceHash": "6a6661cc8422c8d98d09bd11024873fae081cf4c"
+  },
+  {
+    "filename": "_FXT0748.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0748",
+    "sourceHash": "9522feb4296c11321689fa3e2927ea967c9330cd"
+  },
+  {
+    "filename": "_FXT0759.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0759",
+    "sourceHash": "e4c66801a5304bce730083b4e4ee2e1135e58389"
+  },
+  {
+    "filename": "_FXT0828.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0828",
+    "sourceHash": "9c83d27af6b700169ee4f62b41b86805faf5eead"
+  },
+  {
+    "filename": "_FXT0834.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0834",
+    "sourceHash": "2f0598eb50b5399f4d09e4ee02b52e60a5ed3396"
+  },
+  {
+    "filename": "_FXT0837.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0837",
+    "sourceHash": "2694d6f01591afa4ec1d02bbffc822f9d6fb0c6d"
+  },
+  {
+    "filename": "_FXT0843.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0843",
+    "sourceHash": "24b3507442c1e39f1aab6a8e187a8242b7fbeef3"
+  },
+  {
+    "filename": "_FXT0984.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT0984",
+    "sourceHash": "e61cb387127c3a367e7faf0d21ab98455422db06"
+  },
+  {
+    "filename": "_FXT1017.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT1017",
+    "sourceHash": "563c8489e706ed951319c16e22d9fc909c6df0ea"
+  },
+  {
+    "filename": "_FXT1019.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT1019",
+    "sourceHash": "c25f6b83b43698c6bb56f936a7621621306be669"
+  },
+  {
+    "filename": "_FXT1236.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "FXT1236",
+    "sourceHash": "25f8490ac1df4f438af3f511a30b5445bf144cb5"
+  },
+  {
+    "filename": "_MG_3428.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "MG 3428",
+    "sourceHash": "c7b182aa547911f35fe96e2078c1a45fe10ffd36"
+  },
+  {
+    "filename": "_MG_3645.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "MG 3645",
+    "sourceHash": "f56407cf1cbe0f5a4d72a095715972b00ab7ea5d"
+  },
+  {
+    "filename": "_MG_3954.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "MG 3954",
+    "sourceHash": "7dd09f80ef77071ca6ca13d0bb608c004165344f"
+  },
+  {
+    "filename": "_MG_3974.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "MG 3974",
+    "sourceHash": "2b81ea577c54113942796cfc2649612b62b08017"
+  },
+  {
+    "filename": "_MG_4017.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "MG 4017",
+    "sourceHash": "15961e83b59ab167aa105b3b9c8c6a7a4d85da9d"
+  },
+  {
+    "filename": "_MG_4172.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "MG 4172",
+    "sourceHash": "4d32dc5cbc42b1065dddada28c5af6eb0c355bba"
+  },
+  {
+    "filename": "_MG_8342b.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "MG 8342b",
+    "sourceHash": "cbd8e615c50b32711c432c605271a979d5ea6b47"
+  },
+  {
+    "filename": "20171203_031_Alpbach.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20171203 031 Alpbach",
+    "sourceHash": "0d3b3ef610a2acd6ef06b4e76c1bba4ce98a199f"
+  },
+  {
+    "filename": "20180325_Zurich-008.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180325 Zurich 008",
+    "sourceHash": "9fa5e73aaf704db2c9f27a3be98e9f483197dfe9"
+  },
+  {
+    "filename": "20180325_Zurich-014.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180325 Zurich 014",
+    "sourceHash": "15fbc03f7fe13bebf4536cd88b7224359423b59c"
+  },
+  {
+    "filename": "20180601_London-027.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180601 London 027",
+    "sourceHash": "f9dd127cb08c3f6308b023f45ab0948c67f9793c"
+  },
+  {
+    "filename": "20180601_London-030.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180601 London 030",
+    "sourceHash": "c20805bc9ee733f0f315445c9614c620e4d57e4d"
+  },
+  {
+    "filename": "20180601_London-031-Edit.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180601 London 031 Edit",
+    "sourceHash": "5aa8d075195c3d827d00c8b7f5b044bda6c30095"
+  },
+  {
+    "filename": "20180601_London-054.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180601 London 054",
+    "sourceHash": "ef3e787897481b456b3e08e603e910e8b8f7f8bc"
+  },
+  {
+    "filename": "20180601_London-055.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180601 London 055",
+    "sourceHash": "a6688ba7a9fb112f36cd0ab02e975b50b68a4708"
+  },
+  {
+    "filename": "20180602_London-058.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180602 London 058",
+    "sourceHash": "d64b32c967c56397f7d53c124be1725b18af8e8f"
+  },
+  {
+    "filename": "20180602_London-061.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180602 London 061",
+    "sourceHash": "ddc1156d7acb59a78537041e0e477b84197c7aa6"
+  },
+  {
+    "filename": "20180602_London-063.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180602 London 063",
+    "sourceHash": "3208d3ca82f1244a2408ded5fa6d4a936a4ca965"
+  },
+  {
+    "filename": "20180603_London-096.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180603 London 096",
+    "sourceHash": "e1761b5f544c9b2dd0ef077b0624526aacc8f2c9"
+  },
+  {
+    "filename": "20180630_SloterplasBBQ-026.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180630 SloterplasBBQ 026",
+    "sourceHash": "f0627db63b44b6d1285fab8c2c5346db258c3293"
+  },
+  {
+    "filename": "20180922_Budapest-010.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180922 Budapest 010",
+    "sourceHash": "3a473d18a8d45fb22dea3520a85acdb52de06a44"
+  },
+  {
+    "filename": "20180922_Budapest-020.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180922 Budapest 020",
+    "sourceHash": "6e88c49c9ab5e0011b7dab5496581f9969a9b64f"
+  },
+  {
+    "filename": "20180923_Budapest-029.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180923 Budapest 029",
+    "sourceHash": "2c04db8a5d99a7259b0fc901314623dfdd308235"
+  },
+  {
+    "filename": "20180923_Budapest-034.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20180923 Budapest 034",
+    "sourceHash": "1b2dbe9bb876c7254bf48ffc362b5fec502314f8"
+  },
+  {
+    "filename": "20190531-berlinBonetti-010.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 010",
+    "sourceHash": "427cb9c9e86477978de55b1beae505ca88e5de04"
+  },
+  {
+    "filename": "20190531-berlinBonetti-012.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 012",
+    "sourceHash": "256de8b181ebf842aee881cf7b6a584fa0f57de4"
+  },
+  {
+    "filename": "20190531-berlinBonetti-015.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 015",
+    "sourceHash": "e15686799a101c49298378f83f4bb005b2440149"
+  },
+  {
+    "filename": "20190531-berlinBonetti-016.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 016",
+    "sourceHash": "112397d5b6fef526f09920293fb348c196eb5473"
+  },
+  {
+    "filename": "20190531-berlinBonetti-025.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 025",
+    "sourceHash": "5086b9d21451e15a5ff06d3e7ed27a6527ad1140"
+  },
+  {
+    "filename": "20190531-berlinBonetti-037.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 037",
+    "sourceHash": "480e1caa4311fc5935062a5e367b6d5864013481"
+  },
+  {
+    "filename": "20190531-berlinBonetti-038.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 038",
+    "sourceHash": "a4b9a7ebc86b09d8914dd64ea02a7a1658e13a5c"
+  },
+  {
+    "filename": "20190531-berlinBonetti-040.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 040",
+    "sourceHash": "217202bc851b32e35e61a8a11010b7ee6e940db9"
+  },
+  {
+    "filename": "20190531-berlinBonetti-043.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 043",
+    "sourceHash": "32e0d65375ccf73e6ca9bfc6368d40bf71f0ce97"
+  },
+  {
+    "filename": "20190531-berlinBonetti-045.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 045",
+    "sourceHash": "0635b42762eb20e8942119168c0ee4b7ea5e1e18"
+  },
+  {
+    "filename": "20190531-berlinBonetti-053.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 053",
+    "sourceHash": "835d152b495f31468532a38ab9d756fd5c73c2cc"
+  },
+  {
+    "filename": "20190531-berlinBonetti-067.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190531 berlinBonetti 067",
+    "sourceHash": "000381b95ff8a4c2d5e9813b18ff2b68045a96be"
+  },
+  {
+    "filename": "20190601-berlinBonetti-122.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190601 berlinBonetti 122",
+    "sourceHash": "f1e0216bdaf0271f93179325ea1247234de4fa0b"
+  },
+  {
+    "filename": "20190601-berlinBonetti-124.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190601 berlinBonetti 124",
+    "sourceHash": "46cb266bd207f6a68113eb15a3f48b6ced857a48"
+  },
+  {
+    "filename": "20190601-berlinBonetti-127.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190601 berlinBonetti 127",
+    "sourceHash": "76e5a0f46250492ca69bda4084da35558f871abe"
+  },
+  {
+    "filename": "20190601-berlinBonetti-143.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190601 berlinBonetti 143",
+    "sourceHash": "3f04205848d5bbb2038331792ae37af70d52d503"
+  },
+  {
+    "filename": "20190602-berlinBonetti-152.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190602 berlinBonetti 152",
+    "sourceHash": "f312de051f1b89cd17f3191f1b3e316d176388b2"
+  },
+  {
+    "filename": "20190602-berlinBonetti-156.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190602 berlinBonetti 156",
+    "sourceHash": "0f5a095d1876059be6d6979ef4459fe2134a0d0a"
+  },
+  {
+    "filename": "20190602-berlinBonetti-163.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "20190602 berlinBonetti 163",
+    "sourceHash": "52fa85444405ae7cf141ebc41e011ddf18c831b8"
+  },
+  {
+    "filename": "Aguapato_06.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Aguapato 06",
+    "sourceHash": "0b85ec8f55ee82e045bff31b3838ad3cb09a7196"
+  },
+  {
+    "filename": "Agüita_01.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Agüita 01",
+    "sourceHash": "94bee2c3471035b5af1680e7d6396f6c9f63c0fd"
+  },
+  {
+    "filename": "Belén reflejo_01 B.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Belén reflejo 01 B",
+    "sourceHash": "7260ce7e03fdeee636a35148314aba7ce0b02cb4"
+  },
+  {
+    "filename": "Brahim y Juántor_19.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Brahim y Juántor 19",
+    "sourceHash": "d39069f68204e40f0e1cbfa589d2c3800e2b69d8"
+  },
+  {
+    "filename": "Chorro_03.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Chorro 03",
+    "sourceHash": "4bbc494acc5c150acee7883bbb354417b4541a45"
+  },
+  {
+    "filename": "clouds of dementia 2.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "clouds of dementia 2",
+    "sourceHash": "f1cd6e73581c1f535f2e40991f794442a867afc0"
+  },
+  {
+    "filename": "Contraluz_06.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Contraluz 06",
+    "sourceHash": "4c44b8ebada2942116ceb065e1ebd89332060fe4"
+  },
+  {
+    "filename": "Cuca_029-2.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Cuca 029 2",
+    "sourceHash": "3379c240cf8b26a39c8106f5c97e564fbf7e78cb"
+  },
+  {
+    "filename": "Escaleras 3.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Escaleras 3",
+    "sourceHash": "539a45053beff6e905b3e0bf855ae7f281caed39"
+  },
+  {
+    "filename": "Escaleras 6.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Escaleras 6",
+    "sourceHash": "be95ebc7cbbba01c84dc406563e91f95534f738d"
+  },
+  {
+    "filename": "Escocia_07 de mayo de 2015_011.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Escocia 07 de mayo de 2015 011",
+    "sourceHash": "9232f26532e8896c627b24f168bb6de64704b559"
+  },
+  {
+    "filename": "Escocia_07 de mayo de 2015_029.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Escocia 07 de mayo de 2015 029",
+    "sourceHash": "652db380014790d5e60aa2a31210a7660c092863"
+  },
+  {
+    "filename": "Escocia_09 de mayo de 2015_132.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Escocia 09 de mayo de 2015 132",
+    "sourceHash": "eb4bb64c204d6c3a505e628194e6c1c3b2d25b0b"
+  },
+  {
+    "filename": "Escocia_10 de mayo de 2015_205.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Escocia 10 de mayo de 2015 205",
+    "sourceHash": "443349600c4014f7488413d13e04a25fab9bfd14"
+  },
+  {
+    "filename": "Escocia_12 de mayo de 2015_310.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Escocia 12 de mayo de 2015 310",
+    "sourceHash": "b3bce34a5788cb62a73c6f546156ddad2f665329"
+  },
+  {
+    "filename": "Gaviota_07.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Gaviota 07",
+    "sourceHash": "365bd9f9dca9677d8364b64b0875d1acd86d8e92"
+  },
+  {
+    "filename": "Hombre andando_14.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Hombre andando 14",
+    "sourceHash": "e86f5cdc93f9dcff4a59b52c6e670f7af4ada9df"
+  },
+  {
+    "filename": "IMG_1939.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "IMG 1939",
+    "sourceHash": "9c1b146645495f4f9f67a4c93d4979aeeec31c62"
+  },
+  {
+    "filename": "Laputaalrío_43.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Laputaalrío 43",
+    "sourceHash": "e56c1a52329dfbaee1e8b68c9f66b0fcb3f0882d"
+  },
+  {
+    "filename": "Luces_01-2.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Luces 01 2",
+    "sourceHash": "65c574d39811e83b28f74df265c1bc72db7e015b"
+  },
+  {
+    "filename": "Mirror legs D.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Mirror legs D",
+    "sourceHash": "8007a337aae112b52afcc703622592497eaca613"
+  },
+  {
+    "filename": "Nubes_03.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Nubes 03",
+    "sourceHash": "d633d9da1f0348717f5c75b3620a5878dac88ca5"
+  },
+  {
+    "filename": "Orilla_02.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Orilla 02",
+    "sourceHash": "1f57101d3a34b7171a6641bae07b9b89ba3d9f26"
+  },
+  {
+    "filename": "Piernas_02.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Piernas 02",
+    "sourceHash": "20425278cae6d8dc73a0d02af0535c75dd84252d"
+  },
+  {
+    "filename": "Puerta_04.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Puerta 04",
+    "sourceHash": "86df945667b69b8373fb605fe0e1754818ffbf3e"
+  },
+  {
+    "filename": "Reflejos_03.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Reflejos 03",
+    "sourceHash": "061476cc1923c43e34ac96f0a8adb1694f39ebe3"
+  },
+  {
+    "filename": "Smiling padlock_05.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Smiling padlock 05",
+    "sourceHash": "eba5ccea637394924380ee04358cab9b3cd1a846"
+  },
+  {
+    "filename": "Sombras_02.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Sombras 02",
+    "sourceHash": "d0bf029fa591486cb43696b07203bab9d4f40b74"
+  },
+  {
+    "filename": "Ventana circular (byn).jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Ventana circular (byn)",
+    "sourceHash": "53d1db335a881d6ee4cd6527de46db94cd214cdb"
+  },
+  {
+    "filename": "Ventana circularb.jpg",
+    "tags": [
+      "untagged"
+    ],
+    "alt": "Ventana circularb",
+    "sourceHash": "333453ad782f951b5766811f554f24fba9a637c5"
   }
 ]
