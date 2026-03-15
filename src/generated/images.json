@@ -1,0 +1,446 @@
+[
+  {
+    "id": "df3859cbedca",
+    "filename": "angles-placeholder-01.jpg",
+    "slug": "angles-placeholder-01",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "window",
+      "geometry",
+      "light",
+      "urban"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-01/grid.avif",
+        "webp": "/generated/images/angles-placeholder-01/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-01/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-01/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-01/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-01/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-01/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "69ad7d713c69",
+    "filename": "angles-placeholder-02.jpg",
+    "slug": "angles-placeholder-02",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "window",
+      "reflection",
+      "urban",
+      "night"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-02/grid.avif",
+        "webp": "/generated/images/angles-placeholder-02/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-02/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-02/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-02/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-02/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-02/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "f3c94a594922",
+    "filename": "angles-placeholder-03.jpg",
+    "slug": "angles-placeholder-03",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "portrait",
+      "shadow",
+      "light",
+      "interior"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-03/grid.avif",
+        "webp": "/generated/images/angles-placeholder-03/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-03/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-03/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-03/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-03/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-03/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "f1c04517b866",
+    "filename": "angles-placeholder-04.jpg",
+    "slug": "angles-placeholder-04",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "portrait",
+      "shadow",
+      "gesture",
+      "night"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-04/grid.avif",
+        "webp": "/generated/images/angles-placeholder-04/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-04/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-04/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-04/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-04/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-04/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "5e76d55d16c7",
+    "filename": "angles-placeholder-05.jpg",
+    "slug": "angles-placeholder-05",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "geometry",
+      "pattern",
+      "facade",
+      "urban"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-05/grid.avif",
+        "webp": "/generated/images/angles-placeholder-05/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-05/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-05/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-05/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-05/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-05/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "f1214fae62d5",
+    "filename": "angles-placeholder-06.jpg",
+    "slug": "angles-placeholder-06",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "pattern",
+      "shadow",
+      "black-and-white",
+      "window"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-06/grid.avif",
+        "webp": "/generated/images/angles-placeholder-06/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-06/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-06/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-06/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-06/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-06/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "1c5beaa61a59",
+    "filename": "angles-placeholder-07.jpg",
+    "slug": "angles-placeholder-07",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "nature",
+      "texture",
+      "light",
+      "detail"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-07/grid.avif",
+        "webp": "/generated/images/angles-placeholder-07/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-07/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-07/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-07/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-07/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-07/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "7d4c8b26d53b",
+    "filename": "angles-placeholder-08.jpg",
+    "slug": "angles-placeholder-08",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "nature",
+      "reflection",
+      "detail",
+      "water"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-08/grid.avif",
+        "webp": "/generated/images/angles-placeholder-08/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-08/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-08/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-08/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-08/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-08/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "e142eda008e2",
+    "filename": "angles-placeholder-09.jpg",
+    "slug": "angles-placeholder-09",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "black-and-white",
+      "urban",
+      "facade",
+      "contrast"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-09/grid.avif",
+        "webp": "/generated/images/angles-placeholder-09/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-09/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-09/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-09/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-09/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-09/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "d2524032a6ab",
+    "filename": "angles-placeholder-10.jpg",
+    "slug": "angles-placeholder-10",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "contrast",
+      "shadow",
+      "geometry",
+      "detail"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-10/grid.avif",
+        "webp": "/generated/images/angles-placeholder-10/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-10/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-10/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-10/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-10/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-10/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "da00ce8ee0f0",
+    "filename": "angles-placeholder-11.jpg",
+    "slug": "angles-placeholder-11",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "portrait",
+      "reflection",
+      "window",
+      "contrast"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-11/grid.avif",
+        "webp": "/generated/images/angles-placeholder-11/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-11/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-11/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-11/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-11/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-11/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  },
+  {
+    "id": "0d6a922c424f",
+    "filename": "angles-placeholder-12.jpg",
+    "slug": "angles-placeholder-12",
+    "width": 1200,
+    "height": 900,
+    "aspectRatio": 1.3333,
+    "tags": [
+      "water",
+      "pattern",
+      "light",
+      "night"
+    ],
+    "alt": "Placeholder image for the Angles archive",
+    "variants": {
+      "grid": {
+        "avif": "/generated/images/angles-placeholder-12/grid.avif",
+        "webp": "/generated/images/angles-placeholder-12/grid.webp",
+        "jpeg": "/generated/images/angles-placeholder-12/grid.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "lightbox": {
+        "avif": "/generated/images/angles-placeholder-12/lightbox.avif",
+        "webp": "/generated/images/angles-placeholder-12/lightbox.webp",
+        "jpeg": "/generated/images/angles-placeholder-12/lightbox.jpg",
+        "width": 1200,
+        "height": 900
+      },
+      "original": {
+        "url": "/generated/images/angles-placeholder-12/original.jpg",
+        "width": 1200,
+        "height": 900,
+        "mimeType": "image/jpeg"
+      }
+    }
+  }
+]

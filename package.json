@@ -1,0 +1,32 @@
+{
+  "name": "angles",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "prepare-content": "node scripts/generate-content.mjs",
+    "predev": "npm run prepare-content",
+    "dev": "vite",
+    "prebuild": "npm run prepare-content",
+    "build": "vite build",
+    "preview": "vite preview",
+    "pretest": "npm run prepare-content",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "gsap": "^3.13.0",
+    "imagesloaded": "^5.0.0",
+    "lottie-web": "^5.13.0",
+    "markdown-it": "^14.1.0",
+    "masonry-layout": "^4.2.2",
+    "sharp": "^0.34.1"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.6",
+    "vitest": "^3.2.4"
+  }
+}
