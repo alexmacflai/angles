@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
+import exifr from 'exifr';
 import matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
 import sharp from 'sharp';
@@ -43,6 +44,68 @@ function humanizeFilename(value) {
     .trim();
 }
 
+function normalizeTags(tags) {
+  return [...new Set(tags.map((tag) => String(tag).trim().toLowerCase()).filter(Boolean))];
+}
+
+function pickFirstNonEmpty(...values) {
+  for (const value of values) {
+    if (typeof value === 'string' && value.trim()) {
+      return value.trim();
+    }
+  }
+
+  return '';
+}
+
+function collectMetadataTags(metadata) {
+  const values = [
+    metadata?.Keywords,
+    metadata?.Subject,
+    metadata?.subject,
+    metadata?.XPKeywords,
+    metadata?.HierarchicalSubject,
+  ].flatMap((value) => {
+    if (Array.isArray(value)) {
+      return value;
+    }
+
+    if (typeof value === 'string') {
+      return value.split(/[;,|]/g);
+    }
+
+    return [];
+  });
+
+  return normalizeTags(values);
+}
+
+async function extractEmbeddedMetadata(filePath) {
+  try {
+    const metadata = await exifr.parse(filePath, {
+      tiff: true,
+      exif: false,
+      iptc: true,
+      xmp: true,
+      icc: false,
+      jfif: false,
+    });
+
+    const tags = collectMetadataTags(metadata);
+    const alt = pickFirstNonEmpty(
+      metadata?.Description,
+      metadata?.ImageDescription,
+      metadata?.Headline,
+      metadata?.Title,
+      metadata?.ObjectName
+    );
+
+    return { tags, alt };
+  } catch {
+    return { tags: [], alt: '' };
+  }
+}
+
 async function hashFile(filePath) {
   const contents = await fs.readFile(filePath);
   return crypto.createHash('sha1').update(contents).digest('hex');
@@ -66,9 +129,7 @@ function normalizeCatalogRecord(record) {
     throw new Error('Every catalog record requires a filename.');
   }
 
-  const tags = Array.isArray(record.tags)
-    ? [...new Set(record.tags.map((tag) => String(tag).trim().toLowerCase()).filter(Boolean))]
-    : [];
+  const tags = Array.isArray(record.tags) ? normalizeTags(record.tags) : [];
 
   return {
     filename: record.filename.trim(),
@@ -110,8 +171,19 @@ export function validateCatalog(catalog, filesOnDisk) {
 
   for (const [fileName, fileInfo] of [...filesOnDisk.entries()].sort(([left], [right]) => left.localeCompare(right))) {
     const existing = catalogByFilename.get(fileName);
+    const baseRecord = existing ?? normalizeCatalogRecord({ filename: fileName });
+    const shouldUseEmbeddedTags = !existing || existing.tags.length === 0 || existing.tags.includes('untagged');
+    const resolvedTags = shouldUseEmbeddedTags
+      ? normalizeTags(fileInfo.embeddedTags ?? [])
+      : baseRecord.tags;
+    const defaultAlt = humanizeFilename(fileName);
+    const shouldUseEmbeddedAlt = !existing || !baseRecord.alt || baseRecord.alt === defaultAlt;
+    const resolvedAlt = shouldUseEmbeddedAlt ? pickFirstNonEmpty(fileInfo.embeddedAlt, baseRecord.alt) : baseRecord.alt;
+
     synced.push({
-      ...(existing ?? normalizeCatalogRecord({ filename: fileName })),
+      ...baseRecord,
+      tags: resolvedTags.length > 0 ? resolvedTags : ['untagged'],
+      alt: resolvedAlt || defaultAlt,
       sourceHash: fileInfo.sourceHash,
     });
   }
@@ -246,10 +318,13 @@ export async function buildContent(rootDir, options = {}) {
     await Promise.all(
       originalFileNames.map(async (fileName) => {
         const filePath = path.join(originalsDir, fileName);
+        const embeddedMetadata = await extractEmbeddedMetadata(filePath);
         return [
           fileName,
           {
             sourceHash: await hashFile(filePath),
+            embeddedTags: embeddedMetadata.tags,
+            embeddedAlt: embeddedMetadata.alt,
           },
         ];
       })

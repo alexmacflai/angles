@@ -3,12 +3,21 @@ import { shuffleItems } from './random';
 
 interface SelectionOptions {
   limit?: number;
+  poolSize?: number;
   random?: () => number;
+}
+
+function scoreOverlap(baseTags: ReadonlySet<string>, image: ImageRecord) {
+  return image.tags.reduce((count, tag) => count + Number(baseTags.has(tag)), 0);
+}
+
+function scoreCohesion(pool: readonly ImageRecord[], candidate: ImageRecord) {
+  return pool.reduce((total, image) => total + scoreOverlap(new Set(image.tags), candidate), 0);
 }
 
 export function selectImageCluster(
   images: readonly ImageRecord[],
-  { limit = 12, random = Math.random }: SelectionOptions = {}
+  { limit = 6, poolSize = 18, random = Math.random }: SelectionOptions = {}
 ): ImageRecord[] {
   if (images.length <= limit) {
     return [...images];
@@ -16,20 +25,31 @@ export function selectImageCluster(
 
   const seedIndex = Math.floor(random() * images.length);
   const seed = images[seedIndex];
-  const seedTags = new Set(seed.tags);
+  const remainder = images.filter((_, index) => index !== seedIndex);
+  const shuffledRemainder = shuffleItems(remainder, random);
+  const cohesivePool = [seed];
+  const targetPoolSize = Math.min(poolSize, images.length);
 
-  const shuffledRemainder = shuffleItems(
-    images.filter((_, index) => index !== seedIndex),
-    random
-  );
+  while (cohesivePool.length < targetPoolSize && shuffledRemainder.length > 0) {
+    let bestIndex = 0;
+    let bestScore = Number.NEGATIVE_INFINITY;
 
-  const scoredImages = shuffledRemainder
-    .map((image) => ({
-      image,
-      overlap: image.tags.reduce((count, tag) => count + Number(seedTags.has(tag)), 0),
-    }))
-    .sort((left, right) => right.overlap - left.overlap)
-    .map(({ image }) => image);
+    for (const [index, image] of shuffledRemainder.entries()) {
+      const cohesion = scoreCohesion(cohesivePool, image);
 
-  return [seed, ...scoredImages.slice(0, Math.max(limit - 1, 0))];
+      if (cohesion > bestScore) {
+        bestScore = cohesion;
+        bestIndex = index;
+      }
+    }
+
+    cohesivePool.push(shuffledRemainder.splice(bestIndex, 1)[0]);
+  }
+
+  if (cohesivePool.length <= limit) {
+    return cohesivePool;
+  }
+
+  const randomizedPool = shuffleItems(cohesivePool.slice(1), random);
+  return [seed, ...randomizedPool.slice(0, Math.max(limit - 1, 0))];
 }
