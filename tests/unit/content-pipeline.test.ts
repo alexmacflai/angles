@@ -134,6 +134,14 @@ describe('content pipeline', () => {
     expect(JSON.parse(imagesJson)[0]).toMatchObject({
       filename: 'sample.jpg',
       tags: ['window'],
+      variants: {
+        grid: {
+          preview: expect.objectContaining({
+            avif: expect.stringContaining('grid-preview.avif'),
+            jpeg: expect.stringContaining('grid-preview.jpg'),
+          }),
+        },
+      },
     });
     expect(aboutModule).toContain('Hello 1');
   });

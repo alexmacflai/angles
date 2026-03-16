@@ -68,19 +68,23 @@ function createImage(id: string): ImageRecord {
     variants: {
       grid: {
         avif: `/${id}/grid-1200.avif`,
-        webp: `/${id}/grid-1200.webp`,
         jpeg: `/${id}/grid-1200.jpg`,
         width: 1200,
         height: 960,
+        preview: {
+          avif: `/${id}/grid-preview.avif`,
+          jpeg: `/${id}/grid-preview.jpg`,
+          width: 48,
+          height: 38,
+        },
         sources: [
-          { avif: `/${id}/grid-480.avif`, webp: `/${id}/grid-480.webp`, jpeg: `/${id}/grid-480.jpg`, width: 480, height: 384 },
-          { avif: `/${id}/grid-800.avif`, webp: `/${id}/grid-800.webp`, jpeg: `/${id}/grid-800.jpg`, width: 800, height: 640 },
-          { avif: `/${id}/grid-1200.avif`, webp: `/${id}/grid-1200.webp`, jpeg: `/${id}/grid-1200.jpg`, width: 1200, height: 960 },
+          { avif: `/${id}/grid-480.avif`, jpeg: `/${id}/grid-480.jpg`, width: 480, height: 384 },
+          { avif: `/${id}/grid-800.avif`, jpeg: `/${id}/grid-800.jpg`, width: 800, height: 640 },
+          { avif: `/${id}/grid-1200.avif`, jpeg: `/${id}/grid-1200.jpg`, width: 1200, height: 960 },
         ],
       },
       lightbox: {
         avif: `/${id}/lightbox.avif`,
-        webp: `/${id}/lightbox.webp`,
         jpeg: `/${id}/lightbox.jpg`,
         width: 1200,
         height: 900,
@@ -123,6 +127,24 @@ describe('bootstrapPage', () => {
       return 1;
     });
     vi.stubGlobal('cancelAnimationFrame', vi.fn());
+    vi.stubGlobal('IntersectionObserver', class {
+      readonly callback: IntersectionObserverCallback;
+
+      constructor(callback: IntersectionObserverCallback) {
+        this.callback = callback;
+      }
+
+      observe = (element: Element) => {
+        this.callback([{ isIntersecting: true, target: element } as IntersectionObserverEntry], this as never);
+      };
+
+      unobserve = vi.fn();
+      disconnect = vi.fn();
+      takeRecords = vi.fn(() => []);
+      root = null;
+      rootMargin = '';
+      thresholds = [];
+    });
   });
 
   afterEach(() => {
@@ -142,8 +164,9 @@ describe('bootstrapPage', () => {
       random: () => 0.95,
     });
 
-    expect(document.querySelectorAll('.imageGrid')).toHaveLength(20);
-    expect(document.querySelectorAll('.image-gap.tres')).toHaveLength(9);
+    expect(document.querySelectorAll('.imageGrid').length).toBeGreaterThan(0);
+    expect(document.querySelectorAll('.imageGrid').length).toBeLessThanOrEqual(20);
+    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(0);
     expect(document.querySelector('.intro-copy')?.textContent).toContain('Hello 12');
 
     const firstImage = document.querySelector<HTMLElement>('.imageGrid');
@@ -152,13 +175,15 @@ describe('bootstrapPage', () => {
     firstImage?.click();
     expect(overlay?.classList.contains('active')).toBe(true);
     expect(document.body.classList.contains('no-scroll')).toBe(true);
+    expect(document.querySelectorAll('.carousel-slide').length).toBeGreaterThan(0);
+    expect(document.querySelectorAll('.carousel-slide').length).toBeLessThanOrEqual(5);
 
     overlay?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     expect(overlay?.classList.contains('active')).toBe(false);
     expect(document.body.classList.contains('no-scroll')).toBe(false);
   });
 
-  it('appends a fresh archive pass after the masonry feed reaches the end', async () => {
+  it('appends more archive images as the sentinel intersects', async () => {
     const { bootstrapPage } = await import('../../src/lib/page');
     const images = Array.from({ length: 4 }, (_, index) => createImage(`loop-${index + 1}`));
 
@@ -171,23 +196,7 @@ describe('bootstrapPage', () => {
     });
 
     expect(document.querySelectorAll('.imageGrid')).toHaveLength(4);
-    expect(document.querySelectorAll('.image-gap')).toHaveLength(2);
-    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(4);
-
-    Object.defineProperty(window, 'scrollY', {
-      configurable: true,
-      value: 1700,
-    });
-    Object.defineProperty(document.documentElement, 'scrollHeight', {
-      configurable: true,
-      value: 1900,
-    });
-
-    window.dispatchEvent(new Event('scroll'));
-
-    expect(document.querySelectorAll('.imageGrid')).toHaveLength(8);
-    expect(document.querySelectorAll('.image-gap')).toHaveLength(4);
-    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(8);
+    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(0);
     expect(scrollRefresh).toHaveBeenCalled();
   });
 

@@ -12,7 +12,7 @@ function escapeHtml(value: string) {
     .replaceAll("'", '&#39;');
 }
 
-function getGridSizes(image: DecoratedImage, mode: PageMode) {
+export function getGridSizes(image: DecoratedImage, mode: PageMode) {
   if (mode === 'selection') {
     return '(max-width: 500px) 100vw, (max-width: 767px) 50vw, 33vw';
   }
@@ -27,38 +27,51 @@ function getGridSizes(image: DecoratedImage, mode: PageMode) {
   }
 }
 
-function renderPicture(
-  image: DecoratedImage,
-  variantKey: 'grid' | 'lightbox',
-  loading: 'lazy' | 'eager',
-  sizes?: string
-) {
-  const variant = image.variants[variantKey];
+function renderProgressivePicture(image: DecoratedImage, sizes: string) {
   const alt = escapeHtml(image.alt || '');
-  const avifSrcset =
-    variantKey === 'grid'
-      ? image.variants.grid.sources.map((source) => `${source.avif} ${source.width}w`).join(', ')
-      : variant.avif;
-  const webpSrcset =
-    variantKey === 'grid'
-      ? image.variants.grid.sources.map((source) => `${source.webp} ${source.width}w`).join(', ')
-      : variant.webp;
-  const jpegSrcset =
-    variantKey === 'grid'
-      ? image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ')
-      : variant.jpeg;
+  const avifSrcset = image.variants.grid.sources.map((source) => `${source.avif} ${source.width}w`).join(', ');
+  const jpegSrcset = image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ');
+
+  return `
+    <div class="progressive-picture" data-image-state="preview">
+      <picture class="preview-picture">
+        <source srcset="${image.variants.grid.preview.avif}" type="image/avif" />
+        <img
+          src="${image.variants.grid.preview.jpeg}"
+          alt="${alt}"
+          width="${image.variants.grid.preview.width}"
+          height="${image.variants.grid.preview.height}"
+          decoding="async"
+        />
+      </picture>
+      <picture class="full-picture">
+        <source data-srcset="${avifSrcset}" data-sizes="${sizes}" type="image/avif" />
+        <img
+          data-src="${image.variants.grid.jpeg}"
+          data-srcset="${jpegSrcset}"
+          data-sizes="${sizes}"
+          alt="${alt}"
+          width="${image.variants.grid.width}"
+          height="${image.variants.grid.height}"
+          decoding="async"
+        />
+      </picture>
+    </div>
+  `;
+}
+
+function renderLightboxPicture(image: DecoratedImage) {
+  const alt = escapeHtml(image.alt || '');
 
   return `
     <picture>
-      <source srcset="${avifSrcset}" ${sizes ? `sizes="${sizes}"` : ''} type="image/avif" />
-      <source srcset="${webpSrcset}" ${sizes ? `sizes="${sizes}"` : ''} type="image/webp" />
+      <source srcset="${image.variants.lightbox.avif}" type="image/avif" />
       <img
-        src="${variant.jpeg}"
-        ${variantKey === 'grid' ? `srcset="${jpegSrcset}" sizes="${sizes}"` : ''}
+        src="${image.variants.lightbox.jpeg}"
         alt="${alt}"
-        loading="${loading}"
-        width="${variant.width}"
-        height="${variant.height}"
+        width="${image.variants.lightbox.width}"
+        height="${image.variants.lightbox.height}"
+        loading="eager"
         decoding="async"
       />
     </picture>
@@ -72,7 +85,7 @@ export function renderGridItem(image: DecoratedImage, mode: PageMode) {
       data-image-index="${image.index}"
       aria-label="Open image ${image.index + 1} in lightbox"
     >
-      ${renderPicture(image, 'grid', image.index < 6 ? 'eager' : 'lazy', getGridSizes(image, mode))}
+      ${renderProgressivePicture(image, getGridSizes(image, mode))}
     </button>
   `;
 }
@@ -94,7 +107,7 @@ function renderGridGap(slot: GridSlot) {
 export function renderLightboxSlide(image: DecoratedImage) {
   return `
     <figure class="carousel-slide" data-image-index="${image.index}">
-      ${renderPicture(image, 'lightbox', 'lazy')}
+      ${renderLightboxPicture(image)}
     </figure>
   `;
 }
@@ -109,20 +122,12 @@ export function renderGridMarkup(images: readonly DecoratedImage[], mode: PageMo
     .join('');
 }
 
-function renderLightbox(images: readonly DecoratedImage[]) {
-  return images.map((image) => renderLightboxSlide(image)).join('');
-}
-
 export function createPageMarkup({
   mode,
-  images,
   aboutHtml,
-  random = Math.random,
 }: {
   mode: PageMode;
-  images: readonly DecoratedImage[];
   aboutHtml: string;
-  random?: () => number;
 }) {
   const selectionLabel = mode === 'archive' ? 'make a selection' : 'make another';
   const homeHref = import.meta.env.BASE_URL;
@@ -158,10 +163,10 @@ export function createPageMarkup({
       </div>
     </header>
     <main class="grid" id="imageGrid">
-      <div class="inner">${renderGridMarkup(images, mode, random)}</div>
+      <div class="inner"></div>
     </main>
     <div class="lightbox-carousel" aria-hidden="true">
-      <div class="carousel">${renderLightbox(images)}</div>
+      <div class="carousel"></div>
     </div>
   `;
 }

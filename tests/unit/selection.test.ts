@@ -15,15 +15,15 @@ function createImage(id: string, tags: string[]): ImageRecord {
     variants: {
       grid: {
         avif: `/${id}-100.avif`,
-        webp: `/${id}-100.webp`,
         jpeg: `/${id}-100.jpg`,
         width: 100,
         height: 100,
+        preview: { avif: `/${id}-preview.avif`, jpeg: `/${id}-preview.jpg`, width: 24, height: 24 },
         sources: [
-          { avif: `/${id}-100.avif`, webp: `/${id}-100.webp`, jpeg: `/${id}-100.jpg`, width: 100, height: 100 },
+          { avif: `/${id}-100.avif`, jpeg: `/${id}-100.jpg`, width: 100, height: 100 },
         ],
       },
-      lightbox: { avif: `/${id}-l.avif`, webp: `/${id}-l.webp`, jpeg: `/${id}-l.jpg`, width: 100, height: 100 },
+      lightbox: { avif: `/${id}-l.avif`, jpeg: `/${id}-l.jpg`, width: 100, height: 100 },
       original: { url: `/${id}-original.jpg`, width: 100, height: 100, mimeType: 'image/jpeg' },
     },
   };

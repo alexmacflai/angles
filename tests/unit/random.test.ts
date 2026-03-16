@@ -14,13 +14,13 @@ const fixtureImages: ImageRecord[] = [
     variants: {
       grid: {
         avif: '/one-100.avif',
-        webp: '/one-100.webp',
         jpeg: '/one-100.jpg',
         width: 100,
         height: 100,
-        sources: [{ avif: '/one-100.avif', webp: '/one-100.webp', jpeg: '/one-100.jpg', width: 100, height: 100 }],
+        preview: { avif: '/one-preview.avif', jpeg: '/one-preview.jpg', width: 24, height: 24 },
+        sources: [{ avif: '/one-100.avif', jpeg: '/one-100.jpg', width: 100, height: 100 }],
       },
-      lightbox: { avif: '/one-l.avif', webp: '/one-l.webp', jpeg: '/one-l.jpg', width: 100, height: 100 },
+      lightbox: { avif: '/one-l.avif', jpeg: '/one-l.jpg', width: 100, height: 100 },
       original: { url: '/one-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
     },
   },
@@ -36,13 +36,13 @@ const fixtureImages: ImageRecord[] = [
     variants: {
       grid: {
         avif: '/two-100.avif',
-        webp: '/two-100.webp',
         jpeg: '/two-100.jpg',
         width: 100,
         height: 100,
-        sources: [{ avif: '/two-100.avif', webp: '/two-100.webp', jpeg: '/two-100.jpg', width: 100, height: 100 }],
+        preview: { avif: '/two-preview.avif', jpeg: '/two-preview.jpg', width: 24, height: 24 },
+        sources: [{ avif: '/two-100.avif', jpeg: '/two-100.jpg', width: 100, height: 100 }],
       },
-      lightbox: { avif: '/two-l.avif', webp: '/two-l.webp', jpeg: '/two-l.jpg', width: 100, height: 100 },
+      lightbox: { avif: '/two-l.avif', jpeg: '/two-l.jpg', width: 100, height: 100 },
       original: { url: '/two-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
     },
   },
@@ -58,15 +58,15 @@ const fixtureImages: ImageRecord[] = [
     variants: {
       grid: {
         avif: '/three-100.avif',
-        webp: '/three-100.webp',
         jpeg: '/three-100.jpg',
         width: 100,
         height: 100,
+        preview: { avif: '/three-preview.avif', jpeg: '/three-preview.jpg', width: 24, height: 24 },
         sources: [
-          { avif: '/three-100.avif', webp: '/three-100.webp', jpeg: '/three-100.jpg', width: 100, height: 100 },
+          { avif: '/three-100.avif', jpeg: '/three-100.jpg', width: 100, height: 100 },
         ],
       },
-      lightbox: { avif: '/three-l.avif', webp: '/three-l.webp', jpeg: '/three-l.jpg', width: 100, height: 100 },
+      lightbox: { avif: '/three-l.avif', jpeg: '/three-l.jpg', width: 100, height: 100 },
       original: { url: '/three-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
     },
   },

@@ -2,12 +2,17 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { lockBodyScroll, unlockBodyScroll } from './body-scroll';
+import { renderLightboxSlide } from './render';
+import type { DecoratedImage } from '../types';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const WINDOW_RADIUS = 2;
 
 export class LightboxController {
   private readonly overlay: HTMLElement;
   private readonly carousel: HTMLElement;
+  private readonly images: readonly DecoratedImage[];
   private slides: HTMLElement[];
   private isDragging = false;
   private wasDragged = false;
@@ -17,18 +22,23 @@ export class LightboxController {
   private lastX = 0;
   private animationFrame = 0;
   private cleanupHandlers: Array<() => void> = [];
+  private currentIndex = 0;
+  private renderedStart = -1;
+  private renderedEnd = -1;
 
-  constructor(overlay: HTMLElement, carousel: HTMLElement) {
+  constructor(overlay: HTMLElement, carousel: HTMLElement, images: readonly DecoratedImage[]) {
     this.overlay = overlay;
     this.carousel = carousel;
+    this.images = images;
     this.slides = [];
 
     this.initOverlay();
     this.initDrag();
-    this.refreshSlides();
   }
 
   open(index: number) {
+    this.currentIndex = index;
+    this.renderWindow(index);
     this.overlay.classList.add('active');
     this.overlay.setAttribute('aria-hidden', 'false');
     lockBodyScroll();
@@ -45,29 +55,37 @@ export class LightboxController {
   close() {
     this.overlay.classList.remove('active');
     this.overlay.setAttribute('aria-hidden', 'true');
+    this.carousel.innerHTML = '';
+    this.slides = [];
+    this.renderedStart = -1;
+    this.renderedEnd = -1;
     unlockBodyScroll();
   }
 
-  centerOnIndex(index: number) {
-    if (!this.slides[index]) {
-      return;
-    }
-
-    this.scrollToIndex(index, true);
-  }
+  centerOnIndex(_index: number) {}
 
   destroy() {
     window.cancelAnimationFrame(this.animationFrame);
     this.cleanupHandlers.forEach((cleanup) => cleanup());
   }
 
-  refreshSlides() {
+  private renderWindow(centerIndex: number) {
+    const start = Math.max(0, centerIndex - WINDOW_RADIUS);
+    const end = Math.min(this.images.length - 1, centerIndex + WINDOW_RADIUS);
+
+    if (start === this.renderedStart && end === this.renderedEnd) {
+      return;
+    }
+
+    this.renderedStart = start;
+    this.renderedEnd = end;
+    this.carousel.innerHTML = this.images.slice(start, end + 1).map((image) => renderLightboxSlide(image)).join('');
     this.slides = Array.from(this.carousel.querySelectorAll<HTMLElement>('.carousel-slide'));
     this.initScrollAnimations();
   }
 
   private scrollToIndex(index: number, smooth: boolean) {
-    const slide = this.slides[index];
+    const slide = this.carousel.querySelector<HTMLElement>(`.carousel-slide[data-image-index="${index}"]`);
 
     if (!slide) {
       return;
@@ -83,33 +101,48 @@ export class LightboxController {
     this.carousel.scrollTo({ left: targetScroll, behavior: 'smooth' });
   }
 
-  private snapToClosestImage() {
+  private updateWindowAroundClosestSlide() {
+    const closestIndex = this.getClosestIndex();
+
+    if (closestIndex === null || closestIndex === this.currentIndex) {
+      return;
+    }
+
+    this.currentIndex = closestIndex;
+    this.renderWindow(closestIndex);
+    this.scrollToIndex(closestIndex, false);
+    ScrollTrigger.refresh();
+  }
+
+  private getClosestIndex() {
     const carouselCenter = this.carousel.scrollLeft + this.carousel.offsetWidth / 2;
-    let closestSlide: HTMLElement | null = null;
+    let closestIndex: number | null = null;
     let minDistance = Number.POSITIVE_INFINITY;
 
     for (const slide of this.slides) {
       const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
       const distance = Math.abs(carouselCenter - slideCenter);
+      const slideIndex = Number(slide.dataset.imageIndex);
 
       if (distance < minDistance) {
-        closestSlide = slide;
+        closestIndex = slideIndex;
         minDistance = distance;
       }
     }
 
-    if (!closestSlide) {
+    return closestIndex;
+  }
+
+  private snapToClosestImage() {
+    const closestIndex = this.getClosestIndex();
+
+    if (closestIndex === null) {
       return;
     }
 
-    const targetScroll =
-      closestSlide.offsetLeft + closestSlide.offsetWidth / 2 - this.carousel.offsetWidth / 2;
-
-    gsap.to(this.carousel, {
-      scrollLeft: targetScroll,
-      duration: 1,
-      ease: 'power2.out',
-    });
+    this.currentIndex = closestIndex;
+    this.renderWindow(closestIndex);
+    this.scrollToIndex(closestIndex, true);
   }
 
   private animateMomentum = () => {
@@ -176,6 +209,7 @@ export class LightboxController {
       }
 
       this.isDragging = false;
+      this.updateWindowAroundClosestSlide();
       this.animationFrame = window.requestAnimationFrame(this.animateMomentum);
     };
 

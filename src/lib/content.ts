@@ -13,19 +13,21 @@ export const images = (generatedImages as ImageRecord[]).map((image) => ({
     grid: {
       ...image.variants.grid,
       avif: prefixPath(image.variants.grid.avif),
-      webp: prefixPath(image.variants.grid.webp),
       jpeg: prefixPath(image.variants.grid.jpeg),
+      preview: {
+        ...image.variants.grid.preview,
+        avif: prefixPath(image.variants.grid.preview.avif),
+        jpeg: prefixPath(image.variants.grid.preview.jpeg),
+      },
       sources: image.variants.grid.sources.map((source) => ({
         ...source,
         avif: prefixPath(source.avif),
-        webp: prefixPath(source.webp),
         jpeg: prefixPath(source.jpeg),
       })),
     },
     lightbox: {
       ...image.variants.lightbox,
       avif: prefixPath(image.variants.lightbox.avif),
-      webp: prefixPath(image.variants.lightbox.webp),
       jpeg: prefixPath(image.variants.lightbox.jpeg),
     },
     original: {
