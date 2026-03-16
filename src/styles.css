@@ -387,27 +387,32 @@ body.page-selection .image {
 
 .carousel-slide {
   flex: 0 0 auto;
-  height: min(100%, calc(100vh - 4rem));
-  aspect-ratio: var(--slide-width) / var(--slide-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(calc(100vw - 4rem), calc((100vh - 4rem) * (var(--slide-width) / var(--slide-height))));
+  height: min(calc(100vh - 4rem), calc((100vw - 4rem) * (var(--slide-height) / var(--slide-width))));
+  margin: 0;
   opacity: 1;
 }
 
 .carousel-slide picture,
 .carousel-slide img {
   display: block;
+  width: 100%;
   height: 100%;
 }
 
 .carousel-slide img {
-  width: auto;
-  max-width: 80vw;
   object-fit: contain;
   pointer-events: none;
 }
 
 .lightbox-progressive-picture {
-  width: auto;
-  max-width: 80vw;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -418,8 +423,10 @@ body.page-selection .image {
 
 .lightbox-progressive-picture .preview-picture img,
 .lightbox-progressive-picture .full-picture img {
-  width: auto;
-  max-width: 80vw;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
