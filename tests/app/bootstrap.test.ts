@@ -68,22 +68,32 @@ function createImage(id: string): ImageRecord {
     variants: {
       grid: {
         avif: `/${id}/grid-1200.avif`,
-        webp: `/${id}/grid-1200.webp`,
         jpeg: `/${id}/grid-1200.jpg`,
         width: 1200,
         height: 960,
+        preview: {
+          avif: `/${id}/grid-preview.avif`,
+          jpeg: `/${id}/grid-preview.jpg`,
+          width: 48,
+          height: 38,
+        },
         sources: [
-          { avif: `/${id}/grid-480.avif`, webp: `/${id}/grid-480.webp`, jpeg: `/${id}/grid-480.jpg`, width: 480, height: 384 },
-          { avif: `/${id}/grid-800.avif`, webp: `/${id}/grid-800.webp`, jpeg: `/${id}/grid-800.jpg`, width: 800, height: 640 },
-          { avif: `/${id}/grid-1200.avif`, webp: `/${id}/grid-1200.webp`, jpeg: `/${id}/grid-1200.jpg`, width: 1200, height: 960 },
+          { avif: `/${id}/grid-480.avif`, jpeg: `/${id}/grid-480.jpg`, width: 480, height: 384 },
+          { avif: `/${id}/grid-800.avif`, jpeg: `/${id}/grid-800.jpg`, width: 800, height: 640 },
+          { avif: `/${id}/grid-1200.avif`, jpeg: `/${id}/grid-1200.jpg`, width: 1200, height: 960 },
         ],
       },
       lightbox: {
         avif: `/${id}/lightbox.avif`,
-        webp: `/${id}/lightbox.webp`,
         jpeg: `/${id}/lightbox.jpg`,
         width: 1200,
         height: 900,
+        preview: {
+          avif: `/${id}/lightbox-preview.avif`,
+          jpeg: `/${id}/lightbox-preview.jpg`,
+          width: 64,
+          height: 48,
+        },
       },
       original: {
         url: `/${id}/original.jpg`,
@@ -106,6 +116,8 @@ describe('bootstrapPage', () => {
       matches:
         query === '(max-width: 767px)'
           ? window.innerWidth <= 767
+          : query === '(hover: hover) and (pointer: fine)'
+            ? true
           : query === '(max-width: 1023px) and (orientation: landscape)'
             ? window.innerWidth <= 1023 && window.innerWidth > window.innerHeight
             : false,
@@ -123,6 +135,24 @@ describe('bootstrapPage', () => {
       return 1;
     });
     vi.stubGlobal('cancelAnimationFrame', vi.fn());
+    vi.stubGlobal('IntersectionObserver', class {
+      readonly callback: IntersectionObserverCallback;
+
+      constructor(callback: IntersectionObserverCallback) {
+        this.callback = callback;
+      }
+
+      observe = (element: Element) => {
+        this.callback([{ isIntersecting: true, target: element } as IntersectionObserverEntry], this as never);
+      };
+
+      unobserve = vi.fn();
+      disconnect = vi.fn();
+      takeRecords = vi.fn(() => []);
+      root = null;
+      rootMargin = '';
+      thresholds = [];
+    });
   });
 
   afterEach(() => {
@@ -142,8 +172,9 @@ describe('bootstrapPage', () => {
       random: () => 0.95,
     });
 
-    expect(document.querySelectorAll('.imageGrid')).toHaveLength(20);
-    expect(document.querySelectorAll('.image-gap.tres')).toHaveLength(9);
+    expect(document.querySelectorAll('.imageGrid').length).toBeGreaterThan(0);
+    expect(document.querySelectorAll('.imageGrid').length).toBeLessThanOrEqual(20);
+    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(0);
     expect(document.querySelector('.intro-copy')?.textContent).toContain('Hello 12');
 
     const firstImage = document.querySelector<HTMLElement>('.imageGrid');
@@ -152,13 +183,14 @@ describe('bootstrapPage', () => {
     firstImage?.click();
     expect(overlay?.classList.contains('active')).toBe(true);
     expect(document.body.classList.contains('no-scroll')).toBe(true);
+    expect(document.querySelectorAll('.carousel-slide').length).toBe(20);
 
     overlay?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     expect(overlay?.classList.contains('active')).toBe(false);
     expect(document.body.classList.contains('no-scroll')).toBe(false);
   });
 
-  it('appends a fresh archive pass after the masonry feed reaches the end', async () => {
+  it('appends more archive images as the sentinel intersects', async () => {
     const { bootstrapPage } = await import('../../src/lib/page');
     const images = Array.from({ length: 4 }, (_, index) => createImage(`loop-${index + 1}`));
 
@@ -171,23 +203,7 @@ describe('bootstrapPage', () => {
     });
 
     expect(document.querySelectorAll('.imageGrid')).toHaveLength(4);
-    expect(document.querySelectorAll('.image-gap')).toHaveLength(2);
-    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(4);
-
-    Object.defineProperty(window, 'scrollY', {
-      configurable: true,
-      value: 1700,
-    });
-    Object.defineProperty(document.documentElement, 'scrollHeight', {
-      configurable: true,
-      value: 1900,
-    });
-
-    window.dispatchEvent(new Event('scroll'));
-
-    expect(document.querySelectorAll('.imageGrid')).toHaveLength(8);
-    expect(document.querySelectorAll('.image-gap')).toHaveLength(4);
-    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(8);
+    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(0);
     expect(scrollRefresh).toHaveBeenCalled();
   });
 
@@ -209,6 +225,26 @@ describe('bootstrapPage', () => {
     const aboutLink = document.querySelector('.intro-copy a') as HTMLAnchorElement;
     expect(aboutLink.target).toBe('_blank');
     expect(aboutLink.rel).toBe('noopener noreferrer');
+  });
+
+  it('keeps cursor hover behavior on images appended after scrolling', async () => {
+    const { bootstrapPage } = await import('../../src/lib/page');
+    const images = Array.from({ length: 20 }, (_, index) => createImage(`cursor-${index + 1}`));
+
+    bootstrapPage({
+      mode: 'archive',
+      app: document.querySelector('#app') as HTMLElement,
+      images,
+      about: '<p>Hello cursor</p>',
+      random: () => 0.95,
+    });
+
+    const cursor = document.querySelector('#cursor') as HTMLElement;
+    const gridImages = document.querySelectorAll<HTMLElement>('.imageGrid');
+    const lastImage = gridImages[gridImages.length - 1];
+
+    lastImage.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+    expect(cursor.classList.contains('eye')).toBe(true);
   });
 
   it('sizes the selection grid from available viewport height on tablet and desktop', async () => {

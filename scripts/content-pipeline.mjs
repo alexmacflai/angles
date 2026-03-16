@@ -14,15 +14,15 @@ const markdown = new MarkdownIt({
 });
 
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.tif', '.tiff']);
-const GRID_VARIANT_SIZES = [480, 800, 1200, 1600, 2000];
-const LIGHTBOX_VARIANT_SIZE = 1800;
+const GRID_VARIANT_SIZES = [360, 640, 960, 1280, 1600];
+const GRID_PREVIEW_SIZE = 48;
+const LIGHTBOX_VARIANT_SIZE = 1600;
+const LIGHTBOX_PREVIEW_SIZE = 64;
 
 function getImageMimeType(extension) {
   switch (extension.toLowerCase()) {
     case '.png':
       return 'image/png';
-    case '.webp':
-      return 'image/webp';
     case '.avif':
       return 'image/avif';
     default:
@@ -196,7 +196,6 @@ export function validateCatalog(catalog, filesOnDisk) {
 async function writeVariantFormats(image, outputBasePath) {
   await Promise.all([
     image.clone().avif({ quality: 55 }).toFile(`${outputBasePath}.avif`),
-    image.clone().webp({ quality: 80 }).toFile(`${outputBasePath}.webp`),
     image.clone().jpeg({ quality: 82, mozjpeg: true }).toFile(`${outputBasePath}.jpg`),
   ]);
 }
@@ -235,7 +234,14 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
 
   const gridSources = buildResponsiveVariantSources(metadata.width, metadata.height, GRID_VARIANT_SIZES);
   const largestGridSource = gridSources.at(-1);
+  const previewDimensions = scaleToFit(metadata.width, metadata.height, GRID_PREVIEW_SIZE, GRID_PREVIEW_SIZE);
   const lightboxDimensions = scaleToFit(metadata.width, metadata.height, LIGHTBOX_VARIANT_SIZE, LIGHTBOX_VARIANT_SIZE);
+  const lightboxPreviewDimensions = scaleToFit(
+    metadata.width,
+    metadata.height,
+    LIGHTBOX_PREVIEW_SIZE,
+    LIGHTBOX_PREVIEW_SIZE
+  );
 
   if (!largestGridSource) {
     throw new Error(`Unable to build grid variants for "${record.filename}".`);
@@ -255,12 +261,30 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
     ),
     writeVariantFormats(
       sourceImage.clone().resize({
+        width: previewDimensions.width,
+        height: previewDimensions.height,
+        fit: 'inside',
+        withoutEnlargement: true,
+      }),
+      path.join(targetDir, 'grid-preview')
+    ),
+    writeVariantFormats(
+      sourceImage.clone().resize({
         width: lightboxDimensions.width,
         height: lightboxDimensions.height,
         fit: 'inside',
         withoutEnlargement: true,
       }),
       path.join(targetDir, 'lightbox')
+    ),
+    writeVariantFormats(
+      sourceImage.clone().resize({
+        width: lightboxPreviewDimensions.width,
+        height: lightboxPreviewDimensions.height,
+        fit: 'inside',
+        withoutEnlargement: true,
+      }),
+      path.join(targetDir, 'lightbox-preview')
     ),
     fs.copyFile(sourcePath, path.join(targetDir, `original${extension.toLowerCase()}`)),
   ]);
@@ -278,13 +302,17 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
     variants: {
       grid: {
         avif: `/generated/images/${slug}/grid-${largestGridSource.width}.avif`,
-        webp: `/generated/images/${slug}/grid-${largestGridSource.width}.webp`,
         jpeg: `/generated/images/${slug}/grid-${largestGridSource.width}.jpg`,
         width: largestGridSource.width,
         height: largestGridSource.height,
+        preview: {
+          avif: `/generated/images/${slug}/grid-preview.avif`,
+          jpeg: `/generated/images/${slug}/grid-preview.jpg`,
+          width: previewDimensions.width,
+          height: previewDimensions.height,
+        },
         sources: gridSources.map((gridSource) => ({
           avif: `/generated/images/${slug}/grid-${gridSource.width}.avif`,
-          webp: `/generated/images/${slug}/grid-${gridSource.width}.webp`,
           jpeg: `/generated/images/${slug}/grid-${gridSource.width}.jpg`,
           width: gridSource.width,
           height: gridSource.height,
@@ -292,10 +320,15 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
       },
       lightbox: {
         avif: `/generated/images/${slug}/lightbox.avif`,
-        webp: `/generated/images/${slug}/lightbox.webp`,
         jpeg: `/generated/images/${slug}/lightbox.jpg`,
         width: lightboxDimensions.width,
         height: lightboxDimensions.height,
+        preview: {
+          avif: `/generated/images/${slug}/lightbox-preview.avif`,
+          jpeg: `/generated/images/${slug}/lightbox-preview.jpg`,
+          width: lightboxPreviewDimensions.width,
+          height: lightboxPreviewDimensions.height,
+        },
       },
       original: {
         url: `/generated/images/${slug}/original${extension.toLowerCase()}`,

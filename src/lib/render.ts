@@ -12,7 +12,7 @@ function escapeHtml(value: string) {
     .replaceAll("'", '&#39;');
 }
 
-function getGridSizes(image: DecoratedImage, mode: PageMode) {
+export function getGridSizes(image: DecoratedImage, mode: PageMode) {
   if (mode === 'selection') {
     return '(max-width: 500px) 100vw, (max-width: 767px) 50vw, 33vw';
   }
@@ -27,42 +27,73 @@ function getGridSizes(image: DecoratedImage, mode: PageMode) {
   }
 }
 
-function renderPicture(
-  image: DecoratedImage,
-  variantKey: 'grid' | 'lightbox',
-  loading: 'lazy' | 'eager',
-  sizes?: string
-) {
-  const variant = image.variants[variantKey];
-  const alt = escapeHtml(image.alt || '');
-  const avifSrcset =
-    variantKey === 'grid'
-      ? image.variants.grid.sources.map((source) => `${source.avif} ${source.width}w`).join(', ')
-      : variant.avif;
-  const webpSrcset =
-    variantKey === 'grid'
-      ? image.variants.grid.sources.map((source) => `${source.webp} ${source.width}w`).join(', ')
-      : variant.webp;
-  const jpegSrcset =
-    variantKey === 'grid'
-      ? image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ')
-      : variant.jpeg;
+function renderProgressivePicture({
+  preview,
+  full,
+  alt,
+  sizes,
+  className = '',
+}: {
+  preview: { avif: string; jpeg: string; width: number; height: number };
+  full: { avif: string; jpeg: string; width: number; height: number; avifSrcset?: string; jpegSrcset?: string };
+  alt: string;
+  sizes?: string;
+  className?: string;
+}) {
+  const classes = ['progressive-picture', className].filter(Boolean).join(' ');
 
   return `
-    <picture>
-      <source srcset="${avifSrcset}" ${sizes ? `sizes="${sizes}"` : ''} type="image/avif" />
-      <source srcset="${webpSrcset}" ${sizes ? `sizes="${sizes}"` : ''} type="image/webp" />
-      <img
-        src="${variant.jpeg}"
-        ${variantKey === 'grid' ? `srcset="${jpegSrcset}" sizes="${sizes}"` : ''}
-        alt="${alt}"
-        loading="${loading}"
-        width="${variant.width}"
-        height="${variant.height}"
-        decoding="async"
-      />
-    </picture>
+    <div class="${classes}" data-image-state="preview">
+      <picture class="preview-picture">
+        <source data-srcset="${preview.avif}" type="image/avif" />
+        <img
+          data-src="${preview.jpeg}"
+          alt="${alt}"
+          width="${preview.width}"
+          height="${preview.height}"
+          decoding="async"
+        />
+      </picture>
+      <picture class="full-picture">
+        <source data-srcset="${full.avifSrcset ?? full.avif}" ${sizes ? `data-sizes="${sizes}"` : ''} type="image/avif" />
+        <img
+          data-src="${full.jpeg}"
+          ${full.jpegSrcset ? `data-srcset="${full.jpegSrcset}"` : ''}
+          ${sizes ? `data-sizes="${sizes}"` : ''}
+          alt="${alt}"
+          width="${full.width}"
+          height="${full.height}"
+          decoding="async"
+        />
+      </picture>
+    </div>
   `;
+}
+
+function renderGridPicture(image: DecoratedImage, sizes: string) {
+  const alt = escapeHtml(image.alt || '');
+
+  return renderProgressivePicture({
+    preview: image.variants.grid.preview,
+    full: {
+      ...image.variants.grid,
+      avifSrcset: image.variants.grid.sources.map((source) => `${source.avif} ${source.width}w`).join(', '),
+      jpegSrcset: image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', '),
+    },
+    alt,
+    sizes,
+  });
+}
+
+function renderLightboxPicture(image: DecoratedImage) {
+  const alt = escapeHtml(image.alt || '');
+
+  return renderProgressivePicture({
+    preview: image.variants.lightbox.preview,
+    full: image.variants.lightbox,
+    alt,
+    className: 'lightbox-progressive-picture',
+  });
 }
 
 export function renderGridItem(image: DecoratedImage, mode: PageMode) {
@@ -72,7 +103,7 @@ export function renderGridItem(image: DecoratedImage, mode: PageMode) {
       data-image-index="${image.index}"
       aria-label="Open image ${image.index + 1} in lightbox"
     >
-      ${renderPicture(image, 'grid', image.index < 6 ? 'eager' : 'lazy', getGridSizes(image, mode))}
+      ${renderGridPicture(image, getGridSizes(image, mode))}
     </button>
   `;
 }
@@ -93,10 +124,19 @@ function renderGridGap(slot: GridSlot) {
 
 export function renderLightboxSlide(image: DecoratedImage) {
   return `
-    <figure class="carousel-slide" data-image-index="${image.index}">
-      ${renderPicture(image, 'lightbox', 'lazy')}
+    <figure
+      class="carousel-slide"
+      data-image-index="${image.index}"
+      data-image-slug="${image.slug}"
+      style="--slide-width: ${image.variants.lightbox.width}; --slide-height: ${image.variants.lightbox.height};"
+    >
+      ${renderLightboxPicture(image)}
     </figure>
   `;
+}
+
+export function renderAllLightboxSlides(images: readonly DecoratedImage[]) {
+  return images.map((image) => renderLightboxSlide(image)).join('');
 }
 
 export function renderGridMarkup(images: readonly DecoratedImage[], mode: PageMode, random = Math.random) {
@@ -109,20 +149,12 @@ export function renderGridMarkup(images: readonly DecoratedImage[], mode: PageMo
     .join('');
 }
 
-function renderLightbox(images: readonly DecoratedImage[]) {
-  return images.map((image) => renderLightboxSlide(image)).join('');
-}
-
 export function createPageMarkup({
   mode,
-  images,
   aboutHtml,
-  random = Math.random,
 }: {
   mode: PageMode;
-  images: readonly DecoratedImage[];
   aboutHtml: string;
-  random?: () => number;
 }) {
   const selectionLabel = mode === 'archive' ? 'make a selection' : 'make another';
   const homeHref = import.meta.env.BASE_URL;
@@ -158,10 +190,10 @@ export function createPageMarkup({
       </div>
     </header>
     <main class="grid" id="imageGrid">
-      <div class="inner">${renderGridMarkup(images, mode, random)}</div>
+      <div class="inner"></div>
     </main>
     <div class="lightbox-carousel" aria-hidden="true">
-      <div class="carousel">${renderLightbox(images)}</div>
+      <div class="carousel"></div>
     </div>
   `;
 }

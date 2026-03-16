@@ -4,8 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { aboutHtml, images as allImages } from './content';
 import { initCursor } from './cursor';
 import { LightboxController } from './lightbox';
+import { requestProgressivePicture } from './progressive-image';
 import { decorateImages, shuffleItems } from './random';
-import { createPageMarkup, renderGridMarkup, renderLightboxSlide } from './render';
+import { createPageMarkup, renderGridMarkup } from './render';
 import { selectImageCluster } from './selection';
 import { initSmoothScroll } from './smooth-scroll';
 import { lockBodyScroll, unlockBodyScroll } from './body-scroll';
@@ -15,6 +16,8 @@ import type { DecoratedImage, ImageRecord, PageMode } from '../types';
 import '../styles.css';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const GRID_PRELOAD_MARGIN = '300px 0px';
 
 export interface BootstrapPageOptions {
   mode: PageMode;
@@ -166,9 +169,8 @@ function initGrid(root: ParentNode, mode: PageMode) {
     const gap = parseFloat(styles.columnGap || '0');
     const availableWidth = grid.clientWidth - gap * Math.max(columns - 1, 0);
     const columnWidth = availableWidth / Math.max(columns, 1);
-    const rowUnit = columnWidth;
 
-    grid.style.setProperty('--grid-row-unit', `${rowUnit}px`);
+    grid.style.setProperty('--grid-row-unit', `${columnWidth}px`);
   };
 
   updateDenseGridMetrics();
@@ -185,6 +187,7 @@ function initGrid(root: ParentNode, mode: PageMode) {
   const handleResize = () => updateDenseGridMetrics();
   window.addEventListener('resize', handleResize);
   cleanupHandlers.push(() => window.removeEventListener('resize', handleResize));
+
   return {
     refresh(newItems?: Iterable<HTMLElement>) {
       updateDenseGridMetrics();
@@ -202,6 +205,81 @@ function initGrid(root: ParentNode, mode: PageMode) {
       cleanupHandlers.forEach((cleanup) => cleanup());
     },
   };
+}
+
+function getInitialBatchSize(mode: PageMode) {
+  if (mode === 'selection') {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      return 4;
+    }
+
+    if (window.matchMedia('(max-width: 1279px)').matches) {
+      return 6;
+    }
+
+    return 8;
+  }
+
+  if (window.matchMedia('(max-width: 500px)').matches) {
+    return 8;
+  }
+
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    return 6;
+  }
+
+  if (window.matchMedia('(max-width: 1279px)').matches) {
+    return 12;
+  }
+
+  return 16;
+}
+
+function getBatchAppendSize(mode: PageMode) {
+  if (mode === 'selection') {
+    return 4;
+  }
+
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    return 6;
+  }
+
+  return 10;
+}
+
+function initProgressiveImages(root: ParentNode) {
+  const progressivePictures = Array.from(root.querySelectorAll<HTMLElement>('.progressive-picture'));
+
+  if (progressivePictures.length === 0) {
+    return () => {};
+  }
+
+  const loadPicture = (picture: HTMLElement) => {
+    void requestProgressivePicture(picture);
+  };
+
+  if (typeof IntersectionObserver === 'undefined') {
+    progressivePictures.forEach(loadPicture);
+    return () => {};
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        observer.unobserve(entry.target);
+        loadPicture(entry.target as HTMLElement);
+      });
+    },
+    { rootMargin: GRID_PRELOAD_MARGIN }
+  );
+
+  progressivePictures.forEach((picture) => observer.observe(picture));
+
+  return () => observer.disconnect();
 }
 
 function bindGridImage(
@@ -225,7 +303,6 @@ function bindGridImage(
 
   const handleEnter = () => {
     grid?.classList.add('hovering-image');
-    lightbox.centerOnIndex(index);
   };
 
   const handleLeave = () => {
@@ -241,16 +318,54 @@ function bindGridImage(
   });
 }
 
-function decorateImageBatch(
-  mode: PageMode,
-  images: readonly ImageRecord[],
-  startingIndex: number,
-  random = Math.random
-) {
-  return buildPageImages(mode, images, random).map((image, index) => ({
-    ...image,
-    index: startingIndex + index,
-  }));
+function appendImageBatch({
+  batch,
+  mode,
+  random,
+  gridElement,
+  lightbox,
+  cleanupHandlers,
+  gridCleanup,
+  progressiveCleanupHandlers,
+}: {
+  batch: DecoratedImage[];
+  mode: PageMode;
+  random: () => number;
+  gridElement: HTMLElement;
+  lightbox: LightboxController | null;
+  cleanupHandlers: Array<() => void>;
+  gridCleanup: ReturnType<typeof initGrid>;
+  progressiveCleanupHandlers: Array<() => void>;
+}) {
+  if (batch.length === 0) {
+    return;
+  }
+
+  const startCount = gridElement.querySelectorAll('.imageGrid').length;
+  gridElement.insertAdjacentHTML('beforeend', renderGridMarkup(batch, mode, random));
+  const appendedImages = Array.from(gridElement.querySelectorAll<HTMLElement>('.imageGrid')).slice(startCount);
+
+  appendedImages.forEach((image) => {
+    bindGridImage(image, lightbox, cleanupHandlers);
+  });
+
+  progressiveCleanupHandlers.push(initProgressiveImages(gridElement));
+  gridCleanup.refresh(appendedImages);
+}
+
+function preloadVisibleGridImages(images: readonly DecoratedImage[]) {
+  images.slice(0, 2).forEach((image) => {
+    const preload = document.createElement('link');
+    preload.rel = 'preload';
+    preload.as = 'image';
+    preload.href = image.variants.grid.jpeg;
+    preload.setAttribute(
+      'imagesrcset',
+      image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ')
+    );
+    preload.setAttribute('imagesizes', '50vw');
+    document.head.appendChild(preload);
+  });
 }
 
 export function bootstrapPage({
@@ -271,9 +386,7 @@ export function bootstrapPage({
 
   app.innerHTML = createPageMarkup({
     mode,
-    images: pageImages,
     aboutHtml: about,
-    random,
   });
 
   const introCleanup = initIntro(app);
@@ -283,69 +396,92 @@ export function bootstrapPage({
   });
   const gridCleanup = initGrid(app, mode);
   const cleanupHandlers: Array<() => void> = [];
+  const progressiveCleanupHandlers: Array<() => void> = [];
 
   const overlay = app.querySelector<HTMLElement>('.lightbox-carousel');
   const carousel = app.querySelector<HTMLElement>('.carousel');
-  const lightbox = overlay && carousel ? new LightboxController(overlay, carousel) : null;
+  const lightbox = overlay && carousel ? new LightboxController(overlay, carousel, pageImages, mode) : null;
   const gridElement = app.querySelector<HTMLElement>('main .inner');
 
-  Array.from(app.querySelectorAll<HTMLElement>('.imageGrid')).forEach((image) => {
-    bindGridImage(image, lightbox, cleanupHandlers);
-  });
+  if (!gridElement) {
+    throw new Error('Missing grid root.');
+  }
 
-  if (mode === 'archive' && gridElement && carousel && images.length > 0) {
-    let renderedCount = pageImages.length;
-    let isAppending = false;
-    const threshold = 256;
+  let renderedCount = 0;
+  const appendNextBatch = () => {
+    const batchSize = renderedCount === 0 ? getInitialBatchSize(mode) : getBatchAppendSize(mode);
+    const nextBatch = pageImages.slice(renderedCount, renderedCount + batchSize);
 
-    const appendLoop = () => {
-      if (isAppending) {
-        return;
-      }
+    if (nextBatch.length === 0) {
+      return false;
+    }
 
-      isAppending = true;
+    appendImageBatch({
+      batch: nextBatch,
+      mode,
+      random,
+      gridElement,
+      lightbox,
+      cleanupHandlers,
+      gridCleanup,
+      progressiveCleanupHandlers,
+    });
+    renderedCount += nextBatch.length;
+    return renderedCount < pageImages.length;
+  };
 
-      const nextBatch = decorateImageBatch(mode, images, renderedCount, random);
+  appendNextBatch();
+  preloadVisibleGridImages(pageImages);
 
-      if (nextBatch.length === 0) {
-        isAppending = false;
-        return;
-      }
+  if (mode === 'selection') {
+    lightbox?.prewarmSelection();
+  }
 
-      gridElement.insertAdjacentHTML(
-        'beforeend',
-        renderGridMarkup(nextBatch, mode, random)
+  if (mode === 'archive' && pageImages.length > renderedCount) {
+    const sentinel = document.createElement('div');
+    sentinel.className = 'grid-sentinel';
+    sentinel.setAttribute('aria-hidden', 'true');
+    gridElement.insertAdjacentElement('afterend', sentinel);
+
+    if (typeof IntersectionObserver === 'undefined') {
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        if (pageHeight - scrollPosition <= 512) {
+          const hasMore = appendNextBatch();
+
+          if (!hasMore) {
+            window.removeEventListener('scroll', handleScroll);
+          }
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      cleanupHandlers.push(() => window.removeEventListener('scroll', handleScroll));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const hasMore = appendNextBatch();
+
+            if (!hasMore) {
+              observer.disconnect();
+              sentinel.remove();
+            }
+          });
+        },
+        { rootMargin: '600px 0px' }
       );
-      carousel.insertAdjacentHTML(
-        'beforeend',
-        nextBatch.map((image) => renderLightboxSlide(image)).join('')
-      );
-      lightbox?.refreshSlides();
 
-      const appendedImages = Array.from(gridElement.querySelectorAll<HTMLElement>('.imageGrid')).slice(
-        renderedCount
-      );
-
-      appendedImages.forEach((image) => {
-        bindGridImage(image, lightbox, cleanupHandlers);
-      });
-
-      renderedCount += nextBatch.length;
-      gridCleanup.refresh(appendedImages);
-      isAppending = false;
-    };
-
-    const maybeAppendLoop = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const pageHeight = document.documentElement.scrollHeight;
-
-      if (pageHeight - scrollPosition <= threshold) {
-        appendLoop();
-      }
-    };
-
-    window.addEventListener('scroll', maybeAppendLoop, { passive: true });
-    cleanupHandlers.push(() => window.removeEventListener('scroll', maybeAppendLoop));
+      observer.observe(sentinel);
+      cleanupHandlers.push(() => observer.disconnect());
+      cleanupHandlers.push(() => sentinel.remove());
+    }
   }
 
   return {
@@ -355,6 +491,7 @@ export function bootstrapPage({
       cursorCleanup();
       smoothScrollCleanup();
       cleanupHandlers.forEach((cleanup) => cleanup());
+      progressiveCleanupHandlers.forEach((cleanup) => cleanup());
       gridCleanup.destroy();
       lightbox?.destroy();
     },

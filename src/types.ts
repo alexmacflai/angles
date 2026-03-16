@@ -1,6 +1,5 @@
 export interface ImageVariant {
   avif: string;
-  webp: string;
   jpeg: string;
   width: number;
   height: number;
@@ -8,6 +7,7 @@ export interface ImageVariant {
 
 export interface ResponsiveImageVariant extends ImageVariant {
   sources: ImageVariant[];
+  preview: ImageVariant;
 }
 
 export interface OriginalVariant {
@@ -29,7 +29,9 @@ export interface ImageRecord {
   alt: string;
   variants: {
     grid: ResponsiveImageVariant;
-    lightbox: ImageVariant;
+    lightbox: ImageVariant & {
+      preview: ImageVariant;
+    };
     original: OriginalVariant;
   };
 }

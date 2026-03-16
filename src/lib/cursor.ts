@@ -1,10 +1,18 @@
 import lottie from 'lottie-web';
 import { withBasePath } from './base-path';
 
+function supportsCustomCursor() {
+  return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+}
+
+function matchesHoverTarget(target: EventTarget | null, selector: string) {
+  return target instanceof Element ? target.closest(selector) : null;
+}
+
 export function initCursor(root: ParentNode) {
   const cursor = root.querySelector<HTMLElement>('#cursor');
 
-  if (!cursor) {
+  if (!cursor || !supportsCustomCursor()) {
     return () => {};
   }
 
@@ -36,38 +44,38 @@ export function initCursor(root: ParentNode) {
     cleanups.push(() => animation.destroy());
   }
 
+  const setState = (target: EventTarget | null) => {
+    cursor.classList.toggle('hover', Boolean(matchesHoverTarget(target, 'a, button, .carousel')));
+    cursor.classList.toggle('eye', Boolean(matchesHoverTarget(target, '.imageGrid')));
+  };
+
   const onMouseMove = (event: MouseEvent) => {
     cursor.style.left = `${event.clientX}px`;
     cursor.style.top = `${event.clientY}px`;
+    setState(event.target);
+  };
+
+  const onMouseOver = (event: MouseEvent) => {
+    setState(event.target);
+  };
+
+  const onMouseOut = (event: MouseEvent) => {
+    setState(event.relatedTarget);
   };
 
   const onMouseDown = () => cursor.classList.add('pressed');
   const onMouseUp = () => cursor.classList.remove('pressed');
 
-  const attachHoverState = (selector: string, className: 'hover' | 'eye') => {
-    root.querySelectorAll<HTMLElement>(selector).forEach((element) => {
-      const handleEnter = () => cursor.classList.add('hover', className);
-      const handleLeave = () => cursor.classList.remove('hover', className);
-
-      element.addEventListener('mouseenter', handleEnter);
-      element.addEventListener('mouseleave', handleLeave);
-
-      cleanups.push(() => {
-        element.removeEventListener('mouseenter', handleEnter);
-        element.removeEventListener('mouseleave', handleLeave);
-      });
-    });
-  };
-
   document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseover', onMouseOver);
+  document.addEventListener('mouseout', onMouseOut);
   document.addEventListener('mousedown', onMouseDown);
   document.addEventListener('mouseup', onMouseUp);
 
-  attachHoverState('a, button, .carousel', 'hover');
-  attachHoverState('.imageGrid', 'eye');
-
   cleanups.push(() => {
     document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseover', onMouseOver);
+    document.removeEventListener('mouseout', onMouseOut);
     document.removeEventListener('mousedown', onMouseDown);
     document.removeEventListener('mouseup', onMouseUp);
   });
