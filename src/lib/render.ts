@@ -27,6 +27,10 @@ export function getGridSizes(image: DecoratedImage, mode: PageMode) {
   }
 }
 
+export function getLightboxSizes() {
+  return '(max-width: 767px) calc(100vw - 2rem), (max-width: 1023px) calc(100vw - 3rem), calc(100vw - 4rem)';
+}
+
 function renderProgressivePicture({
   preview,
   full,
@@ -90,8 +94,13 @@ function renderLightboxPicture(image: DecoratedImage) {
 
   return renderProgressivePicture({
     preview: image.variants.lightbox.preview,
-    full: image.variants.lightbox,
+    full: {
+      ...image.variants.lightbox,
+      avifSrcset: image.variants.lightbox.sources.map((source) => `${source.avif} ${source.width}w`).join(', '),
+      jpegSrcset: image.variants.lightbox.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', '),
+    },
     alt,
+    sizes: getLightboxSizes(),
     className: 'lightbox-progressive-picture',
   });
 }

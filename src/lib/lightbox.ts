@@ -2,7 +2,12 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { lockBodyScroll, unlockBodyScroll } from './body-scroll';
-import { prewarmImage, requestFullPicture, requestPreviewPicture } from './progressive-image';
+import {
+  cancelQueuedFullPictureRequests,
+  deprioritizeFullPictureRequests,
+  requestFullPicture,
+  requestPreviewPicture,
+} from './progressive-image';
 import { renderAllLightboxSlides } from './render';
 import type { DecoratedImage, PageMode } from '../types';
 
@@ -27,9 +32,8 @@ export class LightboxController {
   private cleanupHandlers: Array<() => void> = [];
   private currentIndex = 0;
   private isRendered = false;
-  private loadedIndices = new Set<number>();
   private preloadTimeout = 0;
-  private prewarmedUrls = new Set<string>();
+  private rangeTimeouts = new Set<number>();
   private suppressClickClose = false;
 
   constructor(
@@ -49,6 +53,7 @@ export class LightboxController {
   }
 
   open(index: number) {
+    cancelQueuedFullPictureRequests('lightbox-background');
     this.currentIndex = index;
     this.ensureRendered();
     this.overlay.classList.add('active');
@@ -67,9 +72,16 @@ export class LightboxController {
   }
 
   close() {
+    this.clearRangeTimeouts();
+    cancelQueuedFullPictureRequests('lightbox-active');
+    deprioritizeFullPictureRequests('lightbox-active');
     this.overlay.classList.remove('active');
     this.overlay.setAttribute('aria-hidden', 'true');
     unlockBodyScroll();
+
+    if (this.mode === 'selection') {
+      this.prewarmSelection();
+    }
   }
 
   prewarmSelection() {
@@ -79,9 +91,22 @@ export class LightboxController {
 
     window.clearTimeout(this.preloadTimeout);
     this.preloadTimeout = window.setTimeout(() => {
+      this.ensureRendered();
+
       this.images.forEach((image) => {
-        this.prewarmUrl(image.variants.lightbox.preview.jpeg);
-        this.prewarmUrl(image.variants.lightbox.jpeg);
+        const slide = this.slides[image.index];
+        const picture = slide?.querySelector<HTMLElement>('.progressive-picture');
+
+        if (!picture) {
+          return;
+        }
+
+        void requestPreviewPicture(picture, { priority: 'low' });
+        void requestFullPicture(picture, {
+          previewPriority: 'low',
+          priority: 'low',
+          source: 'lightbox-background',
+        });
       });
     }, 600);
   }
@@ -89,16 +114,8 @@ export class LightboxController {
   destroy() {
     window.cancelAnimationFrame(this.animationFrame);
     window.clearTimeout(this.preloadTimeout);
+    this.clearRangeTimeouts();
     this.cleanupHandlers.forEach((cleanup) => cleanup());
-  }
-
-  private prewarmUrl(url: string) {
-    if (this.prewarmedUrls.has(url)) {
-      return;
-    }
-
-    this.prewarmedUrls.add(url);
-    prewarmImage(url);
   }
 
   private ensureRendered() {
@@ -109,13 +126,6 @@ export class LightboxController {
     this.carousel.innerHTML = renderAllLightboxSlides(this.images);
     this.slides = Array.from(this.carousel.querySelectorAll<HTMLElement>('.carousel-slide'));
     this.isRendered = true;
-    this.slides.forEach((slide) => {
-      const picture = slide.querySelector<HTMLElement>('.progressive-picture');
-
-      if (picture) {
-        void requestPreviewPicture(picture);
-      }
-    });
     this.initScrollAnimations();
   }
 
@@ -133,18 +143,22 @@ export class LightboxController {
       }
     }
 
+    this.clearRangeTimeouts();
+
     indices.forEach((index, order) => {
-      window.setTimeout(() => {
-        void this.requestIndex(index);
-      }, order * 50);
+      const previewPriority = order === 0 ? 'high' : order <= 2 ? 'auto' : 'low';
+      const fullPriority = order === 0 ? 'high' : order <= 2 ? 'auto' : 'low';
+
+      const timeoutId = window.setTimeout(() => {
+        this.rangeTimeouts.delete(timeoutId);
+        void this.requestIndex(index, previewPriority, fullPriority);
+      }, order * 60);
+
+      this.rangeTimeouts.add(timeoutId);
     });
   }
 
-  private async requestIndex(index: number) {
-    if (this.loadedIndices.has(index)) {
-      return;
-    }
-
+  private async requestIndex(index: number, previewPriority: 'high' | 'auto' | 'low', priority: 'high' | 'auto' | 'low') {
     const slide = this.slides[index];
     const picture = slide?.querySelector<HTMLElement>('.progressive-picture');
 
@@ -152,8 +166,17 @@ export class LightboxController {
       return;
     }
 
-    this.loadedIndices.add(index);
-    await requestFullPicture(picture);
+    await requestPreviewPicture(picture, { priority: previewPriority });
+    await requestFullPicture(picture, {
+      previewPriority,
+      priority,
+      source: 'lightbox-active',
+    });
+  }
+
+  private clearRangeTimeouts() {
+    this.rangeTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
+    this.rangeTimeouts.clear();
   }
 
   private scrollToIndex(index: number, smooth: boolean) {

@@ -1,6 +1,11 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
+function getPort(value: string | undefined, fallback: number) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
 function getBasePath() {
   const configuredBase = process.env.VITE_BASE_PATH;
 
@@ -19,6 +24,12 @@ function getBasePath() {
 
 export default defineConfig({
   base: getBasePath(),
+  server: {
+    port: getPort(process.env.VITE_DEV_PORT, 4174),
+  },
+  preview: {
+    port: getPort(process.env.VITE_PREVIEW_PORT, 4175),
+  },
   build: {
     rollupOptions: {
       input: {

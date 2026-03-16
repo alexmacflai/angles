@@ -88,6 +88,10 @@ function createImage(id: string): ImageRecord {
         jpeg: `/${id}/lightbox.jpg`,
         width: 1200,
         height: 900,
+        sources: [
+          { avif: `/${id}/lightbox-720.avif`, jpeg: `/${id}/lightbox-720.jpg`, width: 720, height: 540 },
+          { avif: `/${id}/lightbox.avif`, jpeg: `/${id}/lightbox.jpg`, width: 1200, height: 900 },
+        ],
         preview: {
           avif: `/${id}/lightbox-preview.avif`,
           jpeg: `/${id}/lightbox-preview.jpg`,

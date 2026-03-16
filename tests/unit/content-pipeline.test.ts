@@ -142,6 +142,12 @@ describe('content pipeline', () => {
           }),
         },
         lightbox: {
+          sources: expect.arrayContaining([
+            expect.objectContaining({
+              avif: expect.stringMatching(/lightbox(?:-\d+)?\.avif$/),
+              jpeg: expect.stringMatching(/lightbox(?:-\d+)?\.jpg$/),
+            }),
+          ]),
           preview: expect.objectContaining({
             avif: expect.stringContaining('lightbox-preview.avif'),
             jpeg: expect.stringContaining('lightbox-preview.jpg'),

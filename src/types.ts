@@ -10,6 +10,11 @@ export interface ResponsiveImageVariant extends ImageVariant {
   preview: ImageVariant;
 }
 
+export interface LightboxImageVariant extends ImageVariant {
+  sources: ImageVariant[];
+  preview: ImageVariant;
+}
+
 export interface OriginalVariant {
   url: string;
   width: number;
@@ -29,9 +34,7 @@ export interface ImageRecord {
   alt: string;
   variants: {
     grid: ResponsiveImageVariant;
-    lightbox: ImageVariant & {
-      preview: ImageVariant;
-    };
+    lightbox: LightboxImageVariant;
     original: OriginalVariant;
   };
 }

@@ -247,7 +247,11 @@ function initProgressiveImages(root: ParentNode) {
   }
 
   const loadPicture = (picture: HTMLElement) => {
-    void requestProgressivePicture(picture);
+    void requestProgressivePicture(picture, {
+      previewPriority: 'high',
+      priority: 'low',
+      source: 'grid',
+    });
   };
 
   if (typeof IntersectionObserver === 'undefined') {
@@ -350,13 +354,32 @@ function preloadVisibleGridImages(images: readonly DecoratedImage[]) {
     const preload = document.createElement('link');
     preload.rel = 'preload';
     preload.as = 'image';
-    preload.href = image.variants.grid.jpeg;
-    preload.setAttribute(
-      'imagesrcset',
-      image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ')
-    );
-    preload.setAttribute('imagesizes', '50vw');
+    preload.href = image.variants.grid.preview.jpeg;
     document.head.appendChild(preload);
+  });
+}
+
+function waitForGridPictures(root: ParentNode) {
+  const pictures = Array.from(root.querySelectorAll<HTMLElement>('.imageGrid .progressive-picture'));
+
+  if (pictures.length === 0 || pictures.every((picture) => picture.dataset.imageState === 'loaded')) {
+    return Promise.resolve();
+  }
+
+  return new Promise<void>((resolve) => {
+    const observer = new MutationObserver(() => {
+      if (pictures.every((picture) => picture.dataset.imageState === 'loaded')) {
+        observer.disconnect();
+        resolve();
+      }
+    });
+
+    pictures.forEach((picture) =>
+      observer.observe(picture, {
+        attributes: true,
+        attributeFilter: ['data-image-state'],
+      })
+    );
   });
 }
 
@@ -426,7 +449,9 @@ export function bootstrapPage({
   preloadVisibleGridImages(pageImages);
 
   if (mode === 'selection') {
-    lightbox?.prewarmSelection();
+    void waitForGridPictures(gridElement).then(() => {
+      lightbox?.prewarmSelection();
+    });
   }
 
   if (mode === 'archive' && pageImages.length > renderedCount) {
