@@ -37,6 +37,14 @@ export function buildPageImages(
   return decorateImages(baseImages, random);
 }
 
+function resetInitialScrollPosition() {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+
+  window.scrollTo(0, 0);
+}
+
 function initIntro(root: ParentNode) {
   const intro = root.querySelector<HTMLElement>('.intro');
 
@@ -211,31 +219,11 @@ function getInitialBatchSize(mode: PageMode) {
     return 6;
   }
 
-  if (window.matchMedia('(max-width: 500px)').matches) {
-    return 8;
+  if (mode === 'archive') {
+    return Number.POSITIVE_INFINITY;
   }
 
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    return 6;
-  }
-
-  if (window.matchMedia('(max-width: 1279px)').matches) {
-    return 12;
-  }
-
-  return 16;
-}
-
-function getBatchAppendSize(mode: PageMode) {
-  if (mode === 'selection') {
-    return 4;
-  }
-
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    return 6;
-  }
-
-  return 10;
+  return 0;
 }
 
 function initProgressiveImages(root: ParentNode) {
@@ -393,6 +381,8 @@ export function bootstrapPage({
     throw new Error('Missing app root.');
   }
 
+  resetInitialScrollPosition();
+
   const pageImages = buildPageImages(mode, images, random);
   document.body.classList.toggle('page-selection', mode === 'selection');
   document.body.classList.toggle('page-archive', mode === 'archive');
@@ -421,83 +411,24 @@ export function bootstrapPage({
     throw new Error('Missing grid root.');
   }
 
-  let renderedCount = 0;
-  const appendNextBatch = () => {
-    const batchSize = renderedCount === 0 ? getInitialBatchSize(mode) : getBatchAppendSize(mode);
-    const nextBatch = pageImages.slice(renderedCount, renderedCount + batchSize);
+  const initialBatch = pageImages.slice(0, getInitialBatchSize(mode));
 
-    if (nextBatch.length === 0) {
-      return false;
-    }
-
-    appendImageBatch({
-      batch: nextBatch,
-      mode,
-      random,
-      gridElement,
-      lightbox,
-      cleanupHandlers,
-      gridCleanup,
-      progressiveCleanupHandlers,
-    });
-    renderedCount += nextBatch.length;
-    return renderedCount < pageImages.length;
-  };
-
-  appendNextBatch();
+  appendImageBatch({
+    batch: initialBatch,
+    mode,
+    random,
+    gridElement,
+    lightbox,
+    cleanupHandlers,
+    gridCleanup,
+    progressiveCleanupHandlers,
+  });
   preloadVisibleGridImages(pageImages);
 
   if (mode === 'selection') {
     void waitForGridPictures(gridElement).then(() => {
       lightbox?.prewarmSelection();
     });
-  }
-
-  if (mode === 'archive' && pageImages.length > renderedCount) {
-    const sentinel = document.createElement('div');
-    sentinel.className = 'grid-sentinel';
-    sentinel.setAttribute('aria-hidden', 'true');
-    gridElement.insertAdjacentElement('afterend', sentinel);
-
-    if (typeof IntersectionObserver === 'undefined') {
-      const handleScroll = () => {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight;
-
-        if (pageHeight - scrollPosition <= 512) {
-          const hasMore = appendNextBatch();
-
-          if (!hasMore) {
-            window.removeEventListener('scroll', handleScroll);
-          }
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      cleanupHandlers.push(() => window.removeEventListener('scroll', handleScroll));
-    } else {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            const hasMore = appendNextBatch();
-
-            if (!hasMore) {
-              observer.disconnect();
-              sentinel.remove();
-            }
-          });
-        },
-        { rootMargin: '600px 0px' }
-      );
-
-      observer.observe(sentinel);
-      cleanupHandlers.push(() => observer.disconnect());
-      cleanupHandlers.push(() => sentinel.remove());
-    }
   }
 
   return {
