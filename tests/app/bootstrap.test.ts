@@ -88,6 +88,12 @@ function createImage(id: string): ImageRecord {
         jpeg: `/${id}/lightbox.jpg`,
         width: 1200,
         height: 900,
+        preview: {
+          avif: `/${id}/lightbox-preview.avif`,
+          jpeg: `/${id}/lightbox-preview.jpg`,
+          width: 64,
+          height: 48,
+        },
       },
       original: {
         url: `/${id}/original.jpg`,
@@ -110,6 +116,8 @@ describe('bootstrapPage', () => {
       matches:
         query === '(max-width: 767px)'
           ? window.innerWidth <= 767
+          : query === '(hover: hover) and (pointer: fine)'
+            ? true
           : query === '(max-width: 1023px) and (orientation: landscape)'
             ? window.innerWidth <= 1023 && window.innerWidth > window.innerHeight
             : false,
@@ -175,8 +183,7 @@ describe('bootstrapPage', () => {
     firstImage?.click();
     expect(overlay?.classList.contains('active')).toBe(true);
     expect(document.body.classList.contains('no-scroll')).toBe(true);
-    expect(document.querySelectorAll('.carousel-slide').length).toBeGreaterThan(0);
-    expect(document.querySelectorAll('.carousel-slide').length).toBeLessThanOrEqual(5);
+    expect(document.querySelectorAll('.carousel-slide').length).toBe(20);
 
     overlay?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     expect(overlay?.classList.contains('active')).toBe(false);
@@ -218,6 +225,26 @@ describe('bootstrapPage', () => {
     const aboutLink = document.querySelector('.intro-copy a') as HTMLAnchorElement;
     expect(aboutLink.target).toBe('_blank');
     expect(aboutLink.rel).toBe('noopener noreferrer');
+  });
+
+  it('keeps cursor hover behavior on images appended after scrolling', async () => {
+    const { bootstrapPage } = await import('../../src/lib/page');
+    const images = Array.from({ length: 20 }, (_, index) => createImage(`cursor-${index + 1}`));
+
+    bootstrapPage({
+      mode: 'archive',
+      app: document.querySelector('#app') as HTMLElement,
+      images,
+      about: '<p>Hello cursor</p>',
+      random: () => 0.95,
+    });
+
+    const cursor = document.querySelector('#cursor') as HTMLElement;
+    const gridImages = document.querySelectorAll<HTMLElement>('.imageGrid');
+    const lastImage = gridImages[gridImages.length - 1];
+
+    lastImage.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+    expect(cursor.classList.contains('eye')).toBe(true);
   });
 
   it('sizes the selection grid from available viewport height on tablet and desktop', async () => {

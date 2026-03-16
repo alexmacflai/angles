@@ -302,6 +302,7 @@ body.page-selection .image {
 .full-picture {
   position: absolute;
   inset: 0;
+  transition: opacity 0.5s ease;
 }
 
 .preview-picture img,
@@ -315,6 +316,10 @@ body.page-selection .image {
 .progressive-picture .preview-picture img {
   filter: blur(14px);
   transform: scale(1.04);
+}
+
+.progressive-picture .preview-picture {
+  opacity: 1;
 }
 
 .progressive-picture .full-picture {
@@ -382,7 +387,8 @@ body.page-selection .image {
 
 .carousel-slide {
   flex: 0 0 auto;
-  height: 100%;
+  height: min(100%, calc(100vh - 4rem));
+  aspect-ratio: var(--slide-width) / var(--slide-height);
   opacity: 1;
 }
 
@@ -397,6 +403,36 @@ body.page-selection .image {
   max-width: 80vw;
   object-fit: contain;
   pointer-events: none;
+}
+
+.lightbox-progressive-picture {
+  width: auto;
+  max-width: 80vw;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lightbox-progressive-picture[data-preview-state='loaded'],
+.lightbox-progressive-picture[data-image-state='loaded'] {
+  background: transparent;
+}
+
+.lightbox-progressive-picture .preview-picture img,
+.lightbox-progressive-picture .full-picture img {
+  width: auto;
+  max-width: 80vw;
+  object-fit: contain;
+}
+
+.lightbox-carousel,
+.lightbox-carousel * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body.lightbox-dragging,
+body.lightbox-dragging * {
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #cursor {
@@ -467,16 +503,18 @@ body.page-archive #cursor .dark {
     font-size: 18px;
   }
 
+  body.page-selection main .inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
   #cursor {
     display: none;
   }
 
   * {
     cursor: auto;
-  }
-
-  body.page-selection main .inner {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

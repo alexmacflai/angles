@@ -2,7 +2,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { aboutHtml, images as allImages } from './content';
+import { initCursor } from './cursor';
 import { LightboxController } from './lightbox';
+import { requestProgressivePicture } from './progressive-image';
 import { decorateImages, shuffleItems } from './random';
 import { createPageMarkup, renderGridMarkup } from './render';
 import { selectImageCluster } from './selection';
@@ -253,53 +255,7 @@ function initProgressiveImages(root: ParentNode) {
   }
 
   const loadPicture = (picture: HTMLElement) => {
-    if (picture.dataset.imageState === 'loading' || picture.dataset.imageState === 'loaded') {
-      return;
-    }
-
-    picture.dataset.imageState = 'loading';
-
-    const fullPicture = picture.querySelector<HTMLElement>('.full-picture');
-    const fullImage = fullPicture?.querySelector<HTMLImageElement>('img');
-
-    if (!fullPicture || !fullImage) {
-      picture.dataset.imageState = 'loaded';
-      return;
-    }
-
-    fullPicture.querySelectorAll<HTMLSourceElement>('source').forEach((source) => {
-      const srcset = source.dataset.srcset;
-      const sizes = source.dataset.sizes;
-
-      if (srcset) {
-        source.srcset = srcset;
-      }
-
-      if (sizes) {
-        source.sizes = sizes;
-      }
-    });
-
-    const handleLoad = () => {
-      picture.dataset.imageState = 'loaded';
-      fullImage.removeEventListener('load', handleLoad);
-      fullImage.removeEventListener('error', handleLoad);
-    };
-
-    fullImage.addEventListener('load', handleLoad, { once: true });
-    fullImage.addEventListener('error', handleLoad, { once: true });
-
-    if (fullImage.dataset.srcset) {
-      fullImage.srcset = fullImage.dataset.srcset;
-    }
-
-    if (fullImage.dataset.sizes) {
-      fullImage.sizes = fullImage.dataset.sizes;
-    }
-
-    if (fullImage.dataset.src) {
-      fullImage.src = fullImage.dataset.src;
-    }
+    void requestProgressivePicture(picture);
   };
 
   if (typeof IntersectionObserver === 'undefined') {
@@ -397,30 +353,19 @@ function appendImageBatch({
   gridCleanup.refresh(appendedImages);
 }
 
-function scheduleCursorInit(root: ParentNode) {
-  let destroyed = false;
-  let cursorCleanup = () => {};
-
-  requestAnimationFrame(() => {
-    window.setTimeout(async () => {
-      if (destroyed) {
-        return;
-      }
-
-      const { initCursor } = await import('./cursor');
-
-      if (destroyed) {
-        return;
-      }
-
-      cursorCleanup = initCursor(root);
-    }, 0);
+function preloadVisibleGridImages(images: readonly DecoratedImage[]) {
+  images.slice(0, 2).forEach((image) => {
+    const preload = document.createElement('link');
+    preload.rel = 'preload';
+    preload.as = 'image';
+    preload.href = image.variants.grid.jpeg;
+    preload.setAttribute(
+      'imagesrcset',
+      image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ')
+    );
+    preload.setAttribute('imagesizes', '50vw');
+    document.head.appendChild(preload);
   });
-
-  return () => {
-    destroyed = true;
-    cursorCleanup();
-  };
 }
 
 export function bootstrapPage({
@@ -445,7 +390,7 @@ export function bootstrapPage({
   });
 
   const introCleanup = initIntro(app);
-  const cursorCleanup = scheduleCursorInit(app);
+  const cursorCleanup = initCursor(app);
   const smoothScrollCleanup = initSmoothScroll({
     shouldHandle: () => !document.body.classList.contains('no-scroll'),
   });
@@ -455,7 +400,7 @@ export function bootstrapPage({
 
   const overlay = app.querySelector<HTMLElement>('.lightbox-carousel');
   const carousel = app.querySelector<HTMLElement>('.carousel');
-  const lightbox = overlay && carousel ? new LightboxController(overlay, carousel, pageImages) : null;
+  const lightbox = overlay && carousel ? new LightboxController(overlay, carousel, pageImages, mode) : null;
   const gridElement = app.querySelector<HTMLElement>('main .inner');
 
   if (!gridElement) {
@@ -486,6 +431,11 @@ export function bootstrapPage({
   };
 
   appendNextBatch();
+  preloadVisibleGridImages(pageImages);
+
+  if (mode === 'selection') {
+    lightbox?.prewarmSelection();
+  }
 
   if (mode === 'archive' && pageImages.length > renderedCount) {
     const sentinel = document.createElement('div');

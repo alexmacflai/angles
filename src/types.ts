@@ -29,7 +29,9 @@ export interface ImageRecord {
   alt: string;
   variants: {
     grid: ResponsiveImageVariant;
-    lightbox: ImageVariant;
+    lightbox: ImageVariant & {
+      preview: ImageVariant;
+    };
     original: OriginalVariant;
   };
 }

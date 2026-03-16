@@ -29,6 +29,11 @@ export const images = (generatedImages as ImageRecord[]).map((image) => ({
       ...image.variants.lightbox,
       avif: prefixPath(image.variants.lightbox.avif),
       jpeg: prefixPath(image.variants.lightbox.jpeg),
+      preview: {
+        ...image.variants.lightbox.preview,
+        avif: prefixPath(image.variants.lightbox.preview.avif),
+        jpeg: prefixPath(image.variants.lightbox.preview.jpeg),
+      },
     },
     original: {
       ...image.variants.original,

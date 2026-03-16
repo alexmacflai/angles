@@ -141,6 +141,12 @@ describe('content pipeline', () => {
             jpeg: expect.stringContaining('grid-preview.jpg'),
           }),
         },
+        lightbox: {
+          preview: expect.objectContaining({
+            avif: expect.stringContaining('lightbox-preview.avif'),
+            jpeg: expect.stringContaining('lightbox-preview.jpg'),
+          }),
+        },
       },
     });
     expect(aboutModule).toContain('Hello 1');

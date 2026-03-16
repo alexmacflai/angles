@@ -23,7 +23,13 @@ function createImage(id: string, tags: string[]): ImageRecord {
           { avif: `/${id}-100.avif`, jpeg: `/${id}-100.jpg`, width: 100, height: 100 },
         ],
       },
-      lightbox: { avif: `/${id}-l.avif`, jpeg: `/${id}-l.jpg`, width: 100, height: 100 },
+      lightbox: {
+        avif: `/${id}-l.avif`,
+        jpeg: `/${id}-l.jpg`,
+        width: 100,
+        height: 100,
+        preview: { avif: `/${id}-l-preview.avif`, jpeg: `/${id}-l-preview.jpg`, width: 24, height: 24 },
+      },
       original: { url: `/${id}-original.jpg`, width: 100, height: 100, mimeType: 'image/jpeg' },
     },
   };
