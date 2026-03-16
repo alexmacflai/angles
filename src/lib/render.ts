@@ -23,7 +23,7 @@ export function getGridSizes(image: DecoratedImage, mode: PageMode) {
     case 'dos':
       return '(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 40vw';
     default:
-      return '(max-width: 500px) 50vw, (max-width: 767px) 100vw, (max-width: 1279px) 25vw, 20vw';
+      return '(max-width: 500px) 50vw, (max-width: 767px) 50vw, (max-width: 1279px) 25vw, 20vw';
   }
 }
 

@@ -545,7 +545,18 @@ body.page-archive #cursor .dark {
   }
 
   main .inner {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .image.uno {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .image.dos,
+  .image.tres {
+    grid-column: span 2;
+    grid-row: span 2;
   }
 
   .image-gap {
@@ -604,17 +615,6 @@ body.page-archive #cursor .dark {
 
   main .inner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .image.uno {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .image.dos,
-  .image.tres {
-    grid-column: span 2;
-    grid-row: span 2;
   }
 
   body.page-selection .image.uno,
