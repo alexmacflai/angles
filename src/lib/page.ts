@@ -42,6 +42,11 @@ function initIntro(root: ParentNode) {
     return () => {};
   }
 
+  intro.querySelectorAll<HTMLAnchorElement>('.intro-copy a[href]').forEach((link) => {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
+
   prepareTextAnimation(root);
 
   const toggleButtons = root.querySelectorAll<HTMLElement>('.intro-toggle');
@@ -68,12 +73,41 @@ function initIntro(root: ParentNode) {
 function initGrid(root: ParentNode, mode: PageMode) {
   const main = root.querySelector<HTMLElement>('main');
   const grid = root.querySelector<HTMLElement>('main .inner');
+  const header = root.querySelector<HTMLElement>('header');
 
   if (!main || !grid) {
     return () => {};
   }
 
   const cleanupHandlers: Array<() => void> = [];
+
+  const countGridTracks = (template: string) => {
+    const normalizedTemplate = template.trim();
+    const repeatMatch = normalizedTemplate.match(/^repeat\((\d+),/);
+
+    if (repeatMatch) {
+      return Number(repeatMatch[1]);
+    }
+
+    if (!normalizedTemplate) {
+      return 0;
+    }
+
+    let depth = 0;
+    let tracks = 1;
+
+    for (const character of normalizedTemplate) {
+      if (character === '(') {
+        depth += 1;
+      } else if (character === ')') {
+        depth = Math.max(depth - 1, 0);
+      } else if (character === ' ' && depth === 0) {
+        tracks += 1;
+      }
+    }
+
+    return tracks;
+  };
 
   const setupAnimations = () => {
     gsap.to(main, {
@@ -100,12 +134,36 @@ function initGrid(root: ParentNode, mode: PageMode) {
   };
 
   const updateDenseGridMetrics = () => {
+    if (mode === 'selection') {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+      if (isMobile) {
+        main.style.height = '';
+        grid.style.removeProperty('--grid-row-unit');
+        return;
+      }
+
+      const styles = window.getComputedStyle(grid);
+      const columns = countGridTracks(styles.gridTemplateColumns);
+      const gap = parseFloat(styles.rowGap || styles.gap || '0');
+      const viewportHeight = window.innerHeight;
+      const headerHeight = header?.getBoundingClientRect().height ?? 0;
+      const mainHeight = Math.max(viewportHeight - headerHeight, 0);
+      const rows = Math.ceil(grid.children.length / Math.max(columns, 1));
+      const availableHeight = mainHeight - gap * Math.max(rows - 1, 0);
+      const rowUnit = availableHeight / Math.max(rows, 1);
+
+      main.style.height = `${mainHeight}px`;
+      grid.style.setProperty('--grid-row-unit', `${Math.max(rowUnit, 0)}px`);
+      return;
+    }
+
     const styles = window.getComputedStyle(grid);
-    const columns = styles.gridTemplateColumns.split(' ').filter(Boolean).length;
+    const columns = countGridTracks(styles.gridTemplateColumns);
     const gap = parseFloat(styles.columnGap || '0');
     const availableWidth = grid.clientWidth - gap * Math.max(columns - 1, 0);
     const columnWidth = availableWidth / Math.max(columns, 1);
-    const rowUnit = mode === 'selection' ? columnWidth * 0.75 : columnWidth;
+    const rowUnit = columnWidth;
 
     grid.style.setProperty('--grid-row-unit', `${rowUnit}px`);
   };
@@ -119,11 +177,6 @@ function initGrid(root: ParentNode, mode: PageMode) {
   const handleResize = () => updateDenseGridMetrics();
   window.addEventListener('resize', handleResize);
   cleanupHandlers.push(() => window.removeEventListener('resize', handleResize));
-
-  if (mode === 'selection') {
-    main.style.paddingTop = '0';
-  }
-
   return () => {
     cleanupHandlers.forEach((cleanup) => cleanup());
   };
