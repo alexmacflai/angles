@@ -9,6 +9,8 @@
   --color-white: #ebe9e6;
   --color-black: #18181e;
   --color-sky-medium: #398aff;
+  --image-placeholder-bg: rgb(24 24 30 / 0.06);
+  --lightbox-image-placeholder-bg: rgb(235 233 230 / 0.06);
   --motion-bounce: cubic-bezier(0.2, 0, 0.32, 1.275);
   font-size: 18px;
 }
@@ -17,6 +19,8 @@ body.page-selection {
   --color-white: #18181e;
   --color-black: #ebe9e6;
   --color-sky-medium: #ff617f;
+  --image-placeholder-bg: rgb(235 233 230 / 0.06);
+  --lightbox-image-placeholder-bg: rgb(24 24 30 / 0.06);
 }
 
 * {
@@ -273,6 +277,7 @@ body.page-selection .image.tres {
   position: relative;
   display: block;
   overflow: hidden;
+  background: var(--image-placeholder-bg);
   transition: opacity 0.32s ease;
 }
 
@@ -295,7 +300,7 @@ body.page-selection .image {
 
 .progressive-picture {
   position: relative;
-  background: rgba(0, 0, 0, 0.03);
+  background: transparent;
 }
 
 .preview-picture,
@@ -413,7 +418,7 @@ body.page-selection .image {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--lightbox-image-placeholder-bg);
 }
 
 .lightbox-progressive-picture[data-preview-state='loaded'],
