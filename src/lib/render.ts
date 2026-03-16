@@ -1,4 +1,5 @@
 import { closeIcon, handIcon, logoIcon, wandIcon } from './icons';
+import { withBasePath } from './base-path';
 import { buildGridSlots } from './random';
 import type { DecoratedImage, GridSlot, PageMode } from '../types';
 
@@ -124,6 +125,8 @@ export function createPageMarkup({
   random?: () => number;
 }) {
   const selectionLabel = mode === 'archive' ? 'make a selection' : 'make another';
+  const homeHref = import.meta.env.BASE_URL;
+  const selectionHref = withBasePath('selection/');
 
   return `
     <div id="cursor" aria-hidden="true">
@@ -132,14 +135,14 @@ export function createPageMarkup({
     </div>
     <header id="header" role="banner">
       <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-        <a href="/" title="Angles" rel="home" itemprop="url">${logoIcon}</a>
+        <a href="${homeHref}" title="Angles" rel="home" itemprop="url">${logoIcon}</a>
       </div>
       <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <button class="nav-action intro-toggle" type="button">
           ${handIcon}
           <span class="label">who dis?</span>
         </button>
-        <a class="nav-action selection-action" href="/selection/">
+        <a class="nav-action selection-action" href="${selectionHref}">
           ${wandIcon}
           <span class="label">${selectionLabel}</span>
         </a>

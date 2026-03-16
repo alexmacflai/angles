@@ -32,6 +32,8 @@ Start the site:
 npm run dev
 ```
 
+This starts the local development server. In everyday frontend terms, that is usually called "running locally" or "running the app in development."
+
 `npm run dev` automatically runs the content pipeline first, so you do not need to run a second command for normal use.
 
 While the content pipeline runs, the terminal shows:
@@ -93,3 +95,16 @@ npm run dev
 npm run build
 npm test
 ```
+
+## GitHub Pages Deployment
+
+This repo is configured to deploy the Vite build in `dist/` to GitHub Pages with GitHub Actions.
+
+1. Push the repository to GitHub on the `main` branch.
+2. In GitHub, open `Settings` -> `Pages`.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+4. Push to `main` again, or run the `Deploy to GitHub Pages` workflow manually from the `Actions` tab.
+
+The workflow automatically builds with the correct base path for the `alexmacflai/angles` repository, so the project URL `https://alexmacflai.github.io/angles/` works without extra changes.
+
+If you ever rename the repository or deploy this app under a different subpath, set `VITE_BASE_PATH` to the new path when building.

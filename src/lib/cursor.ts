@@ -1,4 +1,5 @@
 import lottie from 'lottie-web';
+import { withBasePath } from './base-path';
 
 export function initCursor(root: ParentNode) {
   const cursor = root.querySelector<HTMLElement>('#cursor');
@@ -17,7 +18,7 @@ export function initCursor(root: ParentNode) {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: '/assets/img/angles-cursor-eye-light.json',
+      path: withBasePath('assets/img/angles-cursor-eye-light.json'),
     });
 
     cleanups.push(() => animation.destroy());
@@ -29,7 +30,7 @@ export function initCursor(root: ParentNode) {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: '/assets/img/angles-cursor-eye-dark.json',
+      path: withBasePath('assets/img/angles-cursor-eye-dark.json'),
     });
 
     cleanups.push(() => animation.destroy());
