@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 export class LightboxController {
   private readonly overlay: HTMLElement;
   private readonly carousel: HTMLElement;
-  private readonly slides: HTMLElement[];
+  private slides: HTMLElement[];
   private isDragging = false;
   private wasDragged = false;
   private startX = 0;
@@ -21,11 +21,11 @@ export class LightboxController {
   constructor(overlay: HTMLElement, carousel: HTMLElement) {
     this.overlay = overlay;
     this.carousel = carousel;
-    this.slides = Array.from(carousel.querySelectorAll<HTMLElement>('.carousel-slide'));
+    this.slides = [];
 
     this.initOverlay();
     this.initDrag();
-    this.initScrollAnimations();
+    this.refreshSlides();
   }
 
   open(index: number) {
@@ -59,6 +59,11 @@ export class LightboxController {
   destroy() {
     window.cancelAnimationFrame(this.animationFrame);
     this.cleanupHandlers.forEach((cleanup) => cleanup());
+  }
+
+  refreshSlides() {
+    this.slides = Array.from(this.carousel.querySelectorAll<HTMLElement>('.carousel-slide'));
+    this.initScrollAnimations();
   }
 
   private scrollToIndex(index: number, smooth: boolean) {
@@ -203,6 +208,12 @@ export class LightboxController {
 
   private initScrollAnimations() {
     this.slides.forEach((slide) => {
+      if (slide.dataset.scrollAnimated === 'true') {
+        return;
+      }
+
+      slide.dataset.scrollAnimated = 'true';
+
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: slide,

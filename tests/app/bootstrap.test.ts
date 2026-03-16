@@ -157,6 +157,37 @@ describe('bootstrapPage', () => {
     expect(document.body.classList.contains('no-scroll')).toBe(false);
   });
 
+  it('appends a fresh archive pass after the masonry feed reaches the end', async () => {
+    const { bootstrapPage } = await import('../../src/lib/page');
+    const images = Array.from({ length: 4 }, (_, index) => createImage(`loop-${index + 1}`));
+
+    bootstrapPage({
+      mode: 'archive',
+      app: document.querySelector('#app') as HTMLElement,
+      images,
+      about: '<p>Hello loop</p>',
+      random: () => 0.1,
+    });
+
+    expect(document.querySelectorAll('.imageGrid')).toHaveLength(4);
+    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(4);
+
+    Object.defineProperty(window, 'scrollY', {
+      configurable: true,
+      value: 1700,
+    });
+    Object.defineProperty(document.documentElement, 'scrollHeight', {
+      configurable: true,
+      value: 1900,
+    });
+
+    window.dispatchEvent(new Event('scroll'));
+
+    expect(document.querySelectorAll('.imageGrid')).toHaveLength(8);
+    expect(document.querySelectorAll('.carousel-slide')).toHaveLength(8);
+    expect(scrollRefresh).toHaveBeenCalled();
+  });
+
   it('renders selection mode with the dark-theme body class', async () => {
     const { bootstrapPage } = await import('../../src/lib/page');
     const images = Array.from({ length: 18 }, (_, index) => createImage(`selection-${index + 1}`));

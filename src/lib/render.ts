@@ -63,38 +63,36 @@ function renderPicture(
   `;
 }
 
+export function renderGridItem(image: DecoratedImage, mode: PageMode) {
+  return `
+    <button
+      class="image imageGrid ${image.sizeClass}"
+      data-image-index="${image.index}"
+      aria-label="Open image ${image.index + 1} in lightbox"
+    >
+      ${renderPicture(image, 'grid', image.index < 6 ? 'eager' : 'lazy', getGridSizes(image, mode))}
+    </button>
+  `;
+}
+
+export function renderLightboxSlide(image: DecoratedImage) {
+  return `
+    <figure class="carousel-slide" data-image-index="${image.index}">
+      ${renderPicture(image, 'lightbox', 'lazy')}
+    </figure>
+  `;
+}
+
 function renderGrid(images: readonly DecoratedImage[], mode: PageMode) {
   if (images.length === 0) {
     return `<p class="status-message">No images available yet.</p>`;
   }
 
-  return `
-    ${images
-      .map(
-        (image, index) => `
-          <button
-            class="image imageGrid ${image.sizeClass}"
-            data-image-index="${index}"
-            aria-label="Open image ${index + 1} in lightbox"
-          >
-            ${renderPicture(image, 'grid', index < 6 ? 'eager' : 'lazy', getGridSizes(image, mode))}
-          </button>
-        `
-      )
-      .join('')}
-  `;
+  return images.map((image) => renderGridItem(image, mode)).join('');
 }
 
 function renderLightbox(images: readonly DecoratedImage[]) {
-  return images
-    .map(
-      (image, index) => `
-        <figure class="carousel-slide" data-image-index="${index}">
-          ${renderPicture(image, 'lightbox', 'lazy')}
-        </figure>
-      `
-    )
-    .join('');
+  return images.map((image) => renderLightboxSlide(image)).join('');
 }
 
 export function createPageMarkup({

@@ -5,7 +5,7 @@ import { aboutHtml, images as allImages } from './content';
 import { initCursor } from './cursor';
 import { LightboxController } from './lightbox';
 import { decorateImages, shuffleItems } from './random';
-import { createPageMarkup } from './render';
+import { createPageMarkup, renderGridItem, renderLightboxSlide } from './render';
 import { selectImageCluster } from './selection';
 import { initSmoothScroll } from './smooth-scroll';
 import { lockBodyScroll, unlockBodyScroll } from './body-scroll';
@@ -76,7 +76,10 @@ function initGrid(root: ParentNode, mode: PageMode) {
   const header = root.querySelector<HTMLElement>('header');
 
   if (!main || !grid) {
-    return () => {};
+    return {
+      refresh() {},
+      destroy() {},
+    };
   }
 
   const cleanupHandlers: Array<() => void> = [];
@@ -109,14 +112,14 @@ function initGrid(root: ParentNode, mode: PageMode) {
     return tracks;
   };
 
-  const setupAnimations = () => {
-    gsap.to(main, {
-      opacity: 1,
-      duration: 1.6,
-      y: 0,
-    });
+  const animateGridItems = (items: Iterable<HTMLElement>) => {
+    Array.from(items).forEach((item) => {
+      if (item.dataset.scrollAnimated === 'true') {
+        return;
+      }
 
-    gsap.utils.toArray<HTMLElement>('.inner .image').forEach((item) => {
+      item.dataset.scrollAnimated = 'true';
+
       gsap.from(item, {
         opacity: 0,
         y: 120,
@@ -171,43 +174,83 @@ function initGrid(root: ParentNode, mode: PageMode) {
   updateDenseGridMetrics();
   requestAnimationFrame(() => {
     updateDenseGridMetrics();
-    setupAnimations();
+    gsap.to(main, {
+      opacity: 1,
+      duration: 1.6,
+      y: 0,
+    });
+    animateGridItems(gsap.utils.toArray<HTMLElement>('.inner .image'));
   });
 
   const handleResize = () => updateDenseGridMetrics();
   window.addEventListener('resize', handleResize);
   cleanupHandlers.push(() => window.removeEventListener('resize', handleResize));
-  return () => {
-    cleanupHandlers.forEach((cleanup) => cleanup());
+  return {
+    refresh(newItems?: Iterable<HTMLElement>) {
+      updateDenseGridMetrics();
+
+      if (!newItems) {
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        animateGridItems(newItems);
+        ScrollTrigger.refresh();
+      });
+    },
+    destroy() {
+      cleanupHandlers.forEach((cleanup) => cleanup());
+    },
   };
 }
 
-function bindGridHover(gridImages: HTMLElement[], lightbox: LightboxController) {
-  const cleanupHandlers: Array<() => void> = [];
+function bindGridImage(
+  image: HTMLElement,
+  lightbox: LightboxController | null,
+  cleanupHandlers: Array<() => void>
+) {
   const grid = document.querySelector<HTMLElement>('main .inner');
+  const index = Number(image.dataset.imageIndex);
 
-  gridImages.forEach((image) => {
-    const index = Number(image.dataset.imageIndex);
+  const handleClick = () => {
+    lightbox?.open(index);
+  };
 
-    const handleEnter = () => {
-      grid?.classList.add('hovering-image');
-      lightbox.centerOnIndex(index);
-    };
+  image.addEventListener('click', handleClick);
+  cleanupHandlers.push(() => image.removeEventListener('click', handleClick));
 
-    const handleLeave = () => {
-      grid?.classList.remove('hovering-image');
-    };
+  if (!lightbox) {
+    return;
+  }
 
-    image.addEventListener('mouseenter', handleEnter);
-    image.addEventListener('mouseleave', handleLeave);
+  const handleEnter = () => {
+    grid?.classList.add('hovering-image');
+    lightbox.centerOnIndex(index);
+  };
 
-    cleanupHandlers.push(() => {
-      image.removeEventListener('mouseenter', handleEnter);
-      image.removeEventListener('mouseleave', handleLeave);
-    });
+  const handleLeave = () => {
+    grid?.classList.remove('hovering-image');
+  };
+
+  image.addEventListener('mouseenter', handleEnter);
+  image.addEventListener('mouseleave', handleLeave);
+
+  cleanupHandlers.push(() => {
+    image.removeEventListener('mouseenter', handleEnter);
+    image.removeEventListener('mouseleave', handleLeave);
   });
+}
 
-  return () => cleanupHandlers.forEach((cleanup) => cleanup());
+function decorateImageBatch(
+  mode: PageMode,
+  images: readonly ImageRecord[],
+  startingIndex: number,
+  random = Math.random
+) {
+  return buildPageImages(mode, images, random).map((image, index) => ({
+    ...image,
+    index: startingIndex + index,
+  }));
 }
 
 export function bootstrapPage({
@@ -238,18 +281,71 @@ export function bootstrapPage({
     shouldHandle: () => !document.body.classList.contains('no-scroll'),
   });
   const gridCleanup = initGrid(app, mode);
+  const cleanupHandlers: Array<() => void> = [];
 
   const overlay = app.querySelector<HTMLElement>('.lightbox-carousel');
   const carousel = app.querySelector<HTMLElement>('.carousel');
-  const gridImages = Array.from(app.querySelectorAll<HTMLElement>('.imageGrid'));
   const lightbox = overlay && carousel ? new LightboxController(overlay, carousel) : null;
-  const hoverCleanup = lightbox ? bindGridHover(gridImages, lightbox) : () => {};
+  const gridElement = app.querySelector<HTMLElement>('main .inner');
 
-  gridImages.forEach((image) => {
-    image.addEventListener('click', () => {
-      lightbox?.open(Number(image.dataset.imageIndex));
-    });
+  Array.from(app.querySelectorAll<HTMLElement>('.imageGrid')).forEach((image) => {
+    bindGridImage(image, lightbox, cleanupHandlers);
   });
+
+  if (mode === 'archive' && gridElement && carousel && images.length > 0) {
+    let renderedCount = pageImages.length;
+    let isAppending = false;
+    const threshold = 256;
+
+    const appendLoop = () => {
+      if (isAppending) {
+        return;
+      }
+
+      isAppending = true;
+
+      const nextBatch = decorateImageBatch(mode, images, renderedCount, random);
+
+      if (nextBatch.length === 0) {
+        isAppending = false;
+        return;
+      }
+
+      gridElement.insertAdjacentHTML(
+        'beforeend',
+        nextBatch.map((image) => renderGridItem(image, mode)).join('')
+      );
+      carousel.insertAdjacentHTML(
+        'beforeend',
+        nextBatch.map((image) => renderLightboxSlide(image)).join('')
+      );
+      lightbox?.refreshSlides();
+
+      const appendedImages = Array.from(gridElement.querySelectorAll<HTMLElement>('.imageGrid')).slice(
+        renderedCount
+      );
+
+      appendedImages.forEach((image) => {
+        bindGridImage(image, lightbox, cleanupHandlers);
+      });
+
+      renderedCount += nextBatch.length;
+      gridCleanup.refresh(appendedImages);
+      isAppending = false;
+    };
+
+    const maybeAppendLoop = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const pageHeight = document.documentElement.scrollHeight;
+
+      if (pageHeight - scrollPosition <= threshold) {
+        appendLoop();
+      }
+    };
+
+    window.addEventListener('scroll', maybeAppendLoop, { passive: true });
+    cleanupHandlers.push(() => window.removeEventListener('scroll', maybeAppendLoop));
+  }
 
   return {
     pageImages,
@@ -257,8 +353,8 @@ export function bootstrapPage({
       introCleanup();
       cursorCleanup();
       smoothScrollCleanup();
-      gridCleanup();
-      hoverCleanup();
+      cleanupHandlers.forEach((cleanup) => cleanup());
+      gridCleanup.destroy();
       lightbox?.destroy();
     },
   };
