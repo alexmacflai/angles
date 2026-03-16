@@ -1,0 +1,108 @@
+{
+  "id": "21725f451e77",
+  "filename": "Laputaalrío_43.jpg",
+  "slug": "laputaalr-o-43",
+  "width": 3888,
+  "height": 2592,
+  "aspectRatio": 1.5,
+  "tags": [
+    "composition",
+    "detail",
+    "lamp",
+    "nature",
+    "night",
+    "object",
+    "reflection",
+    "subject",
+    "time",
+    "type",
+    "urban",
+    "water"
+  ],
+  "alt": "Laputaalrío 43",
+  "sourceHash": "833b4e559a8f8430963dc40ca9061d8f2a0332a2",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/laputaalr-o-43/grid-1600.avif",
+      "jpeg": "/generated/images/laputaalr-o-43/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/laputaalr-o-43/grid-preview.avif",
+        "jpeg": "/generated/images/laputaalr-o-43/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/laputaalr-o-43/grid-360.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/laputaalr-o-43/grid-640.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/laputaalr-o-43/grid-960.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/laputaalr-o-43/grid-1280.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/laputaalr-o-43/grid-1600.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/laputaalr-o-43/lightbox.avif",
+      "jpeg": "/generated/images/laputaalr-o-43/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/laputaalr-o-43/lightbox-720.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/laputaalr-o-43/lightbox-1080.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/laputaalr-o-43/lightbox.avif",
+          "jpeg": "/generated/images/laputaalr-o-43/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/laputaalr-o-43/lightbox-preview.avif",
+        "jpeg": "/generated/images/laputaalr-o-43/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/laputaalr-o-43/original.jpg",
+      "width": 3888,
+      "height": 2592,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

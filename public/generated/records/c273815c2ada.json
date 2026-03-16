@@ -1,0 +1,105 @@
+{
+  "id": "c273815c2ada",
+  "filename": "Gaviota_07.jpg",
+  "slug": "gaviota-07",
+  "width": 3191,
+  "height": 1132,
+  "aspectRatio": 2.8189,
+  "tags": [
+    "animal",
+    "bird",
+    "composition",
+    "nature",
+    "panoramic",
+    "reflection",
+    "subject",
+    "type",
+    "water"
+  ],
+  "alt": "Gaviota 07",
+  "sourceHash": "a7ffd006b4f165127365eee9e216f36c58fa775d",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/gaviota-07/grid-1600.avif",
+      "jpeg": "/generated/images/gaviota-07/grid-1600.jpg",
+      "width": 1600,
+      "height": 568,
+      "preview": {
+        "avif": "/generated/images/gaviota-07/grid-preview.avif",
+        "jpeg": "/generated/images/gaviota-07/grid-preview.jpg",
+        "width": 32,
+        "height": 11
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/gaviota-07/grid-360.avif",
+          "jpeg": "/generated/images/gaviota-07/grid-360.jpg",
+          "width": 360,
+          "height": 128
+        },
+        {
+          "avif": "/generated/images/gaviota-07/grid-640.avif",
+          "jpeg": "/generated/images/gaviota-07/grid-640.jpg",
+          "width": 640,
+          "height": 227
+        },
+        {
+          "avif": "/generated/images/gaviota-07/grid-960.avif",
+          "jpeg": "/generated/images/gaviota-07/grid-960.jpg",
+          "width": 960,
+          "height": 341
+        },
+        {
+          "avif": "/generated/images/gaviota-07/grid-1280.avif",
+          "jpeg": "/generated/images/gaviota-07/grid-1280.jpg",
+          "width": 1280,
+          "height": 454
+        },
+        {
+          "avif": "/generated/images/gaviota-07/grid-1600.avif",
+          "jpeg": "/generated/images/gaviota-07/grid-1600.jpg",
+          "width": 1600,
+          "height": 568
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/gaviota-07/lightbox.avif",
+      "jpeg": "/generated/images/gaviota-07/lightbox.jpg",
+      "width": 1600,
+      "height": 568,
+      "sources": [
+        {
+          "avif": "/generated/images/gaviota-07/lightbox-720.avif",
+          "jpeg": "/generated/images/gaviota-07/lightbox-720.jpg",
+          "width": 720,
+          "height": 255
+        },
+        {
+          "avif": "/generated/images/gaviota-07/lightbox-1080.avif",
+          "jpeg": "/generated/images/gaviota-07/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 383
+        },
+        {
+          "avif": "/generated/images/gaviota-07/lightbox.avif",
+          "jpeg": "/generated/images/gaviota-07/lightbox.jpg",
+          "width": 1600,
+          "height": 568
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/gaviota-07/lightbox-preview.avif",
+        "jpeg": "/generated/images/gaviota-07/lightbox-preview.jpg",
+        "width": 40,
+        "height": 14
+      }
+    },
+    "original": {
+      "url": "/generated/images/gaviota-07/original.jpg",
+      "width": 3191,
+      "height": 1132,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

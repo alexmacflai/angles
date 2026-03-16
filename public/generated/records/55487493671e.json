@@ -1,0 +1,104 @@
+{
+  "id": "55487493671e",
+  "filename": "Aguapato_06.jpg",
+  "slug": "aguapato-06",
+  "width": 2188,
+  "height": 3282,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "animal",
+    "bird",
+    "composition",
+    "fog",
+    "nature",
+    "reflection",
+    "subject",
+    "water"
+  ],
+  "alt": "Aguapato 06",
+  "sourceHash": "562f185d9fa2d1bba9f0581110ca0fb4a0702356",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/aguapato-06/grid-1067.avif",
+      "jpeg": "/generated/images/aguapato-06/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/aguapato-06/grid-preview.avif",
+        "jpeg": "/generated/images/aguapato-06/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/aguapato-06/grid-240.avif",
+          "jpeg": "/generated/images/aguapato-06/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/aguapato-06/grid-427.avif",
+          "jpeg": "/generated/images/aguapato-06/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/aguapato-06/grid-640.avif",
+          "jpeg": "/generated/images/aguapato-06/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/aguapato-06/grid-853.avif",
+          "jpeg": "/generated/images/aguapato-06/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/aguapato-06/grid-1067.avif",
+          "jpeg": "/generated/images/aguapato-06/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/aguapato-06/lightbox.avif",
+      "jpeg": "/generated/images/aguapato-06/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/aguapato-06/lightbox-480.avif",
+          "jpeg": "/generated/images/aguapato-06/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/aguapato-06/lightbox-720.avif",
+          "jpeg": "/generated/images/aguapato-06/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/aguapato-06/lightbox.avif",
+          "jpeg": "/generated/images/aguapato-06/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/aguapato-06/lightbox-preview.avif",
+        "jpeg": "/generated/images/aguapato-06/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/aguapato-06/original.jpg",
+      "width": 2188,
+      "height": 3282,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "312f0e67203e",
+  "filename": "_DSF5177.jpg",
+  "slug": "dsf5177",
+  "width": 5195,
+  "height": 3463,
+  "aspectRatio": 1.5001,
+  "tags": [
+    "action",
+    "dancing",
+    "group",
+    "people",
+    "portrait",
+    "subject",
+    "type"
+  ],
+  "alt": "DSF5177",
+  "sourceHash": "5acf6ab68f28c3df877be0d1a60bbf307a97ea6f",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf5177/grid-1600.avif",
+      "jpeg": "/generated/images/dsf5177/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/dsf5177/grid-preview.avif",
+        "jpeg": "/generated/images/dsf5177/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5177/grid-360.avif",
+          "jpeg": "/generated/images/dsf5177/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/dsf5177/grid-640.avif",
+          "jpeg": "/generated/images/dsf5177/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/dsf5177/grid-960.avif",
+          "jpeg": "/generated/images/dsf5177/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf5177/grid-1280.avif",
+          "jpeg": "/generated/images/dsf5177/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/dsf5177/grid-1600.avif",
+          "jpeg": "/generated/images/dsf5177/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf5177/lightbox.avif",
+      "jpeg": "/generated/images/dsf5177/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5177/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf5177/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/dsf5177/lightbox-1080.avif",
+          "jpeg": "/generated/images/dsf5177/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf5177/lightbox.avif",
+          "jpeg": "/generated/images/dsf5177/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf5177/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf5177/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf5177/original.jpg",
+      "width": 5195,
+      "height": 3463,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

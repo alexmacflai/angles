@@ -1,0 +1,103 @@
+{
+  "id": "8bf08fa89e6c",
+  "filename": "Escocia_12 de mayo de 2015_310.jpg",
+  "slug": "escocia-12-de-mayo-de-2015-310",
+  "width": 3493,
+  "height": 2338,
+  "aspectRatio": 1.494,
+  "tags": [
+    "architecture",
+    "building",
+    "indoors",
+    "people",
+    "person",
+    "place",
+    "subject"
+  ],
+  "alt": "Escocia 12 de mayo de 2015 310",
+  "sourceHash": "728cbf1c820e0551996c6d380bba9f2d37687cbd",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-1600.avif",
+      "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-1600.jpg",
+      "width": 1600,
+      "height": 1071,
+      "preview": {
+        "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-preview.avif",
+        "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-360.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-360.jpg",
+          "width": 360,
+          "height": 241
+        },
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-640.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-640.jpg",
+          "width": 640,
+          "height": 428
+        },
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-960.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-960.jpg",
+          "width": 960,
+          "height": 643
+        },
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-1280.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-1280.jpg",
+          "width": 1280,
+          "height": 857
+        },
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-1600.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/grid-1600.jpg",
+          "width": 1600,
+          "height": 1071
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox.avif",
+      "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox.jpg",
+      "width": 1600,
+      "height": 1071,
+      "sources": [
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox-720.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox-720.jpg",
+          "width": 720,
+          "height": 482
+        },
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox-1080.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 723
+        },
+        {
+          "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox.avif",
+          "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox.jpg",
+          "width": 1600,
+          "height": 1071
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox-preview.avif",
+        "jpeg": "/generated/images/escocia-12-de-mayo-de-2015-310/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/escocia-12-de-mayo-de-2015-310/original.jpg",
+      "width": 3493,
+      "height": 2338,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

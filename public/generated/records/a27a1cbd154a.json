@@ -1,0 +1,105 @@
+{
+  "id": "a27a1cbd154a",
+  "filename": "Reflejos_03.jpg",
+  "slug": "reflejos-03",
+  "width": 2592,
+  "height": 3888,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "cityscape",
+    "composition",
+    "landscape",
+    "nature",
+    "reflection",
+    "silhouette",
+    "subject",
+    "type",
+    "water"
+  ],
+  "alt": "Reflejos 03",
+  "sourceHash": "3d3e2eb9bec4a6ae6663fd3fbad44742993d5100",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/reflejos-03/grid-1067.avif",
+      "jpeg": "/generated/images/reflejos-03/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/reflejos-03/grid-preview.avif",
+        "jpeg": "/generated/images/reflejos-03/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/reflejos-03/grid-240.avif",
+          "jpeg": "/generated/images/reflejos-03/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/reflejos-03/grid-427.avif",
+          "jpeg": "/generated/images/reflejos-03/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/reflejos-03/grid-640.avif",
+          "jpeg": "/generated/images/reflejos-03/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/reflejos-03/grid-853.avif",
+          "jpeg": "/generated/images/reflejos-03/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/reflejos-03/grid-1067.avif",
+          "jpeg": "/generated/images/reflejos-03/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/reflejos-03/lightbox.avif",
+      "jpeg": "/generated/images/reflejos-03/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/reflejos-03/lightbox-480.avif",
+          "jpeg": "/generated/images/reflejos-03/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/reflejos-03/lightbox-720.avif",
+          "jpeg": "/generated/images/reflejos-03/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/reflejos-03/lightbox.avif",
+          "jpeg": "/generated/images/reflejos-03/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/reflejos-03/lightbox-preview.avif",
+        "jpeg": "/generated/images/reflejos-03/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/reflejos-03/original.jpg",
+      "width": 2592,
+      "height": 3888,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

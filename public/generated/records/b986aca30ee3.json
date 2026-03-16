@@ -1,0 +1,107 @@
+{
+  "id": "b986aca30ee3",
+  "filename": "_DSF2058.jpg",
+  "slug": "dsf2058",
+  "width": 3905,
+  "height": 5858,
+  "aspectRatio": 0.6666,
+  "tags": [
+    "action",
+    "clouds",
+    "nature",
+    "people",
+    "person",
+    "portrait",
+    "sitting",
+    "street-photography",
+    "subject",
+    "transport",
+    "type"
+  ],
+  "alt": "DSF2058",
+  "sourceHash": "b2e2a44d76f82857af8eadac72e36241ae9f99ee",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf2058/grid-1067.avif",
+      "jpeg": "/generated/images/dsf2058/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/dsf2058/grid-preview.avif",
+        "jpeg": "/generated/images/dsf2058/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2058/grid-240.avif",
+          "jpeg": "/generated/images/dsf2058/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/dsf2058/grid-427.avif",
+          "jpeg": "/generated/images/dsf2058/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf2058/grid-640.avif",
+          "jpeg": "/generated/images/dsf2058/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/dsf2058/grid-853.avif",
+          "jpeg": "/generated/images/dsf2058/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/dsf2058/grid-1067.avif",
+          "jpeg": "/generated/images/dsf2058/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf2058/lightbox.avif",
+      "jpeg": "/generated/images/dsf2058/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2058/lightbox-480.avif",
+          "jpeg": "/generated/images/dsf2058/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf2058/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf2058/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/dsf2058/lightbox.avif",
+          "jpeg": "/generated/images/dsf2058/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf2058/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf2058/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf2058/original.jpg",
+      "width": 3905,
+      "height": 5858,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

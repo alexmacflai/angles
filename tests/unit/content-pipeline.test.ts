@@ -129,6 +129,11 @@ describe('content pipeline', () => {
     const manifest = await buildContent(rootDir);
     const imagesJson = await fs.readFile(path.join(rootDir, 'src', 'generated', 'images.json'), 'utf8');
     const aboutModule = await fs.readFile(path.join(rootDir, 'src', 'generated', 'about.ts'), 'utf8');
+    const selectionIndexJson = await fs.readFile(path.join(rootDir, 'public', 'generated', 'selection-index.json'), 'utf8');
+    const recordJson = await fs.readFile(
+      path.join(rootDir, 'public', 'generated', 'records', `${manifest[0].id}.json`),
+      'utf8'
+    );
 
     expect(manifest).toHaveLength(1);
     expect(JSON.parse(imagesJson)[0]).toMatchObject({
@@ -154,6 +159,12 @@ describe('content pipeline', () => {
           }),
         },
       },
+    });
+    expect(JSON.parse(selectionIndexJson)).toEqual([{ id: manifest[0].id, tags: ['window'] }]);
+    expect(JSON.parse(recordJson)).toMatchObject({
+      id: manifest[0].id,
+      filename: 'sample.jpg',
+      tags: ['window'],
     });
     expect(aboutModule).toContain('Hello 1');
   });

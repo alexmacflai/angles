@@ -1,0 +1,104 @@
+{
+  "id": "d32ab878db2d",
+  "filename": "Chorro_03.jpg",
+  "slug": "chorro-03",
+  "width": 2355,
+  "height": 3532,
+  "aspectRatio": 0.6668,
+  "tags": [
+    "composition",
+    "geomerty",
+    "minimal",
+    "nature",
+    "sky",
+    "style",
+    "subject",
+    "symmetry"
+  ],
+  "alt": "Chorro 03",
+  "sourceHash": "42720453eb4ccbce86239b560c70937c6b0d17a9",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/chorro-03/grid-1067.avif",
+      "jpeg": "/generated/images/chorro-03/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/chorro-03/grid-preview.avif",
+        "jpeg": "/generated/images/chorro-03/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/chorro-03/grid-240.avif",
+          "jpeg": "/generated/images/chorro-03/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/chorro-03/grid-427.avif",
+          "jpeg": "/generated/images/chorro-03/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/chorro-03/grid-640.avif",
+          "jpeg": "/generated/images/chorro-03/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/chorro-03/grid-853.avif",
+          "jpeg": "/generated/images/chorro-03/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/chorro-03/grid-1067.avif",
+          "jpeg": "/generated/images/chorro-03/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/chorro-03/lightbox.avif",
+      "jpeg": "/generated/images/chorro-03/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/chorro-03/lightbox-480.avif",
+          "jpeg": "/generated/images/chorro-03/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/chorro-03/lightbox-720.avif",
+          "jpeg": "/generated/images/chorro-03/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/chorro-03/lightbox.avif",
+          "jpeg": "/generated/images/chorro-03/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/chorro-03/lightbox-preview.avif",
+        "jpeg": "/generated/images/chorro-03/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/chorro-03/original.jpg",
+      "width": 2355,
+      "height": 3532,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

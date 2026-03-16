@@ -1,0 +1,110 @@
+{
+  "id": "66d67760ed4c",
+  "filename": "Ventana circularb.jpg",
+  "slug": "ventana-circularb",
+  "width": 2422,
+  "height": 3229,
+  "aspectRatio": 0.7501,
+  "tags": [
+    "architecture",
+    "city",
+    "composition",
+    "nature",
+    "ocean",
+    "outdoors",
+    "place",
+    "sea",
+    "sky",
+    "subject",
+    "texture",
+    "wall",
+    "water",
+    "window"
+  ],
+  "alt": "Ventana circularb",
+  "sourceHash": "7c4975afa3f3390ae63e9e6aa9860222a67b162b",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/ventana-circularb/grid-1200.avif",
+      "jpeg": "/generated/images/ventana-circularb/grid-1200.jpg",
+      "width": 1200,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/ventana-circularb/grid-preview.avif",
+        "jpeg": "/generated/images/ventana-circularb/grid-preview.jpg",
+        "width": 24,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/ventana-circularb/grid-270.avif",
+          "jpeg": "/generated/images/ventana-circularb/grid-270.jpg",
+          "width": 270,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/ventana-circularb/grid-480.avif",
+          "jpeg": "/generated/images/ventana-circularb/grid-480.jpg",
+          "width": 480,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/ventana-circularb/grid-720.avif",
+          "jpeg": "/generated/images/ventana-circularb/grid-720.jpg",
+          "width": 720,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/ventana-circularb/grid-960.avif",
+          "jpeg": "/generated/images/ventana-circularb/grid-960.jpg",
+          "width": 960,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/ventana-circularb/grid-1200.avif",
+          "jpeg": "/generated/images/ventana-circularb/grid-1200.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/ventana-circularb/lightbox.avif",
+      "jpeg": "/generated/images/ventana-circularb/lightbox.jpg",
+      "width": 1200,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/ventana-circularb/lightbox-540.avif",
+          "jpeg": "/generated/images/ventana-circularb/lightbox-540.jpg",
+          "width": 540,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/ventana-circularb/lightbox-810.avif",
+          "jpeg": "/generated/images/ventana-circularb/lightbox-810.jpg",
+          "width": 810,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/ventana-circularb/lightbox.avif",
+          "jpeg": "/generated/images/ventana-circularb/lightbox.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/ventana-circularb/lightbox-preview.avif",
+        "jpeg": "/generated/images/ventana-circularb/lightbox-preview.jpg",
+        "width": 30,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/ventana-circularb/original.jpg",
+      "width": 2422,
+      "height": 3229,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

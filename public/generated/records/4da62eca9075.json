@@ -1,0 +1,103 @@
+{
+  "id": "4da62eca9075",
+  "filename": "_DSF2825.jpg",
+  "slug": "dsf2825",
+  "width": 5157,
+  "height": 3438,
+  "aspectRatio": 1.5,
+  "tags": [
+    "architecture",
+    "building",
+    "composition",
+    "people",
+    "shadows",
+    "silhouette",
+    "subject"
+  ],
+  "alt": "DSF2825",
+  "sourceHash": "25128792bf42e65ebacccc442c572b36e5520806",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf2825/grid-1600.avif",
+      "jpeg": "/generated/images/dsf2825/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/dsf2825/grid-preview.avif",
+        "jpeg": "/generated/images/dsf2825/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2825/grid-360.avif",
+          "jpeg": "/generated/images/dsf2825/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/dsf2825/grid-640.avif",
+          "jpeg": "/generated/images/dsf2825/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/dsf2825/grid-960.avif",
+          "jpeg": "/generated/images/dsf2825/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf2825/grid-1280.avif",
+          "jpeg": "/generated/images/dsf2825/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/dsf2825/grid-1600.avif",
+          "jpeg": "/generated/images/dsf2825/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf2825/lightbox.avif",
+      "jpeg": "/generated/images/dsf2825/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2825/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf2825/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/dsf2825/lightbox-1080.avif",
+          "jpeg": "/generated/images/dsf2825/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf2825/lightbox.avif",
+          "jpeg": "/generated/images/dsf2825/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf2825/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf2825/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf2825/original.jpg",
+      "width": 5157,
+      "height": 3438,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

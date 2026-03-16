@@ -1,0 +1,109 @@
+{
+  "id": "bf9f13531fd7",
+  "filename": "_FXT0834.jpg",
+  "slug": "fxt0834",
+  "width": 5621,
+  "height": 3747,
+  "aspectRatio": 1.5001,
+  "tags": [
+    "action",
+    "architecture",
+    "black-and-white",
+    "elderly",
+    "grass",
+    "nature",
+    "people",
+    "person",
+    "plant",
+    "road",
+    "style",
+    "subject",
+    "walking"
+  ],
+  "alt": "FXT0834",
+  "sourceHash": "3c941cf45295f5755ee73f9e7ad27394601aa78f",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/fxt0834/grid-1600.avif",
+      "jpeg": "/generated/images/fxt0834/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/fxt0834/grid-preview.avif",
+        "jpeg": "/generated/images/fxt0834/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/fxt0834/grid-360.avif",
+          "jpeg": "/generated/images/fxt0834/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/fxt0834/grid-640.avif",
+          "jpeg": "/generated/images/fxt0834/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/fxt0834/grid-960.avif",
+          "jpeg": "/generated/images/fxt0834/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/fxt0834/grid-1280.avif",
+          "jpeg": "/generated/images/fxt0834/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/fxt0834/grid-1600.avif",
+          "jpeg": "/generated/images/fxt0834/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/fxt0834/lightbox.avif",
+      "jpeg": "/generated/images/fxt0834/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/fxt0834/lightbox-720.avif",
+          "jpeg": "/generated/images/fxt0834/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/fxt0834/lightbox-1080.avif",
+          "jpeg": "/generated/images/fxt0834/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/fxt0834/lightbox.avif",
+          "jpeg": "/generated/images/fxt0834/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/fxt0834/lightbox-preview.avif",
+        "jpeg": "/generated/images/fxt0834/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/fxt0834/original.jpg",
+      "width": 5621,
+      "height": 3747,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

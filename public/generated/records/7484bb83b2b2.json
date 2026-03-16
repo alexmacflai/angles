@@ -1,0 +1,107 @@
+{
+  "id": "7484bb83b2b2",
+  "filename": "_DSF2874.jpg",
+  "slug": "dsf2874",
+  "width": 3769,
+  "height": 5654,
+  "aspectRatio": 0.6666,
+  "tags": [
+    "architecture",
+    "group",
+    "people",
+    "portrait",
+    "street-photography",
+    "style",
+    "subject",
+    "type",
+    "vivid",
+    "wall",
+    "window"
+  ],
+  "alt": "DSF2874",
+  "sourceHash": "b0d0c3f0eda6d85cfbc2215ad2119013336b2753",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf2874/grid-1067.avif",
+      "jpeg": "/generated/images/dsf2874/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/dsf2874/grid-preview.avif",
+        "jpeg": "/generated/images/dsf2874/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2874/grid-240.avif",
+          "jpeg": "/generated/images/dsf2874/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/dsf2874/grid-427.avif",
+          "jpeg": "/generated/images/dsf2874/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf2874/grid-640.avif",
+          "jpeg": "/generated/images/dsf2874/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/dsf2874/grid-853.avif",
+          "jpeg": "/generated/images/dsf2874/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/dsf2874/grid-1067.avif",
+          "jpeg": "/generated/images/dsf2874/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf2874/lightbox.avif",
+      "jpeg": "/generated/images/dsf2874/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2874/lightbox-480.avif",
+          "jpeg": "/generated/images/dsf2874/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf2874/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf2874/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/dsf2874/lightbox.avif",
+          "jpeg": "/generated/images/dsf2874/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf2874/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf2874/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf2874/original.jpg",
+      "width": 3769,
+      "height": 5654,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

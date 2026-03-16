@@ -1,3 +1,10 @@
 import { bootstrapPage } from '../lib/page';
+import { loadSelectionPageData } from '../lib/selection-data';
 
-bootstrapPage({ mode: 'selection' });
+void loadSelectionPageData().then(({ about, images }) => {
+  bootstrapPage({
+    mode: 'selection',
+    images,
+    about,
+  });
+});

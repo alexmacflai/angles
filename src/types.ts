@@ -22,7 +22,12 @@ export interface OriginalVariant {
   mimeType: string;
 }
 
-export interface ImageRecord {
+export interface SelectionIndexRecord {
+  id: string;
+  tags: string[];
+}
+
+export interface ImageRecord extends SelectionIndexRecord {
   id: string;
   filename: string;
   slug: string;

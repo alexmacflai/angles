@@ -1,0 +1,102 @@
+{
+  "id": "1b86f93f5c25",
+  "filename": "_DSF2103.jpg",
+  "slug": "dsf2103",
+  "width": 3661,
+  "height": 5491,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "architecture",
+    "clouds",
+    "nature",
+    "road",
+    "subject",
+    "tower"
+  ],
+  "alt": "DSF2103",
+  "sourceHash": "90f0f9b8e08c250d3c4ed6a224342fcb1f834254",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf2103/grid-1067.avif",
+      "jpeg": "/generated/images/dsf2103/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/dsf2103/grid-preview.avif",
+        "jpeg": "/generated/images/dsf2103/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2103/grid-240.avif",
+          "jpeg": "/generated/images/dsf2103/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/dsf2103/grid-427.avif",
+          "jpeg": "/generated/images/dsf2103/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf2103/grid-640.avif",
+          "jpeg": "/generated/images/dsf2103/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/dsf2103/grid-853.avif",
+          "jpeg": "/generated/images/dsf2103/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/dsf2103/grid-1067.avif",
+          "jpeg": "/generated/images/dsf2103/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf2103/lightbox.avif",
+      "jpeg": "/generated/images/dsf2103/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2103/lightbox-480.avif",
+          "jpeg": "/generated/images/dsf2103/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf2103/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf2103/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/dsf2103/lightbox.avif",
+          "jpeg": "/generated/images/dsf2103/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf2103/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf2103/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf2103/original.jpg",
+      "width": 3661,
+      "height": 5491,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

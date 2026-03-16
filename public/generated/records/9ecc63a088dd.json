@@ -1,0 +1,112 @@
+{
+  "id": "9ecc63a088dd",
+  "filename": "_MG_3428.jpg",
+  "slug": "mg-3428",
+  "width": 3523,
+  "height": 1720,
+  "aspectRatio": 2.0483,
+  "tags": [
+    "architecture",
+    "city",
+    "cityscape",
+    "composition",
+    "fog",
+    "landscape",
+    "light",
+    "nature",
+    "outdoors",
+    "place",
+    "plant",
+    "road",
+    "subject",
+    "tree",
+    "type",
+    "urban"
+  ],
+  "alt": "MG 3428",
+  "sourceHash": "26d028129e52d5166193eea3d4afe93ed25ef417",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/mg-3428/grid-1600.avif",
+      "jpeg": "/generated/images/mg-3428/grid-1600.jpg",
+      "width": 1600,
+      "height": 781,
+      "preview": {
+        "avif": "/generated/images/mg-3428/grid-preview.avif",
+        "jpeg": "/generated/images/mg-3428/grid-preview.jpg",
+        "width": 32,
+        "height": 16
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/mg-3428/grid-360.avif",
+          "jpeg": "/generated/images/mg-3428/grid-360.jpg",
+          "width": 360,
+          "height": 176
+        },
+        {
+          "avif": "/generated/images/mg-3428/grid-640.avif",
+          "jpeg": "/generated/images/mg-3428/grid-640.jpg",
+          "width": 640,
+          "height": 312
+        },
+        {
+          "avif": "/generated/images/mg-3428/grid-960.avif",
+          "jpeg": "/generated/images/mg-3428/grid-960.jpg",
+          "width": 960,
+          "height": 469
+        },
+        {
+          "avif": "/generated/images/mg-3428/grid-1280.avif",
+          "jpeg": "/generated/images/mg-3428/grid-1280.jpg",
+          "width": 1280,
+          "height": 625
+        },
+        {
+          "avif": "/generated/images/mg-3428/grid-1600.avif",
+          "jpeg": "/generated/images/mg-3428/grid-1600.jpg",
+          "width": 1600,
+          "height": 781
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/mg-3428/lightbox.avif",
+      "jpeg": "/generated/images/mg-3428/lightbox.jpg",
+      "width": 1600,
+      "height": 781,
+      "sources": [
+        {
+          "avif": "/generated/images/mg-3428/lightbox-720.avif",
+          "jpeg": "/generated/images/mg-3428/lightbox-720.jpg",
+          "width": 720,
+          "height": 352
+        },
+        {
+          "avif": "/generated/images/mg-3428/lightbox-1080.avif",
+          "jpeg": "/generated/images/mg-3428/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 527
+        },
+        {
+          "avif": "/generated/images/mg-3428/lightbox.avif",
+          "jpeg": "/generated/images/mg-3428/lightbox.jpg",
+          "width": 1600,
+          "height": 781
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/mg-3428/lightbox-preview.avif",
+        "jpeg": "/generated/images/mg-3428/lightbox-preview.jpg",
+        "width": 40,
+        "height": 20
+      }
+    },
+    "original": {
+      "url": "/generated/images/mg-3428/original.jpg",
+      "width": 3523,
+      "height": 1720,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

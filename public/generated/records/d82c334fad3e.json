@@ -1,0 +1,104 @@
+{
+  "id": "d82c334fad3e",
+  "filename": "Agüita_01.jpg",
+  "slug": "ag-ita-01",
+  "width": 2592,
+  "height": 3888,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "composition",
+    "golden-hour",
+    "nature",
+    "occluded",
+    "reflection",
+    "subject",
+    "time",
+    "water"
+  ],
+  "alt": "Agüita 01",
+  "sourceHash": "d28c4e1b221fe0982fe66ff87def74978cb1d2d7",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/ag-ita-01/grid-1067.avif",
+      "jpeg": "/generated/images/ag-ita-01/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/ag-ita-01/grid-preview.avif",
+        "jpeg": "/generated/images/ag-ita-01/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/ag-ita-01/grid-240.avif",
+          "jpeg": "/generated/images/ag-ita-01/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/ag-ita-01/grid-427.avif",
+          "jpeg": "/generated/images/ag-ita-01/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/ag-ita-01/grid-640.avif",
+          "jpeg": "/generated/images/ag-ita-01/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/ag-ita-01/grid-853.avif",
+          "jpeg": "/generated/images/ag-ita-01/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/ag-ita-01/grid-1067.avif",
+          "jpeg": "/generated/images/ag-ita-01/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/ag-ita-01/lightbox.avif",
+      "jpeg": "/generated/images/ag-ita-01/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/ag-ita-01/lightbox-480.avif",
+          "jpeg": "/generated/images/ag-ita-01/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/ag-ita-01/lightbox-720.avif",
+          "jpeg": "/generated/images/ag-ita-01/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/ag-ita-01/lightbox.avif",
+          "jpeg": "/generated/images/ag-ita-01/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/ag-ita-01/lightbox-preview.avif",
+        "jpeg": "/generated/images/ag-ita-01/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/ag-ita-01/original.jpg",
+      "width": 2592,
+      "height": 3888,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

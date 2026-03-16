@@ -1,0 +1,106 @@
+{
+  "id": "b41f03540188",
+  "filename": "_MG_3954.jpg",
+  "slug": "mg-3954",
+  "width": 2172,
+  "height": 2715,
+  "aspectRatio": 0.8,
+  "tags": [
+    "composition",
+    "grass",
+    "nature",
+    "people",
+    "person",
+    "plant",
+    "shadows",
+    "street-photography",
+    "subject",
+    "type"
+  ],
+  "alt": "MG 3954",
+  "sourceHash": "d8016b7fbdfa5f7a10f114f1e1b461767f813162",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/mg-3954/grid-1280.avif",
+      "jpeg": "/generated/images/mg-3954/grid-1280.jpg",
+      "width": 1280,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/mg-3954/grid-preview.avif",
+        "jpeg": "/generated/images/mg-3954/grid-preview.jpg",
+        "width": 26,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/mg-3954/grid-288.avif",
+          "jpeg": "/generated/images/mg-3954/grid-288.jpg",
+          "width": 288,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/mg-3954/grid-512.avif",
+          "jpeg": "/generated/images/mg-3954/grid-512.jpg",
+          "width": 512,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/mg-3954/grid-768.avif",
+          "jpeg": "/generated/images/mg-3954/grid-768.jpg",
+          "width": 768,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/mg-3954/grid-1024.avif",
+          "jpeg": "/generated/images/mg-3954/grid-1024.jpg",
+          "width": 1024,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/mg-3954/grid-1280.avif",
+          "jpeg": "/generated/images/mg-3954/grid-1280.jpg",
+          "width": 1280,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/mg-3954/lightbox.avif",
+      "jpeg": "/generated/images/mg-3954/lightbox.jpg",
+      "width": 1280,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/mg-3954/lightbox-576.avif",
+          "jpeg": "/generated/images/mg-3954/lightbox-576.jpg",
+          "width": 576,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/mg-3954/lightbox-864.avif",
+          "jpeg": "/generated/images/mg-3954/lightbox-864.jpg",
+          "width": 864,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/mg-3954/lightbox.avif",
+          "jpeg": "/generated/images/mg-3954/lightbox.jpg",
+          "width": 1280,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/mg-3954/lightbox-preview.avif",
+        "jpeg": "/generated/images/mg-3954/lightbox-preview.jpg",
+        "width": 32,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/mg-3954/original.jpg",
+      "width": 2172,
+      "height": 2715,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { aboutHtml, images as allImages } from './content';
 import { initCursor } from './cursor';
 import { LightboxController } from './lightbox';
 import { requestProgressivePicture } from './progressive-image';
@@ -22,8 +21,8 @@ const GRID_PRELOAD_MARGIN = '300px 0px';
 export interface BootstrapPageOptions {
   mode: PageMode;
   app?: HTMLElement;
-  images?: readonly ImageRecord[];
-  about?: string;
+  images: readonly ImageRecord[];
+  about: string;
   random?: () => number;
 }
 
@@ -386,8 +385,8 @@ function waitForGridPictures(root: ParentNode) {
 export function bootstrapPage({
   mode,
   app = document.querySelector<HTMLElement>('#app') ?? undefined,
-  images = allImages,
-  about = aboutHtml,
+  images,
+  about,
   random = Math.random,
 }: BootstrapPageOptions) {
   if (!app) {

@@ -1,0 +1,105 @@
+{
+  "id": "876a4d9b1f54",
+  "filename": "_FXT0759.jpg",
+  "slug": "fxt0759",
+  "width": 3398,
+  "height": 5097,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "architecture",
+    "building",
+    "composition",
+    "geomerty",
+    "minimal",
+    "style",
+    "subject",
+    "vivid",
+    "window"
+  ],
+  "alt": "FXT0759",
+  "sourceHash": "faeb3b80458ce7bb5b6d453fe420cfb9b794c785",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/fxt0759/grid-1067.avif",
+      "jpeg": "/generated/images/fxt0759/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/fxt0759/grid-preview.avif",
+        "jpeg": "/generated/images/fxt0759/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/fxt0759/grid-240.avif",
+          "jpeg": "/generated/images/fxt0759/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/fxt0759/grid-427.avif",
+          "jpeg": "/generated/images/fxt0759/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/fxt0759/grid-640.avif",
+          "jpeg": "/generated/images/fxt0759/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/fxt0759/grid-853.avif",
+          "jpeg": "/generated/images/fxt0759/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/fxt0759/grid-1067.avif",
+          "jpeg": "/generated/images/fxt0759/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/fxt0759/lightbox.avif",
+      "jpeg": "/generated/images/fxt0759/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/fxt0759/lightbox-480.avif",
+          "jpeg": "/generated/images/fxt0759/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/fxt0759/lightbox-720.avif",
+          "jpeg": "/generated/images/fxt0759/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/fxt0759/lightbox.avif",
+          "jpeg": "/generated/images/fxt0759/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/fxt0759/lightbox-preview.avif",
+        "jpeg": "/generated/images/fxt0759/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/fxt0759/original.jpg",
+      "width": 3398,
+      "height": 5097,
+      "mimeType": "image/jpeg"
+    }
+  }
+}
