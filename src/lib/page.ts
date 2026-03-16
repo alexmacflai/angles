@@ -5,7 +5,7 @@ import { aboutHtml, images as allImages } from './content';
 import { initCursor } from './cursor';
 import { LightboxController } from './lightbox';
 import { decorateImages, shuffleItems } from './random';
-import { createPageMarkup } from './render';
+import { createPageMarkup, renderGridMarkup, renderLightboxSlide } from './render';
 import { selectImageCluster } from './selection';
 import { initSmoothScroll } from './smooth-scroll';
 import { lockBodyScroll, unlockBodyScroll } from './body-scroll';
@@ -42,6 +42,11 @@ function initIntro(root: ParentNode) {
     return () => {};
   }
 
+  intro.querySelectorAll<HTMLAnchorElement>('.intro-copy a[href]').forEach((link) => {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
+
   prepareTextAnimation(root);
 
   const toggleButtons = root.querySelectorAll<HTMLElement>('.intro-toggle');
@@ -68,21 +73,53 @@ function initIntro(root: ParentNode) {
 function initGrid(root: ParentNode, mode: PageMode) {
   const main = root.querySelector<HTMLElement>('main');
   const grid = root.querySelector<HTMLElement>('main .inner');
+  const header = root.querySelector<HTMLElement>('header');
 
   if (!main || !grid) {
-    return () => {};
+    return {
+      refresh() {},
+      destroy() {},
+    };
   }
 
   const cleanupHandlers: Array<() => void> = [];
 
-  const setupAnimations = () => {
-    gsap.to(main, {
-      opacity: 1,
-      duration: 1.6,
-      y: 0,
-    });
+  const countGridTracks = (template: string) => {
+    const normalizedTemplate = template.trim();
+    const repeatMatch = normalizedTemplate.match(/^repeat\((\d+),/);
 
-    gsap.utils.toArray<HTMLElement>('.inner .image').forEach((item) => {
+    if (repeatMatch) {
+      return Number(repeatMatch[1]);
+    }
+
+    if (!normalizedTemplate) {
+      return 0;
+    }
+
+    let depth = 0;
+    let tracks = 1;
+
+    for (const character of normalizedTemplate) {
+      if (character === '(') {
+        depth += 1;
+      } else if (character === ')') {
+        depth = Math.max(depth - 1, 0);
+      } else if (character === ' ' && depth === 0) {
+        tracks += 1;
+      }
+    }
+
+    return tracks;
+  };
+
+  const animateGridItems = (items: Iterable<HTMLElement>) => {
+    Array.from(items).forEach((item) => {
+      if (item.dataset.scrollAnimated === 'true') {
+        return;
+      }
+
+      item.dataset.scrollAnimated = 'true';
+
       gsap.from(item, {
         opacity: 0,
         y: 120,
@@ -100,12 +137,36 @@ function initGrid(root: ParentNode, mode: PageMode) {
   };
 
   const updateDenseGridMetrics = () => {
+    if (mode === 'selection') {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+      if (isMobile) {
+        main.style.height = '';
+        grid.style.removeProperty('--grid-row-unit');
+        return;
+      }
+
+      const styles = window.getComputedStyle(grid);
+      const columns = countGridTracks(styles.gridTemplateColumns);
+      const gap = parseFloat(styles.rowGap || styles.gap || '0');
+      const viewportHeight = window.innerHeight;
+      const headerHeight = header?.getBoundingClientRect().height ?? 0;
+      const mainHeight = Math.max(viewportHeight - headerHeight, 0);
+      const rows = Math.ceil(grid.children.length / Math.max(columns, 1));
+      const availableHeight = mainHeight - gap * Math.max(rows - 1, 0);
+      const rowUnit = availableHeight / Math.max(rows, 1);
+
+      main.style.height = `${mainHeight}px`;
+      grid.style.setProperty('--grid-row-unit', `${Math.max(rowUnit, 0)}px`);
+      return;
+    }
+
     const styles = window.getComputedStyle(grid);
-    const columns = styles.gridTemplateColumns.split(' ').filter(Boolean).length;
+    const columns = countGridTracks(styles.gridTemplateColumns);
     const gap = parseFloat(styles.columnGap || '0');
     const availableWidth = grid.clientWidth - gap * Math.max(columns - 1, 0);
     const columnWidth = availableWidth / Math.max(columns, 1);
-    const rowUnit = mode === 'selection' ? columnWidth * 0.75 : columnWidth;
+    const rowUnit = columnWidth;
 
     grid.style.setProperty('--grid-row-unit', `${rowUnit}px`);
   };
@@ -113,48 +174,83 @@ function initGrid(root: ParentNode, mode: PageMode) {
   updateDenseGridMetrics();
   requestAnimationFrame(() => {
     updateDenseGridMetrics();
-    setupAnimations();
+    gsap.to(main, {
+      opacity: 1,
+      duration: 1.6,
+      y: 0,
+    });
+    animateGridItems(gsap.utils.toArray<HTMLElement>('.inner .image'));
   });
 
   const handleResize = () => updateDenseGridMetrics();
   window.addEventListener('resize', handleResize);
   cleanupHandlers.push(() => window.removeEventListener('resize', handleResize));
+  return {
+    refresh(newItems?: Iterable<HTMLElement>) {
+      updateDenseGridMetrics();
 
-  if (mode === 'selection') {
-    main.style.paddingTop = '0';
-  }
+      if (!newItems) {
+        return;
+      }
 
-  return () => {
-    cleanupHandlers.forEach((cleanup) => cleanup());
+      requestAnimationFrame(() => {
+        animateGridItems(newItems);
+        ScrollTrigger.refresh();
+      });
+    },
+    destroy() {
+      cleanupHandlers.forEach((cleanup) => cleanup());
+    },
   };
 }
 
-function bindGridHover(gridImages: HTMLElement[], lightbox: LightboxController) {
-  const cleanupHandlers: Array<() => void> = [];
+function bindGridImage(
+  image: HTMLElement,
+  lightbox: LightboxController | null,
+  cleanupHandlers: Array<() => void>
+) {
   const grid = document.querySelector<HTMLElement>('main .inner');
+  const index = Number(image.dataset.imageIndex);
 
-  gridImages.forEach((image) => {
-    const index = Number(image.dataset.imageIndex);
+  const handleClick = () => {
+    lightbox?.open(index);
+  };
 
-    const handleEnter = () => {
-      grid?.classList.add('hovering-image');
-      lightbox.centerOnIndex(index);
-    };
+  image.addEventListener('click', handleClick);
+  cleanupHandlers.push(() => image.removeEventListener('click', handleClick));
 
-    const handleLeave = () => {
-      grid?.classList.remove('hovering-image');
-    };
+  if (!lightbox) {
+    return;
+  }
 
-    image.addEventListener('mouseenter', handleEnter);
-    image.addEventListener('mouseleave', handleLeave);
+  const handleEnter = () => {
+    grid?.classList.add('hovering-image');
+    lightbox.centerOnIndex(index);
+  };
 
-    cleanupHandlers.push(() => {
-      image.removeEventListener('mouseenter', handleEnter);
-      image.removeEventListener('mouseleave', handleLeave);
-    });
+  const handleLeave = () => {
+    grid?.classList.remove('hovering-image');
+  };
+
+  image.addEventListener('mouseenter', handleEnter);
+  image.addEventListener('mouseleave', handleLeave);
+
+  cleanupHandlers.push(() => {
+    image.removeEventListener('mouseenter', handleEnter);
+    image.removeEventListener('mouseleave', handleLeave);
   });
+}
 
-  return () => cleanupHandlers.forEach((cleanup) => cleanup());
+function decorateImageBatch(
+  mode: PageMode,
+  images: readonly ImageRecord[],
+  startingIndex: number,
+  random = Math.random
+) {
+  return buildPageImages(mode, images, random).map((image, index) => ({
+    ...image,
+    index: startingIndex + index,
+  }));
 }
 
 export function bootstrapPage({
@@ -177,6 +273,7 @@ export function bootstrapPage({
     mode,
     images: pageImages,
     aboutHtml: about,
+    random,
   });
 
   const introCleanup = initIntro(app);
@@ -185,18 +282,71 @@ export function bootstrapPage({
     shouldHandle: () => !document.body.classList.contains('no-scroll'),
   });
   const gridCleanup = initGrid(app, mode);
+  const cleanupHandlers: Array<() => void> = [];
 
   const overlay = app.querySelector<HTMLElement>('.lightbox-carousel');
   const carousel = app.querySelector<HTMLElement>('.carousel');
-  const gridImages = Array.from(app.querySelectorAll<HTMLElement>('.imageGrid'));
   const lightbox = overlay && carousel ? new LightboxController(overlay, carousel) : null;
-  const hoverCleanup = lightbox ? bindGridHover(gridImages, lightbox) : () => {};
+  const gridElement = app.querySelector<HTMLElement>('main .inner');
 
-  gridImages.forEach((image) => {
-    image.addEventListener('click', () => {
-      lightbox?.open(Number(image.dataset.imageIndex));
-    });
+  Array.from(app.querySelectorAll<HTMLElement>('.imageGrid')).forEach((image) => {
+    bindGridImage(image, lightbox, cleanupHandlers);
   });
+
+  if (mode === 'archive' && gridElement && carousel && images.length > 0) {
+    let renderedCount = pageImages.length;
+    let isAppending = false;
+    const threshold = 256;
+
+    const appendLoop = () => {
+      if (isAppending) {
+        return;
+      }
+
+      isAppending = true;
+
+      const nextBatch = decorateImageBatch(mode, images, renderedCount, random);
+
+      if (nextBatch.length === 0) {
+        isAppending = false;
+        return;
+      }
+
+      gridElement.insertAdjacentHTML(
+        'beforeend',
+        renderGridMarkup(nextBatch, mode, random)
+      );
+      carousel.insertAdjacentHTML(
+        'beforeend',
+        nextBatch.map((image) => renderLightboxSlide(image)).join('')
+      );
+      lightbox?.refreshSlides();
+
+      const appendedImages = Array.from(gridElement.querySelectorAll<HTMLElement>('.imageGrid')).slice(
+        renderedCount
+      );
+
+      appendedImages.forEach((image) => {
+        bindGridImage(image, lightbox, cleanupHandlers);
+      });
+
+      renderedCount += nextBatch.length;
+      gridCleanup.refresh(appendedImages);
+      isAppending = false;
+    };
+
+    const maybeAppendLoop = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const pageHeight = document.documentElement.scrollHeight;
+
+      if (pageHeight - scrollPosition <= threshold) {
+        appendLoop();
+      }
+    };
+
+    window.addEventListener('scroll', maybeAppendLoop, { passive: true });
+    cleanupHandlers.push(() => window.removeEventListener('scroll', maybeAppendLoop));
+  }
 
   return {
     pageImages,
@@ -204,8 +354,8 @@ export function bootstrapPage({
       introCleanup();
       cursorCleanup();
       smoothScrollCleanup();
-      gridCleanup();
-      hoverCleanup();
+      cleanupHandlers.forEach((cleanup) => cleanup());
+      gridCleanup.destroy();
       lightbox?.destroy();
     },
   };

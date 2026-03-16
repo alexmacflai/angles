@@ -64,6 +64,12 @@ button {
   min-height: 100vh;
 }
 
+body.page-selection #app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
 #site-title,
 h1,
 a {
@@ -179,7 +185,7 @@ header {
 .intro-copy strong,
 .intro-copy em,
 .intro-copy a {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
 }
 
 .intro-copy strong {
@@ -200,13 +206,12 @@ header {
 }
 
 .word {
-  margin-right: 0.5rem;
   display: inline-block;
 }
 
 .text-animation .letter {
   display: inline-block;
-  line-height: 1rem;
+  line-height: 130%;
   transform: translateY(50px);
   opacity: 0;
 }
@@ -218,10 +223,16 @@ main {
 }
 
 body.page-selection main {
-  padding-top: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 1rem 1rem;
+  display: flex;
 }
 
 body.page-selection main .inner {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -264,6 +275,11 @@ body.page-selection .image.tres {
   transition: opacity 0.32s ease;
 }
 
+.image-gap {
+  pointer-events: none;
+  visibility: hidden;
+}
+
 .image picture,
 .image img {
   display: block;
@@ -272,7 +288,7 @@ body.page-selection .image.tres {
 }
 
 body.page-selection .image {
-  aspect-ratio: 4 / 3;
+  height: 100%;
 }
 
 .image img {
@@ -415,6 +431,16 @@ body.page-archive #cursor .dark {
   * {
     cursor: auto;
   }
+
+  body.page-selection main .inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  body.page-selection main .inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 767px) {
@@ -434,15 +460,40 @@ body.page-archive #cursor .dark {
   .intro-copy strong,
   .intro-copy em,
   .intro-copy a {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   main .inner {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .image-gap {
+    display: none;
+  }
+
+  body.page-selection #app {
+    display: block;
+    min-height: auto;
+  }
+
+  body.page-selection main {
+    display: block;
+    flex: none;
+    min-height: auto;
+    height: auto;
+    padding: 0 1rem 1rem;
   }
 
   body.page-selection main .inner {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: auto;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+  }
+
+  body.page-selection .image {
+    height: auto;
+    aspect-ratio: 4 / 5;
   }
 }
 
@@ -472,10 +523,6 @@ body.page-archive #cursor .dark {
 
   main .inner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  body.page-selection main .inner {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .image.uno {

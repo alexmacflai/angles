@@ -6,6 +6,10 @@ export interface ImageVariant {
   height: number;
 }
 
+export interface ResponsiveImageVariant extends ImageVariant {
+  sources: ImageVariant[];
+}
+
 export interface OriginalVariant {
   url: string;
   width: number;
@@ -24,7 +28,7 @@ export interface ImageRecord {
   tags: string[];
   alt: string;
   variants: {
-    grid: ImageVariant;
+    grid: ResponsiveImageVariant;
     lightbox: ImageVariant;
     original: OriginalVariant;
   };
@@ -37,3 +41,11 @@ export interface DecoratedImage extends ImageRecord {
   index: number;
   sizeClass: SizeClass;
 }
+
+export interface GridGap {
+  kind: 'gap';
+  key: string;
+  sizeClass: SizeClass;
+}
+
+export type GridSlot = DecoratedImage | GridGap;

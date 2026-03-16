@@ -14,6 +14,8 @@ const markdown = new MarkdownIt({
 });
 
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.tif', '.tiff']);
+const GRID_VARIANT_SIZES = [480, 800, 1200, 1600, 2000];
+const LIGHTBOX_VARIANT_SIZE = 1800;
 
 function getImageMimeType(extension) {
   switch (extension.toLowerCase()) {
@@ -199,6 +201,21 @@ async function writeVariantFormats(image, outputBasePath) {
   ]);
 }
 
+function buildResponsiveVariantSources(width, height, sizes) {
+  const uniqueSources = new Map();
+
+  for (const size of sizes) {
+    const scaled = scaleToFit(width, height, size, size);
+    const key = `${scaled.width}x${scaled.height}`;
+
+    if (!uniqueSources.has(key)) {
+      uniqueSources.set(key, scaled);
+    }
+  }
+
+  return [...uniqueSources.values()].sort((left, right) => left.width - right.width || left.height - right.height);
+}
+
 async function createImageVariants({ record, originalsDir, outputDir }) {
   const sourcePath = path.join(originalsDir, record.filename);
   const baseName = path.parse(record.filename).name;
@@ -216,18 +233,25 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
     throw new Error(`Unable to read dimensions for "${record.filename}".`);
   }
 
-  const gridDimensions = scaleToFit(metadata.width, metadata.height, 1400, 1400);
-  const lightboxDimensions = scaleToFit(metadata.width, metadata.height, 1800, 1800);
+  const gridSources = buildResponsiveVariantSources(metadata.width, metadata.height, GRID_VARIANT_SIZES);
+  const largestGridSource = gridSources.at(-1);
+  const lightboxDimensions = scaleToFit(metadata.width, metadata.height, LIGHTBOX_VARIANT_SIZE, LIGHTBOX_VARIANT_SIZE);
+
+  if (!largestGridSource) {
+    throw new Error(`Unable to build grid variants for "${record.filename}".`);
+  }
 
   await Promise.all([
-    writeVariantFormats(
-      sourceImage.clone().resize({
-        width: gridDimensions.width,
-        height: gridDimensions.height,
-        fit: 'inside',
-        withoutEnlargement: true,
-      }),
-      path.join(targetDir, 'grid')
+    ...gridSources.map((gridSource) =>
+      writeVariantFormats(
+        sourceImage.clone().resize({
+          width: gridSource.width,
+          height: gridSource.height,
+          fit: 'inside',
+          withoutEnlargement: true,
+        }),
+        path.join(targetDir, `grid-${gridSource.width}`)
+      )
     ),
     writeVariantFormats(
       sourceImage.clone().resize({
@@ -253,11 +277,18 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
     sourceHash: record.sourceHash,
     variants: {
       grid: {
-        avif: `/generated/images/${slug}/grid.avif`,
-        webp: `/generated/images/${slug}/grid.webp`,
-        jpeg: `/generated/images/${slug}/grid.jpg`,
-        width: gridDimensions.width,
-        height: gridDimensions.height,
+        avif: `/generated/images/${slug}/grid-${largestGridSource.width}.avif`,
+        webp: `/generated/images/${slug}/grid-${largestGridSource.width}.webp`,
+        jpeg: `/generated/images/${slug}/grid-${largestGridSource.width}.jpg`,
+        width: largestGridSource.width,
+        height: largestGridSource.height,
+        sources: gridSources.map((gridSource) => ({
+          avif: `/generated/images/${slug}/grid-${gridSource.width}.avif`,
+          webp: `/generated/images/${slug}/grid-${gridSource.width}.webp`,
+          jpeg: `/generated/images/${slug}/grid-${gridSource.width}.jpg`,
+          width: gridSource.width,
+          height: gridSource.height,
+        })),
       },
       lightbox: {
         avif: `/generated/images/${slug}/lightbox.avif`,

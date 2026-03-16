@@ -7,11 +7,36 @@ function wrapLetters(word: string) {
     .join('');
 }
 
+function wrapTextContent(text: string) {
+  return text
+    .split(/(\s+)/)
+    .filter((token) => token.length > 0)
+    .map((token) => (/^\s+$/.test(token) ? token : `<span class="word">${wrapLetters(token)}</span>`))
+    .join('');
+}
+
+function mergeTrailingPunctuation(paragraph: HTMLElement) {
+  const words = Array.from(paragraph.querySelectorAll<HTMLElement>('.word'));
+
+  words.forEach((word, index) => {
+    if (!/^[,.;:!?]+$/.test(word.textContent ?? '')) {
+      return;
+    }
+
+    const previousWord = words[index - 1];
+
+    if (!previousWord) {
+      return;
+    }
+
+    previousWord.append(...Array.from(word.childNodes));
+    word.remove();
+  });
+}
+
 function transformNodeContent(node: ChildNode): string {
   if (node.nodeType === Node.TEXT_NODE) {
-    const words = node.textContent?.trim().split(/\s+/).filter(Boolean) ?? [];
-
-    return words.map((word) => `<span class="word">${wrapLetters(word)}</span>`).join(' ');
+    return wrapTextContent(node.textContent ?? '');
   }
 
   if (!(node instanceof HTMLElement)) {
@@ -19,8 +44,7 @@ function transformNodeContent(node: ChildNode): string {
   }
 
   const clone = node.cloneNode(false) as HTMLElement;
-  const words = node.textContent?.trim().split(/\s+/).filter(Boolean) ?? [];
-  clone.innerHTML = words.map((word) => `<span class="word">${wrapLetters(word)}</span>`).join(' ');
+  clone.innerHTML = Array.from(node.childNodes).map(transformNodeContent).join('');
   return clone.outerHTML;
 }
 
@@ -34,7 +58,8 @@ export function prepareTextAnimation(root: ParentNode) {
 
     const temp = document.createElement('div');
     temp.innerHTML = paragraph.innerHTML;
-    paragraph.innerHTML = Array.from(temp.childNodes).map(transformNodeContent).join(' ');
+    paragraph.innerHTML = Array.from(temp.childNodes).map(transformNodeContent).join('');
+    mergeTrailingPunctuation(paragraph);
     paragraph.setAttribute('data-letters-ready', 'true');
   });
 }
