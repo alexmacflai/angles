@@ -209,15 +209,7 @@ function initGrid(root: ParentNode, mode: PageMode) {
 
 function getInitialBatchSize(mode: PageMode) {
   if (mode === 'selection') {
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      return 4;
-    }
-
-    if (window.matchMedia('(max-width: 1279px)').matches) {
-      return 6;
-    }
-
-    return 8;
+    return 6;
   }
 
   if (window.matchMedia('(max-width: 500px)').matches) {

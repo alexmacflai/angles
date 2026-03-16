@@ -307,4 +307,22 @@ describe('bootstrapPage', () => {
     expect(main.style.height).toBe('');
     expect(grid.style.getPropertyValue('--grid-row-unit')).toBe('');
   });
+
+  it('renders the full six-image selection on mobile', async () => {
+    const { bootstrapPage } = await import('../../src/lib/page');
+    const images = Array.from({ length: 18 }, (_, index) => createImage(`selection-mobile-batch-${index + 1}`));
+
+    window.innerWidth = 390;
+
+    const result = bootstrapPage({
+      mode: 'selection',
+      app: document.querySelector('#app') as HTMLElement,
+      images,
+      about: '<p>Hello selection</p>',
+      random: () => 0.2,
+    });
+
+    expect(document.querySelectorAll('.imageGrid')).toHaveLength(6);
+    expect(result.pageImages).toHaveLength(6);
+  });
 });
