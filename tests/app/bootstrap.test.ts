@@ -132,17 +132,18 @@ describe('bootstrapPage', () => {
 
   it('renders the archive page, injects about html, and opens/closes the lightbox', async () => {
     const { bootstrapPage } = await import('../../src/lib/page');
-    const images = Array.from({ length: 12 }, (_, index) => createImage(`archive-${index + 1}`));
+    const images = Array.from({ length: 20 }, (_, index) => createImage(`archive-${index + 1}`));
 
     bootstrapPage({
       mode: 'archive',
       app: document.querySelector('#app') as HTMLElement,
       images,
       about: '<p>Hello 12</p>',
-      random: () => 0.1,
+      random: () => 0.95,
     });
 
-    expect(document.querySelectorAll('.imageGrid')).toHaveLength(12);
+    expect(document.querySelectorAll('.imageGrid')).toHaveLength(20);
+    expect(document.querySelectorAll('.image-gap.tres')).toHaveLength(9);
     expect(document.querySelector('.intro-copy')?.textContent).toContain('Hello 12');
 
     const firstImage = document.querySelector<HTMLElement>('.imageGrid');
@@ -166,10 +167,11 @@ describe('bootstrapPage', () => {
       app: document.querySelector('#app') as HTMLElement,
       images,
       about: '<p>Hello loop</p>',
-      random: () => 0.1,
+      random: () => 0.95,
     });
 
     expect(document.querySelectorAll('.imageGrid')).toHaveLength(4);
+    expect(document.querySelectorAll('.image-gap')).toHaveLength(2);
     expect(document.querySelectorAll('.carousel-slide')).toHaveLength(4);
 
     Object.defineProperty(window, 'scrollY', {
@@ -184,6 +186,7 @@ describe('bootstrapPage', () => {
     window.dispatchEvent(new Event('scroll'));
 
     expect(document.querySelectorAll('.imageGrid')).toHaveLength(8);
+    expect(document.querySelectorAll('.image-gap')).toHaveLength(4);
     expect(document.querySelectorAll('.carousel-slide')).toHaveLength(8);
     expect(scrollRefresh).toHaveBeenCalled();
   });

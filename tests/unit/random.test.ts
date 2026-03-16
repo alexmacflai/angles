@@ -1,5 +1,5 @@
-import { decorateImages, getSizeClass, shuffleItems } from '../../src/lib/random';
-import type { ImageRecord } from '../../src/types';
+import { buildGridSlots, decorateImages, getSizeClass, shuffleItems } from '../../src/lib/random';
+import type { DecoratedImage, ImageRecord } from '../../src/types';
 
 const fixtureImages: ImageRecord[] = [
   {
@@ -92,5 +92,57 @@ describe('random helpers', () => {
     expect(decorated).toHaveLength(3);
     expect(decorated[0]).toMatchObject({ index: 0, sizeClass: 'uno' });
     expect(decorated[2]).toMatchObject({ index: 2, sizeClass: 'uno' });
+  });
+
+  it('adds archive gaps using the configured per-size ratios', () => {
+    const decorated: DecoratedImage[] = Array.from({ length: 10 }, (_, index) => ({
+      ...fixtureImages[index % fixtureImages.length],
+      id: `uno-${index}`,
+      filename: `uno-${index}.jpg`,
+      slug: `uno-${index}`,
+      sourceHash: `uno-${index}-hash`,
+      index,
+      sizeClass: 'uno',
+    })).concat(
+      Array.from({ length: 8 }, (_, index) => ({
+        ...fixtureImages[index % fixtureImages.length],
+        id: `dos-${index}`,
+        filename: `dos-${index}.jpg`,
+        slug: `dos-${index}`,
+        sourceHash: `dos-${index}-hash`,
+        index: index + 10,
+        sizeClass: 'dos' as const,
+      })),
+      Array.from({ length: 7 }, (_, index) => ({
+        ...fixtureImages[index % fixtureImages.length],
+        id: `tres-${index}`,
+        filename: `tres-${index}.jpg`,
+        slug: `tres-${index}`,
+        sourceHash: `tres-${index}-hash`,
+        index: index + 18,
+        sizeClass: 'tres' as const,
+      }))
+    );
+
+    const slots = buildGridSlots(decorated, 'archive', () => 0.2);
+    const gapCounts = slots.reduce<Record<string, number>>((accumulator, slot) => {
+      if ('kind' in slot && slot.kind === 'gap') {
+        accumulator[slot.sizeClass] = (accumulator[slot.sizeClass] ?? 0) + 1;
+      }
+
+      return accumulator;
+    }, {});
+
+    expect(gapCounts).toEqual({
+      uno: 1,
+      dos: 2,
+      tres: 3,
+    });
+  });
+
+  it('does not add gaps outside archive mode', () => {
+    const decorated = decorateImages(fixtureImages, () => 0.7);
+
+    expect(buildGridSlots(decorated, 'selection', () => 0.2)).toEqual(decorated);
   });
 });

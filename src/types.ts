@@ -41,3 +41,11 @@ export interface DecoratedImage extends ImageRecord {
   index: number;
   sizeClass: SizeClass;
 }
+
+export interface GridGap {
+  kind: 'gap';
+  key: string;
+  sizeClass: SizeClass;
+}
+
+export type GridSlot = DecoratedImage | GridGap;

@@ -1,5 +1,6 @@
 import { closeIcon, handIcon, logoIcon, wandIcon } from './icons';
-import type { DecoratedImage, PageMode } from '../types';
+import { buildGridSlots } from './random';
+import type { DecoratedImage, GridSlot, PageMode } from '../types';
 
 function escapeHtml(value: string) {
   return value
@@ -75,6 +76,20 @@ export function renderGridItem(image: DecoratedImage, mode: PageMode) {
   `;
 }
 
+function renderGridGap(slot: GridSlot) {
+  if (!('kind' in slot) || slot.kind !== 'gap') {
+    return '';
+  }
+
+  return `
+    <div
+      class="image image-gap ${slot.sizeClass}"
+      aria-hidden="true"
+      data-gap-key="${slot.key}"
+    ></div>
+  `;
+}
+
 export function renderLightboxSlide(image: DecoratedImage) {
   return `
     <figure class="carousel-slide" data-image-index="${image.index}">
@@ -83,12 +98,14 @@ export function renderLightboxSlide(image: DecoratedImage) {
   `;
 }
 
-function renderGrid(images: readonly DecoratedImage[], mode: PageMode) {
+export function renderGridMarkup(images: readonly DecoratedImage[], mode: PageMode, random = Math.random) {
   if (images.length === 0) {
     return `<p class="status-message">No images available yet.</p>`;
   }
 
-  return images.map((image) => renderGridItem(image, mode)).join('');
+  return buildGridSlots(images, mode, random)
+    .map((slot) => ('kind' in slot ? renderGridGap(slot) : renderGridItem(slot, mode)))
+    .join('');
 }
 
 function renderLightbox(images: readonly DecoratedImage[]) {
@@ -99,10 +116,12 @@ export function createPageMarkup({
   mode,
   images,
   aboutHtml,
+  random = Math.random,
 }: {
   mode: PageMode;
   images: readonly DecoratedImage[];
   aboutHtml: string;
+  random?: () => number;
 }) {
   const selectionLabel = mode === 'archive' ? 'make a selection' : 'make another';
 
@@ -136,7 +155,7 @@ export function createPageMarkup({
       </div>
     </header>
     <main class="grid" id="imageGrid">
-      <div class="inner">${renderGrid(images, mode)}</div>
+      <div class="inner">${renderGridMarkup(images, mode, random)}</div>
     </main>
     <div class="lightbox-carousel" aria-hidden="true">
       <div class="carousel">${renderLightbox(images)}</div>

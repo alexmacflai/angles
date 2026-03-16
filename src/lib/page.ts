@@ -5,7 +5,7 @@ import { aboutHtml, images as allImages } from './content';
 import { initCursor } from './cursor';
 import { LightboxController } from './lightbox';
 import { decorateImages, shuffleItems } from './random';
-import { createPageMarkup, renderGridItem, renderLightboxSlide } from './render';
+import { createPageMarkup, renderGridMarkup, renderLightboxSlide } from './render';
 import { selectImageCluster } from './selection';
 import { initSmoothScroll } from './smooth-scroll';
 import { lockBodyScroll, unlockBodyScroll } from './body-scroll';
@@ -273,6 +273,7 @@ export function bootstrapPage({
     mode,
     images: pageImages,
     aboutHtml: about,
+    random,
   });
 
   const introCleanup = initIntro(app);
@@ -313,7 +314,7 @@ export function bootstrapPage({
 
       gridElement.insertAdjacentHTML(
         'beforeend',
-        nextBatch.map((image) => renderGridItem(image, mode)).join('')
+        renderGridMarkup(nextBatch, mode, random)
       );
       carousel.insertAdjacentHTML(
         'beforeend',

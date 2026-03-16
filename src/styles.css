@@ -275,6 +275,11 @@ body.page-selection .image.tres {
   transition: opacity 0.32s ease;
 }
 
+.image-gap {
+  pointer-events: none;
+  visibility: hidden;
+}
+
 .image picture,
 .image img {
   display: block;
@@ -460,6 +465,10 @@ body.page-archive #cursor .dark {
 
   main .inner {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .image-gap {
+    display: none;
   }
 
   body.page-selection #app {
