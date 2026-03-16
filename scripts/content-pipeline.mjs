@@ -15,9 +15,9 @@ const markdown = new MarkdownIt({
 
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.tif', '.tiff']);
 const GRID_VARIANT_SIZES = [360, 640, 960, 1280, 1600];
-const GRID_PREVIEW_SIZE = 48;
-const LIGHTBOX_VARIANT_SIZE = 1600;
-const LIGHTBOX_PREVIEW_SIZE = 64;
+const GRID_PREVIEW_SIZE = 32;
+const LIGHTBOX_VARIANT_SIZES = [720, 1080, 1600];
+const LIGHTBOX_PREVIEW_SIZE = 40;
 
 function getImageMimeType(extension) {
   switch (extension.toLowerCase()) {
@@ -235,7 +235,8 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
   const gridSources = buildResponsiveVariantSources(metadata.width, metadata.height, GRID_VARIANT_SIZES);
   const largestGridSource = gridSources.at(-1);
   const previewDimensions = scaleToFit(metadata.width, metadata.height, GRID_PREVIEW_SIZE, GRID_PREVIEW_SIZE);
-  const lightboxDimensions = scaleToFit(metadata.width, metadata.height, LIGHTBOX_VARIANT_SIZE, LIGHTBOX_VARIANT_SIZE);
+  const lightboxSources = buildResponsiveVariantSources(metadata.width, metadata.height, LIGHTBOX_VARIANT_SIZES);
+  const largestLightboxSource = lightboxSources.at(-1);
   const lightboxPreviewDimensions = scaleToFit(
     metadata.width,
     metadata.height,
@@ -243,7 +244,7 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
     LIGHTBOX_PREVIEW_SIZE
   );
 
-  if (!largestGridSource) {
+  if (!largestGridSource || !largestLightboxSource) {
     throw new Error(`Unable to build grid variants for "${record.filename}".`);
   }
 
@@ -268,14 +269,19 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
       }),
       path.join(targetDir, 'grid-preview')
     ),
-    writeVariantFormats(
-      sourceImage.clone().resize({
-        width: lightboxDimensions.width,
-        height: lightboxDimensions.height,
-        fit: 'inside',
-        withoutEnlargement: true,
-      }),
-      path.join(targetDir, 'lightbox')
+    ...lightboxSources.map((lightboxSource) =>
+      writeVariantFormats(
+        sourceImage.clone().resize({
+          width: lightboxSource.width,
+          height: lightboxSource.height,
+          fit: 'inside',
+          withoutEnlargement: true,
+        }),
+        path.join(
+          targetDir,
+          lightboxSource.width === largestLightboxSource.width ? 'lightbox' : `lightbox-${lightboxSource.width}`
+        )
+      )
     ),
     writeVariantFormats(
       sourceImage.clone().resize({
@@ -321,8 +327,19 @@ async function createImageVariants({ record, originalsDir, outputDir }) {
       lightbox: {
         avif: `/generated/images/${slug}/lightbox.avif`,
         jpeg: `/generated/images/${slug}/lightbox.jpg`,
-        width: lightboxDimensions.width,
-        height: lightboxDimensions.height,
+        width: largestLightboxSource.width,
+        height: largestLightboxSource.height,
+        sources: lightboxSources.map((lightboxSource) => {
+          const suffix =
+            lightboxSource.width === largestLightboxSource.width ? 'lightbox' : `lightbox-${lightboxSource.width}`;
+
+          return {
+            avif: `/generated/images/${slug}/${suffix}.avif`,
+            jpeg: `/generated/images/${slug}/${suffix}.jpg`,
+            width: lightboxSource.width,
+            height: lightboxSource.height,
+          };
+        }),
         preview: {
           avif: `/generated/images/${slug}/lightbox-preview.avif`,
           jpeg: `/generated/images/${slug}/lightbox-preview.jpg`,
@@ -349,6 +366,24 @@ async function writeAboutModule({ aboutPath, outputPath, imageCount }) {
   await fs.writeFile(outputPath, moduleSource, 'utf8');
 }
 
+async function writeSelectionData({ generatedPublicDir, manifest }) {
+  const selectionIndex = manifest.map((image) => ({
+    id: image.id,
+    tags: image.tags,
+  }));
+  const recordsDir = path.join(generatedPublicDir, 'records');
+
+  await fs.rm(recordsDir, { recursive: true, force: true });
+  await fs.mkdir(recordsDir, { recursive: true });
+
+  await Promise.all([
+    fs.writeFile(path.join(generatedPublicDir, 'selection-index.json'), JSON.stringify(selectionIndex, null, 2), 'utf8'),
+    ...manifest.map((image) =>
+      fs.writeFile(path.join(recordsDir, `${image.id}.json`), JSON.stringify(image, null, 2), 'utf8')
+    ),
+  ]);
+}
+
 export async function buildContent(rootDir, options = {}) {
   const { onProgress } = options;
   const contentDir = path.join(rootDir, 'content');
@@ -356,10 +391,12 @@ export async function buildContent(rootDir, options = {}) {
   const originalsDir = path.join(contentDir, 'images', 'originals');
   const aboutPath = path.join(contentDir, 'about.md');
   const generatedDir = path.join(rootDir, 'src', 'generated');
-  const outputDir = path.join(rootDir, 'public', 'generated', 'images');
+  const generatedPublicDir = path.join(rootDir, 'public', 'generated');
+  const outputDir = path.join(generatedPublicDir, 'images');
 
   await fs.mkdir(generatedDir, { recursive: true });
   await fs.rm(outputDir, { recursive: true, force: true });
+  await fs.rm(path.join(generatedPublicDir, 'selection-index.json'), { force: true });
   await fs.mkdir(outputDir, { recursive: true });
 
   const [catalogRaw, originalEntries] = await Promise.all([
@@ -415,6 +452,10 @@ export async function buildContent(rootDir, options = {}) {
       aboutPath,
       outputPath: path.join(generatedDir, 'about.ts'),
       imageCount: manifest.length,
+    }),
+    writeSelectionData({
+      generatedPublicDir,
+      manifest,
     }),
   ]);
 

@@ -1,0 +1,108 @@
+{
+  "id": "59ebe47b19e6",
+  "filename": "Orilla_02.jpg",
+  "slug": "orilla-02",
+  "width": 2468,
+  "height": 3702,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "beach",
+    "blue",
+    "color",
+    "desaturated",
+    "fog",
+    "nature",
+    "outdoors",
+    "place",
+    "sea",
+    "style",
+    "subject",
+    "water"
+  ],
+  "alt": "Orilla 02",
+  "sourceHash": "adae5f59536c710af7bfb84ac7830167dfacedb1",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/orilla-02/grid-1067.avif",
+      "jpeg": "/generated/images/orilla-02/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/orilla-02/grid-preview.avif",
+        "jpeg": "/generated/images/orilla-02/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/orilla-02/grid-240.avif",
+          "jpeg": "/generated/images/orilla-02/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/orilla-02/grid-427.avif",
+          "jpeg": "/generated/images/orilla-02/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/orilla-02/grid-640.avif",
+          "jpeg": "/generated/images/orilla-02/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/orilla-02/grid-853.avif",
+          "jpeg": "/generated/images/orilla-02/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/orilla-02/grid-1067.avif",
+          "jpeg": "/generated/images/orilla-02/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/orilla-02/lightbox.avif",
+      "jpeg": "/generated/images/orilla-02/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/orilla-02/lightbox-480.avif",
+          "jpeg": "/generated/images/orilla-02/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/orilla-02/lightbox-720.avif",
+          "jpeg": "/generated/images/orilla-02/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/orilla-02/lightbox.avif",
+          "jpeg": "/generated/images/orilla-02/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/orilla-02/lightbox-preview.avif",
+        "jpeg": "/generated/images/orilla-02/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/orilla-02/original.jpg",
+      "width": 2468,
+      "height": 3702,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": "75959f20e291",
+  "filename": "20171203_031_Alpbach.jpg",
+  "slug": "20171203-031-alpbach",
+  "width": 4032,
+  "height": 3024,
+  "aspectRatio": 1.3333,
+  "tags": [
+    "architecture",
+    "building",
+    "clouds",
+    "nature",
+    "subject"
+  ],
+  "alt": "20171203 031 Alpbach",
+  "sourceHash": "e6fcfb6cc935178f819d39fad2839e244a4b3b60",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/20171203-031-alpbach/grid-1600.avif",
+      "jpeg": "/generated/images/20171203-031-alpbach/grid-1600.jpg",
+      "width": 1600,
+      "height": 1200,
+      "preview": {
+        "avif": "/generated/images/20171203-031-alpbach/grid-preview.avif",
+        "jpeg": "/generated/images/20171203-031-alpbach/grid-preview.jpg",
+        "width": 32,
+        "height": 24
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/20171203-031-alpbach/grid-360.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/grid-360.jpg",
+          "width": 360,
+          "height": 270
+        },
+        {
+          "avif": "/generated/images/20171203-031-alpbach/grid-640.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/grid-640.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/20171203-031-alpbach/grid-960.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/grid-960.jpg",
+          "width": 960,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/20171203-031-alpbach/grid-1280.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/grid-1280.jpg",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/20171203-031-alpbach/grid-1600.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/grid-1600.jpg",
+          "width": 1600,
+          "height": 1200
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/20171203-031-alpbach/lightbox.avif",
+      "jpeg": "/generated/images/20171203-031-alpbach/lightbox.jpg",
+      "width": 1600,
+      "height": 1200,
+      "sources": [
+        {
+          "avif": "/generated/images/20171203-031-alpbach/lightbox-720.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/lightbox-720.jpg",
+          "width": 720,
+          "height": 540
+        },
+        {
+          "avif": "/generated/images/20171203-031-alpbach/lightbox-1080.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 810
+        },
+        {
+          "avif": "/generated/images/20171203-031-alpbach/lightbox.avif",
+          "jpeg": "/generated/images/20171203-031-alpbach/lightbox.jpg",
+          "width": 1600,
+          "height": 1200
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/20171203-031-alpbach/lightbox-preview.avif",
+        "jpeg": "/generated/images/20171203-031-alpbach/lightbox-preview.jpg",
+        "width": 40,
+        "height": 30
+      }
+    },
+    "original": {
+      "url": "/generated/images/20171203-031-alpbach/original.jpg",
+      "width": 4032,
+      "height": 3024,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

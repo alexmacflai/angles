@@ -1,0 +1,103 @@
+{
+  "id": "f04d3a647aa7",
+  "filename": "_MG_8342b.jpg",
+  "slug": "mg-8342b",
+  "width": 2848,
+  "height": 4272,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "architecture",
+    "composition",
+    "nature",
+    "sky",
+    "subject",
+    "texture",
+    "window"
+  ],
+  "alt": "MG 8342b",
+  "sourceHash": "22b632045417f9e1e05dbfc65ebadd9706f426c5",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/mg-8342b/grid-1067.avif",
+      "jpeg": "/generated/images/mg-8342b/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/mg-8342b/grid-preview.avif",
+        "jpeg": "/generated/images/mg-8342b/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/mg-8342b/grid-240.avif",
+          "jpeg": "/generated/images/mg-8342b/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/mg-8342b/grid-427.avif",
+          "jpeg": "/generated/images/mg-8342b/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/mg-8342b/grid-640.avif",
+          "jpeg": "/generated/images/mg-8342b/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/mg-8342b/grid-853.avif",
+          "jpeg": "/generated/images/mg-8342b/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/mg-8342b/grid-1067.avif",
+          "jpeg": "/generated/images/mg-8342b/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/mg-8342b/lightbox.avif",
+      "jpeg": "/generated/images/mg-8342b/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/mg-8342b/lightbox-480.avif",
+          "jpeg": "/generated/images/mg-8342b/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/mg-8342b/lightbox-720.avif",
+          "jpeg": "/generated/images/mg-8342b/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/mg-8342b/lightbox.avif",
+          "jpeg": "/generated/images/mg-8342b/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/mg-8342b/lightbox-preview.avif",
+        "jpeg": "/generated/images/mg-8342b/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/mg-8342b/original.jpg",
+      "width": 2848,
+      "height": 4272,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "id": "baa076231ad5",
+  "filename": "_DSF2930-HDR.jpg",
+  "slug": "dsf2930-hdr",
+  "width": 3733,
+  "height": 5599,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "city",
+    "clothes",
+    "color",
+    "composition",
+    "low-angle",
+    "object",
+    "outdoors",
+    "place",
+    "style",
+    "subject",
+    "type",
+    "urban",
+    "vivid"
+  ],
+  "alt": "DSF2930 HDR",
+  "sourceHash": "7dd28859481f5c6a8e85f795f29390a9fc849e77",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf2930-hdr/grid-1067.avif",
+      "jpeg": "/generated/images/dsf2930-hdr/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/dsf2930-hdr/grid-preview.avif",
+        "jpeg": "/generated/images/dsf2930-hdr/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2930-hdr/grid-240.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/dsf2930-hdr/grid-427.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf2930-hdr/grid-640.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/dsf2930-hdr/grid-853.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/dsf2930-hdr/grid-1067.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf2930-hdr/lightbox.avif",
+      "jpeg": "/generated/images/dsf2930-hdr/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2930-hdr/lightbox-480.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf2930-hdr/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/dsf2930-hdr/lightbox.avif",
+          "jpeg": "/generated/images/dsf2930-hdr/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf2930-hdr/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf2930-hdr/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf2930-hdr/original.jpg",
+      "width": 3733,
+      "height": 5599,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "85d51cb15058",
+  "filename": "20180325_Zurich-008.jpg",
+  "slug": "20180325-zurich-008",
+  "width": 3024,
+  "height": 4032,
+  "aspectRatio": 0.75,
+  "tags": [
+    "architecture",
+    "black-and-white",
+    "building",
+    "city",
+    "composition",
+    "light",
+    "nature",
+    "outdoors",
+    "people",
+    "place",
+    "silhouette",
+    "sky",
+    "style",
+    "subject",
+    "sunset",
+    "type",
+    "urban",
+    "window"
+  ],
+  "alt": "20180325 Zurich 008",
+  "sourceHash": "11375178ede34896f598afab562f314ec0aaa6b0",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/20180325-zurich-008/grid-1200.avif",
+      "jpeg": "/generated/images/20180325-zurich-008/grid-1200.jpg",
+      "width": 1200,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/20180325-zurich-008/grid-preview.avif",
+        "jpeg": "/generated/images/20180325-zurich-008/grid-preview.jpg",
+        "width": 24,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/20180325-zurich-008/grid-270.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/grid-270.jpg",
+          "width": 270,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/20180325-zurich-008/grid-480.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/grid-480.jpg",
+          "width": 480,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/20180325-zurich-008/grid-720.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/grid-720.jpg",
+          "width": 720,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/20180325-zurich-008/grid-960.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/grid-960.jpg",
+          "width": 960,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/20180325-zurich-008/grid-1200.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/grid-1200.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/20180325-zurich-008/lightbox.avif",
+      "jpeg": "/generated/images/20180325-zurich-008/lightbox.jpg",
+      "width": 1200,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/20180325-zurich-008/lightbox-540.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/lightbox-540.jpg",
+          "width": 540,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/20180325-zurich-008/lightbox-810.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/lightbox-810.jpg",
+          "width": 810,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/20180325-zurich-008/lightbox.avif",
+          "jpeg": "/generated/images/20180325-zurich-008/lightbox.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/20180325-zurich-008/lightbox-preview.avif",
+        "jpeg": "/generated/images/20180325-zurich-008/lightbox-preview.jpg",
+        "width": 30,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/20180325-zurich-008/original.jpg",
+      "width": 3024,
+      "height": 4032,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

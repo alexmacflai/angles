@@ -1,0 +1,107 @@
+{
+  "id": "a3f2c02fff6d",
+  "filename": "_DSF5246.jpg",
+  "slug": "dsf5246",
+  "width": 6000,
+  "height": 4000,
+  "aspectRatio": 1.5,
+  "tags": [
+    "action",
+    "blue",
+    "color",
+    "composition",
+    "event",
+    "group",
+    "legs",
+    "occluded",
+    "people",
+    "style",
+    "subject"
+  ],
+  "alt": "DSF5246",
+  "sourceHash": "d8175dfcbd3914afea725fae782d223b86839b3e",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf5246/grid-1600.avif",
+      "jpeg": "/generated/images/dsf5246/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/dsf5246/grid-preview.avif",
+        "jpeg": "/generated/images/dsf5246/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5246/grid-360.avif",
+          "jpeg": "/generated/images/dsf5246/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/dsf5246/grid-640.avif",
+          "jpeg": "/generated/images/dsf5246/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/dsf5246/grid-960.avif",
+          "jpeg": "/generated/images/dsf5246/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf5246/grid-1280.avif",
+          "jpeg": "/generated/images/dsf5246/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/dsf5246/grid-1600.avif",
+          "jpeg": "/generated/images/dsf5246/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf5246/lightbox.avif",
+      "jpeg": "/generated/images/dsf5246/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5246/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf5246/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/dsf5246/lightbox-1080.avif",
+          "jpeg": "/generated/images/dsf5246/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf5246/lightbox.avif",
+          "jpeg": "/generated/images/dsf5246/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf5246/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf5246/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf5246/original.jpg",
+      "width": 6000,
+      "height": 4000,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

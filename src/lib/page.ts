@@ -1,7 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { aboutHtml, images as allImages } from './content';
 import { initCursor } from './cursor';
 import { LightboxController } from './lightbox';
 import { requestProgressivePicture } from './progressive-image';
@@ -22,8 +21,8 @@ const GRID_PRELOAD_MARGIN = '300px 0px';
 export interface BootstrapPageOptions {
   mode: PageMode;
   app?: HTMLElement;
-  images?: readonly ImageRecord[];
-  about?: string;
+  images: readonly ImageRecord[];
+  about: string;
   random?: () => number;
 }
 
@@ -36,6 +35,14 @@ export function buildPageImages(
     mode === 'selection' ? selectImageCluster(images, { random }) : shuffleItems(images, random);
 
   return decorateImages(baseImages, random);
+}
+
+function resetInitialScrollPosition() {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+
+  window.scrollTo(0, 0);
 }
 
 function initIntro(root: ParentNode) {
@@ -212,31 +219,11 @@ function getInitialBatchSize(mode: PageMode) {
     return 6;
   }
 
-  if (window.matchMedia('(max-width: 500px)').matches) {
-    return 8;
+  if (mode === 'archive') {
+    return Number.POSITIVE_INFINITY;
   }
 
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    return 6;
-  }
-
-  if (window.matchMedia('(max-width: 1279px)').matches) {
-    return 12;
-  }
-
-  return 16;
-}
-
-function getBatchAppendSize(mode: PageMode) {
-  if (mode === 'selection') {
-    return 4;
-  }
-
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    return 6;
-  }
-
-  return 10;
+  return 0;
 }
 
 function initProgressiveImages(root: ParentNode) {
@@ -247,7 +234,11 @@ function initProgressiveImages(root: ParentNode) {
   }
 
   const loadPicture = (picture: HTMLElement) => {
-    void requestProgressivePicture(picture);
+    void requestProgressivePicture(picture, {
+      previewPriority: 'high',
+      priority: 'low',
+      source: 'grid',
+    });
   };
 
   if (typeof IntersectionObserver === 'undefined') {
@@ -350,26 +341,47 @@ function preloadVisibleGridImages(images: readonly DecoratedImage[]) {
     const preload = document.createElement('link');
     preload.rel = 'preload';
     preload.as = 'image';
-    preload.href = image.variants.grid.jpeg;
-    preload.setAttribute(
-      'imagesrcset',
-      image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ')
-    );
-    preload.setAttribute('imagesizes', '50vw');
+    preload.href = image.variants.grid.preview.jpeg;
     document.head.appendChild(preload);
+  });
+}
+
+function waitForGridPictures(root: ParentNode) {
+  const pictures = Array.from(root.querySelectorAll<HTMLElement>('.imageGrid .progressive-picture'));
+
+  if (pictures.length === 0 || pictures.every((picture) => picture.dataset.imageState === 'loaded')) {
+    return Promise.resolve();
+  }
+
+  return new Promise<void>((resolve) => {
+    const observer = new MutationObserver(() => {
+      if (pictures.every((picture) => picture.dataset.imageState === 'loaded')) {
+        observer.disconnect();
+        resolve();
+      }
+    });
+
+    pictures.forEach((picture) =>
+      observer.observe(picture, {
+        attributes: true,
+        attributeFilter: ['data-image-state'],
+      })
+    );
   });
 }
 
 export function bootstrapPage({
   mode,
   app = document.querySelector<HTMLElement>('#app') ?? undefined,
-  images = allImages,
-  about = aboutHtml,
+  images,
+  about,
   random = Math.random,
 }: BootstrapPageOptions) {
   if (!app) {
     throw new Error('Missing app root.');
   }
+
+  resetInitialScrollPosition();
 
   const pageImages = buildPageImages(mode, images, random);
   document.body.classList.toggle('page-selection', mode === 'selection');
@@ -399,81 +411,24 @@ export function bootstrapPage({
     throw new Error('Missing grid root.');
   }
 
-  let renderedCount = 0;
-  const appendNextBatch = () => {
-    const batchSize = renderedCount === 0 ? getInitialBatchSize(mode) : getBatchAppendSize(mode);
-    const nextBatch = pageImages.slice(renderedCount, renderedCount + batchSize);
+  const initialBatch = pageImages.slice(0, getInitialBatchSize(mode));
 
-    if (nextBatch.length === 0) {
-      return false;
-    }
-
-    appendImageBatch({
-      batch: nextBatch,
-      mode,
-      random,
-      gridElement,
-      lightbox,
-      cleanupHandlers,
-      gridCleanup,
-      progressiveCleanupHandlers,
-    });
-    renderedCount += nextBatch.length;
-    return renderedCount < pageImages.length;
-  };
-
-  appendNextBatch();
+  appendImageBatch({
+    batch: initialBatch,
+    mode,
+    random,
+    gridElement,
+    lightbox,
+    cleanupHandlers,
+    gridCleanup,
+    progressiveCleanupHandlers,
+  });
   preloadVisibleGridImages(pageImages);
 
   if (mode === 'selection') {
-    lightbox?.prewarmSelection();
-  }
-
-  if (mode === 'archive' && pageImages.length > renderedCount) {
-    const sentinel = document.createElement('div');
-    sentinel.className = 'grid-sentinel';
-    sentinel.setAttribute('aria-hidden', 'true');
-    gridElement.insertAdjacentElement('afterend', sentinel);
-
-    if (typeof IntersectionObserver === 'undefined') {
-      const handleScroll = () => {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight;
-
-        if (pageHeight - scrollPosition <= 512) {
-          const hasMore = appendNextBatch();
-
-          if (!hasMore) {
-            window.removeEventListener('scroll', handleScroll);
-          }
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      cleanupHandlers.push(() => window.removeEventListener('scroll', handleScroll));
-    } else {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            const hasMore = appendNextBatch();
-
-            if (!hasMore) {
-              observer.disconnect();
-              sentinel.remove();
-            }
-          });
-        },
-        { rootMargin: '600px 0px' }
-      );
-
-      observer.observe(sentinel);
-      cleanupHandlers.push(() => observer.disconnect());
-      cleanupHandlers.push(() => sentinel.remove());
-    }
+    void waitForGridPictures(gridElement).then(() => {
+      lightbox?.prewarmSelection();
+    });
   }
 
   return {

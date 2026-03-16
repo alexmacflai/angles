@@ -25,6 +25,10 @@ const fixtureImages: ImageRecord[] = [
         jpeg: '/one-l.jpg',
         width: 100,
         height: 100,
+        sources: [
+          { avif: '/one-l-64.avif', jpeg: '/one-l-64.jpg', width: 64, height: 64 },
+          { avif: '/one-l.avif', jpeg: '/one-l.jpg', width: 100, height: 100 },
+        ],
         preview: { avif: '/one-l-preview.avif', jpeg: '/one-l-preview.jpg', width: 24, height: 24 },
       },
       original: { url: '/one-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
@@ -53,6 +57,10 @@ const fixtureImages: ImageRecord[] = [
         jpeg: '/two-l.jpg',
         width: 100,
         height: 100,
+        sources: [
+          { avif: '/two-l-64.avif', jpeg: '/two-l-64.jpg', width: 64, height: 64 },
+          { avif: '/two-l.avif', jpeg: '/two-l.jpg', width: 100, height: 100 },
+        ],
         preview: { avif: '/two-l-preview.avif', jpeg: '/two-l-preview.jpg', width: 24, height: 24 },
       },
       original: { url: '/two-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
@@ -83,6 +91,10 @@ const fixtureImages: ImageRecord[] = [
         jpeg: '/three-l.jpg',
         width: 100,
         height: 100,
+        sources: [
+          { avif: '/three-l-64.avif', jpeg: '/three-l-64.jpg', width: 64, height: 64 },
+          { avif: '/three-l.avif', jpeg: '/three-l.jpg', width: 100, height: 100 },
+        ],
         preview: { avif: '/three-l-preview.avif', jpeg: '/three-l-preview.jpg', width: 24, height: 24 },
       },
       original: { url: '/three-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },

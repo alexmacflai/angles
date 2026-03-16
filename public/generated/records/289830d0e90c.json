@@ -1,0 +1,105 @@
+{
+  "id": "289830d0e90c",
+  "filename": "Sombras_02.jpg",
+  "slug": "sombras-02",
+  "width": 3339,
+  "height": 2226,
+  "aspectRatio": 1.5,
+  "tags": [
+    "black-and-white",
+    "composition",
+    "group",
+    "high-contrast",
+    "people",
+    "shadows",
+    "silhouette",
+    "style",
+    "subject"
+  ],
+  "alt": "Sombras 02",
+  "sourceHash": "738cf9eea402f4626fd88ab3ffde0f71b8505e29",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/sombras-02/grid-1600.avif",
+      "jpeg": "/generated/images/sombras-02/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/sombras-02/grid-preview.avif",
+        "jpeg": "/generated/images/sombras-02/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/sombras-02/grid-360.avif",
+          "jpeg": "/generated/images/sombras-02/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/sombras-02/grid-640.avif",
+          "jpeg": "/generated/images/sombras-02/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/sombras-02/grid-960.avif",
+          "jpeg": "/generated/images/sombras-02/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/sombras-02/grid-1280.avif",
+          "jpeg": "/generated/images/sombras-02/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/sombras-02/grid-1600.avif",
+          "jpeg": "/generated/images/sombras-02/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/sombras-02/lightbox.avif",
+      "jpeg": "/generated/images/sombras-02/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/sombras-02/lightbox-720.avif",
+          "jpeg": "/generated/images/sombras-02/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/sombras-02/lightbox-1080.avif",
+          "jpeg": "/generated/images/sombras-02/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/sombras-02/lightbox.avif",
+          "jpeg": "/generated/images/sombras-02/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/sombras-02/lightbox-preview.avif",
+        "jpeg": "/generated/images/sombras-02/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/sombras-02/original.jpg",
+      "width": 3339,
+      "height": 2226,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

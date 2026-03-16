@@ -1,0 +1,108 @@
+{
+  "id": "351dcadd00a6",
+  "filename": "Ventana circular (byn).jpg",
+  "slug": "ventana-circular-byn",
+  "width": 2448,
+  "height": 3264,
+  "aspectRatio": 0.75,
+  "tags": [
+    "architecture",
+    "black-and-white",
+    "composition",
+    "geomerty",
+    "grunge",
+    "horizon",
+    "nature",
+    "sea",
+    "style",
+    "subject",
+    "water",
+    "window"
+  ],
+  "alt": "Ventana circular (byn)",
+  "sourceHash": "e3f047be61da0e0cf88e88589daaebb89f3fc683",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/ventana-circular-byn/grid-1200.avif",
+      "jpeg": "/generated/images/ventana-circular-byn/grid-1200.jpg",
+      "width": 1200,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/ventana-circular-byn/grid-preview.avif",
+        "jpeg": "/generated/images/ventana-circular-byn/grid-preview.jpg",
+        "width": 24,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/ventana-circular-byn/grid-270.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/grid-270.jpg",
+          "width": 270,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/ventana-circular-byn/grid-480.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/grid-480.jpg",
+          "width": 480,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/ventana-circular-byn/grid-720.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/grid-720.jpg",
+          "width": 720,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/ventana-circular-byn/grid-960.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/grid-960.jpg",
+          "width": 960,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/ventana-circular-byn/grid-1200.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/grid-1200.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/ventana-circular-byn/lightbox.avif",
+      "jpeg": "/generated/images/ventana-circular-byn/lightbox.jpg",
+      "width": 1200,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/ventana-circular-byn/lightbox-540.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/lightbox-540.jpg",
+          "width": 540,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/ventana-circular-byn/lightbox-810.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/lightbox-810.jpg",
+          "width": 810,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/ventana-circular-byn/lightbox.avif",
+          "jpeg": "/generated/images/ventana-circular-byn/lightbox.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/ventana-circular-byn/lightbox-preview.avif",
+        "jpeg": "/generated/images/ventana-circular-byn/lightbox-preview.jpg",
+        "width": 30,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/ventana-circular-byn/original.jpg",
+      "width": 2448,
+      "height": 3264,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

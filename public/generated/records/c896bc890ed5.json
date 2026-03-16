@@ -1,0 +1,112 @@
+{
+  "id": "c896bc890ed5",
+  "filename": "_DSF2835.jpg",
+  "slug": "dsf2835",
+  "width": 5567,
+  "height": 3711,
+  "aspectRatio": 1.5001,
+  "tags": [
+    "action",
+    "blue",
+    "color",
+    "dock",
+    "nature",
+    "outdoors",
+    "people",
+    "person",
+    "place",
+    "portrait",
+    "street-photography",
+    "style",
+    "subject",
+    "type",
+    "walking",
+    "water"
+  ],
+  "alt": "DSF2835",
+  "sourceHash": "f1f56bb2d9ae4d2d7b27dfeb2cb6a5c264b7a701",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf2835/grid-1600.avif",
+      "jpeg": "/generated/images/dsf2835/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/dsf2835/grid-preview.avif",
+        "jpeg": "/generated/images/dsf2835/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2835/grid-360.avif",
+          "jpeg": "/generated/images/dsf2835/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/dsf2835/grid-640.avif",
+          "jpeg": "/generated/images/dsf2835/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/dsf2835/grid-960.avif",
+          "jpeg": "/generated/images/dsf2835/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf2835/grid-1280.avif",
+          "jpeg": "/generated/images/dsf2835/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/dsf2835/grid-1600.avif",
+          "jpeg": "/generated/images/dsf2835/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf2835/lightbox.avif",
+      "jpeg": "/generated/images/dsf2835/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf2835/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf2835/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/dsf2835/lightbox-1080.avif",
+          "jpeg": "/generated/images/dsf2835/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf2835/lightbox.avif",
+          "jpeg": "/generated/images/dsf2835/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf2835/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf2835/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf2835/original.jpg",
+      "width": 5567,
+      "height": 3711,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

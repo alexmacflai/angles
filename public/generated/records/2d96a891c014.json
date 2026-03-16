@@ -1,0 +1,107 @@
+{
+  "id": "2d96a891c014",
+  "filename": "_DSF1246.jpg",
+  "slug": "dsf1246",
+  "width": 3341,
+  "height": 5012,
+  "aspectRatio": 0.6666,
+  "tags": [
+    "color",
+    "composition",
+    "detail",
+    "nature",
+    "plant",
+    "red",
+    "style",
+    "subject",
+    "texture",
+    "type",
+    "yellow"
+  ],
+  "alt": "DSF1246",
+  "sourceHash": "bdc5bbae7c0d06626834c13c0dd4f8bf382aa3ee",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf1246/grid-1067.avif",
+      "jpeg": "/generated/images/dsf1246/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/dsf1246/grid-preview.avif",
+        "jpeg": "/generated/images/dsf1246/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf1246/grid-240.avif",
+          "jpeg": "/generated/images/dsf1246/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/dsf1246/grid-427.avif",
+          "jpeg": "/generated/images/dsf1246/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf1246/grid-640.avif",
+          "jpeg": "/generated/images/dsf1246/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/dsf1246/grid-853.avif",
+          "jpeg": "/generated/images/dsf1246/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/dsf1246/grid-1067.avif",
+          "jpeg": "/generated/images/dsf1246/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf1246/lightbox.avif",
+      "jpeg": "/generated/images/dsf1246/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf1246/lightbox-480.avif",
+          "jpeg": "/generated/images/dsf1246/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf1246/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf1246/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/dsf1246/lightbox.avif",
+          "jpeg": "/generated/images/dsf1246/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf1246/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf1246/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf1246/original.jpg",
+      "width": 3341,
+      "height": 5012,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

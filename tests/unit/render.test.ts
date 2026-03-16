@@ -1,4 +1,4 @@
-import { getGridSizes } from '../../src/lib/render';
+import { getGridSizes, getLightboxSizes } from '../../src/lib/render';
 import type { DecoratedImage } from '../../src/types';
 
 const baseImage: DecoratedImage = {
@@ -27,6 +27,10 @@ const baseImage: DecoratedImage = {
       jpeg: '/one-l.jpg',
       width: 100,
       height: 100,
+      sources: [
+        { avif: '/one-l-64.avif', jpeg: '/one-l-64.jpg', width: 64, height: 64 },
+        { avif: '/one-l.avif', jpeg: '/one-l.jpg', width: 100, height: 100 },
+      ],
       preview: { avif: '/one-l-preview.avif', jpeg: '/one-l-preview.jpg', width: 24, height: 24 },
     },
     original: { url: '/one-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
@@ -46,6 +50,12 @@ describe('render helpers', () => {
     );
     expect(getGridSizes({ ...baseImage, sizeClass: 'tres' }, 'archive')).toBe(
       '(max-width: 767px) 100vw, (max-width: 1279px) 75vw, 60vw'
+    );
+  });
+
+  it('uses responsive lightbox sizing across breakpoints', () => {
+    expect(getLightboxSizes()).toBe(
+      '(max-width: 767px) calc(100vw - 2rem), (max-width: 1023px) calc(100vw - 3rem), calc(100vw - 4rem)'
     );
   });
 });

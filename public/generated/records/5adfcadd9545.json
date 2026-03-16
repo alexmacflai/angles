@@ -1,0 +1,106 @@
+{
+  "id": "5adfcadd9545",
+  "filename": "_DSF4100.jpg",
+  "slug": "dsf4100",
+  "width": 5645,
+  "height": 3763,
+  "aspectRatio": 1.5001,
+  "tags": [
+    "architecture",
+    "cityscape",
+    "composition",
+    "geomerty",
+    "golden-hour",
+    "landscape",
+    "subject",
+    "time",
+    "type",
+    "window"
+  ],
+  "alt": "DSF4100",
+  "sourceHash": "4bddc343cbbc5968a528864605f2e4bc5f19102e",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf4100/grid-1600.avif",
+      "jpeg": "/generated/images/dsf4100/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/dsf4100/grid-preview.avif",
+        "jpeg": "/generated/images/dsf4100/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf4100/grid-360.avif",
+          "jpeg": "/generated/images/dsf4100/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/dsf4100/grid-640.avif",
+          "jpeg": "/generated/images/dsf4100/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/dsf4100/grid-960.avif",
+          "jpeg": "/generated/images/dsf4100/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf4100/grid-1280.avif",
+          "jpeg": "/generated/images/dsf4100/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/dsf4100/grid-1600.avif",
+          "jpeg": "/generated/images/dsf4100/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf4100/lightbox.avif",
+      "jpeg": "/generated/images/dsf4100/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf4100/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf4100/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/dsf4100/lightbox-1080.avif",
+          "jpeg": "/generated/images/dsf4100/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf4100/lightbox.avif",
+          "jpeg": "/generated/images/dsf4100/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf4100/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf4100/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf4100/original.jpg",
+      "width": 5645,
+      "height": 3763,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

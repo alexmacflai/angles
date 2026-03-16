@@ -88,6 +88,10 @@ function createImage(id: string): ImageRecord {
         jpeg: `/${id}/lightbox.jpg`,
         width: 1200,
         height: 900,
+        sources: [
+          { avif: `/${id}/lightbox-720.avif`, jpeg: `/${id}/lightbox-720.jpg`, width: 720, height: 540 },
+          { avif: `/${id}/lightbox.avif`, jpeg: `/${id}/lightbox.jpg`, width: 1200, height: 900 },
+        ],
         preview: {
           avif: `/${id}/lightbox-preview.avif`,
           jpeg: `/${id}/lightbox-preview.jpg`,
@@ -110,6 +114,11 @@ describe('bootstrapPage', () => {
     document.body.innerHTML = '<div id="app"></div>';
     document.body.className = '';
     window.scrollTo = vi.fn();
+    Object.defineProperty(window.history, 'scrollRestoration', {
+      configurable: true,
+      writable: true,
+      value: 'auto',
+    });
     window.innerWidth = 1280;
     window.innerHeight = 900;
     window.matchMedia = vi.fn().mockImplementation((query: string) => ({
@@ -172,10 +181,11 @@ describe('bootstrapPage', () => {
       random: () => 0.95,
     });
 
-    expect(document.querySelectorAll('.imageGrid').length).toBeGreaterThan(0);
-    expect(document.querySelectorAll('.imageGrid').length).toBeLessThanOrEqual(20);
+    expect(document.querySelectorAll('.imageGrid')).toHaveLength(20);
     expect(document.querySelectorAll('.carousel-slide')).toHaveLength(0);
     expect(document.querySelector('.intro-copy')?.textContent).toContain('Hello 12');
+    expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
+    expect(window.history.scrollRestoration).toBe('manual');
 
     const firstImage = document.querySelector<HTMLElement>('.imageGrid');
     const overlay = document.querySelector<HTMLElement>('.lightbox-carousel');
@@ -190,19 +200,20 @@ describe('bootstrapPage', () => {
     expect(document.body.classList.contains('no-scroll')).toBe(false);
   });
 
-  it('appends more archive images as the sentinel intersects', async () => {
+  it('renders the full archive without infinite scroll batching', async () => {
     const { bootstrapPage } = await import('../../src/lib/page');
-    const images = Array.from({ length: 4 }, (_, index) => createImage(`loop-${index + 1}`));
+    const images = Array.from({ length: 20 }, (_, index) => createImage(`archive-full-${index + 1}`));
 
     bootstrapPage({
       mode: 'archive',
       app: document.querySelector('#app') as HTMLElement,
       images,
-      about: '<p>Hello loop</p>',
+      about: '<p>Hello archive</p>',
       random: () => 0.95,
     });
 
-    expect(document.querySelectorAll('.imageGrid')).toHaveLength(4);
+    expect(document.querySelectorAll('.imageGrid')).toHaveLength(20);
+    expect(document.querySelector('.grid-sentinel')).toBeNull();
     expect(document.querySelectorAll('.carousel-slide')).toHaveLength(0);
     expect(scrollRefresh).toHaveBeenCalled();
   });

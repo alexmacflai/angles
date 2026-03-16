@@ -1,0 +1,104 @@
+{
+  "id": "db693cc8a9c8",
+  "filename": "Escocia_10 de mayo de 2015_205.jpg",
+  "slug": "escocia-10-de-mayo-de-2015-205",
+  "width": 2516,
+  "height": 3758,
+  "aspectRatio": 0.6695,
+  "tags": [
+    "boat",
+    "nature",
+    "outdoors",
+    "place",
+    "sky",
+    "subject",
+    "transport",
+    "water"
+  ],
+  "alt": "Escocia 10 de mayo de 2015 205",
+  "sourceHash": "c29c64bcb19baadcb24bef093e36cfa53a8bbeea",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-1071.avif",
+      "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-1071.jpg",
+      "width": 1071,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-preview.avif",
+        "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-241.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-241.jpg",
+          "width": 241,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-428.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-428.jpg",
+          "width": 428,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-643.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-643.jpg",
+          "width": 643,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-857.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-857.jpg",
+          "width": 857,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-1071.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/grid-1071.jpg",
+          "width": 1071,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox.avif",
+      "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox.jpg",
+      "width": 1071,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox-482.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox-482.jpg",
+          "width": 482,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox-723.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox-723.jpg",
+          "width": 723,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox.avif",
+          "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox.jpg",
+          "width": 1071,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox-preview.avif",
+        "jpeg": "/generated/images/escocia-10-de-mayo-de-2015-205/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/escocia-10-de-mayo-de-2015-205/original.jpg",
+      "width": 2516,
+      "height": 3758,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

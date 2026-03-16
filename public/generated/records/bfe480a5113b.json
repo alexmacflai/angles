@@ -1,0 +1,104 @@
+{
+  "id": "bfe480a5113b",
+  "filename": "_DSF5069.jpg",
+  "slug": "dsf5069",
+  "width": 5116,
+  "height": 3411,
+  "aspectRatio": 1.4999,
+  "tags": [
+    "action",
+    "crowd",
+    "group",
+    "people",
+    "street-photography",
+    "subject",
+    "type",
+    "walking"
+  ],
+  "alt": "DSF5069",
+  "sourceHash": "2991ebbd3b371c0e09c6c794d77f9e91251bf632",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf5069/grid-1600.avif",
+      "jpeg": "/generated/images/dsf5069/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/dsf5069/grid-preview.avif",
+        "jpeg": "/generated/images/dsf5069/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5069/grid-360.avif",
+          "jpeg": "/generated/images/dsf5069/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/dsf5069/grid-640.avif",
+          "jpeg": "/generated/images/dsf5069/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/dsf5069/grid-960.avif",
+          "jpeg": "/generated/images/dsf5069/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf5069/grid-1280.avif",
+          "jpeg": "/generated/images/dsf5069/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/dsf5069/grid-1600.avif",
+          "jpeg": "/generated/images/dsf5069/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf5069/lightbox.avif",
+      "jpeg": "/generated/images/dsf5069/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5069/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf5069/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/dsf5069/lightbox-1080.avif",
+          "jpeg": "/generated/images/dsf5069/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf5069/lightbox.avif",
+          "jpeg": "/generated/images/dsf5069/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf5069/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf5069/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf5069/original.jpg",
+      "width": 5116,
+      "height": 3411,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

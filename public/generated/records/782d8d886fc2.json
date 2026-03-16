@@ -1,0 +1,104 @@
+{
+  "id": "782d8d886fc2",
+  "filename": "_FXT0727.jpg",
+  "slug": "fxt0727",
+  "width": 6000,
+  "height": 4000,
+  "aspectRatio": 1.5,
+  "tags": [
+    "action",
+    "black-and-white",
+    "camera",
+    "object",
+    "portrait",
+    "style",
+    "subject",
+    "type"
+  ],
+  "alt": "FXT0727",
+  "sourceHash": "48c500748336d6e670d511bf6475535fe02d38a1",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/fxt0727/grid-1600.avif",
+      "jpeg": "/generated/images/fxt0727/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/fxt0727/grid-preview.avif",
+        "jpeg": "/generated/images/fxt0727/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/fxt0727/grid-360.avif",
+          "jpeg": "/generated/images/fxt0727/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/fxt0727/grid-640.avif",
+          "jpeg": "/generated/images/fxt0727/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/fxt0727/grid-960.avif",
+          "jpeg": "/generated/images/fxt0727/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/fxt0727/grid-1280.avif",
+          "jpeg": "/generated/images/fxt0727/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/fxt0727/grid-1600.avif",
+          "jpeg": "/generated/images/fxt0727/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/fxt0727/lightbox.avif",
+      "jpeg": "/generated/images/fxt0727/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/fxt0727/lightbox-720.avif",
+          "jpeg": "/generated/images/fxt0727/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/fxt0727/lightbox-1080.avif",
+          "jpeg": "/generated/images/fxt0727/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/fxt0727/lightbox.avif",
+          "jpeg": "/generated/images/fxt0727/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/fxt0727/lightbox-preview.avif",
+        "jpeg": "/generated/images/fxt0727/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/fxt0727/original.jpg",
+      "width": 6000,
+      "height": 4000,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

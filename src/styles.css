@@ -352,11 +352,6 @@ body.page-selection .image {
   padding: 2rem 0;
 }
 
-.grid-sentinel {
-  width: 100%;
-  height: 1px;
-}
-
 .lightbox-carousel {
   position: fixed;
   inset: 0;
@@ -419,6 +414,7 @@ body.page-selection .image {
   max-width: 100%;
   max-height: 100%;
   background: var(--lightbox-image-placeholder-bg);
+  overflow: hidden;
 }
 
 .lightbox-progressive-picture[data-preview-state='loaded'],
@@ -433,6 +429,11 @@ body.page-selection .image {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+.lightbox-progressive-picture .preview-picture,
+.lightbox-progressive-picture .full-picture {
+  overflow: hidden;
 }
 
 .lightbox-carousel,

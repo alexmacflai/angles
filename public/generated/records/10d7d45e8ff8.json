@@ -1,0 +1,106 @@
+{
+  "id": "10d7d45e8ff8",
+  "filename": "Belén reflejo_01 B.jpg",
+  "slug": "bel-n-reflejo-01-b",
+  "width": 2592,
+  "height": 3888,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "composition",
+    "nature",
+    "people",
+    "person",
+    "reflection",
+    "silhouette",
+    "split-image",
+    "subject",
+    "texture",
+    "water"
+  ],
+  "alt": "Belén reflejo 01 B",
+  "sourceHash": "012696346682e5e0f7ead38f8a09e9cef3566168",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/bel-n-reflejo-01-b/grid-1067.avif",
+      "jpeg": "/generated/images/bel-n-reflejo-01-b/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/bel-n-reflejo-01-b/grid-preview.avif",
+        "jpeg": "/generated/images/bel-n-reflejo-01-b/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/grid-240.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/grid-427.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/grid-640.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/grid-853.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/grid-1067.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/bel-n-reflejo-01-b/lightbox.avif",
+      "jpeg": "/generated/images/bel-n-reflejo-01-b/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/lightbox-480.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/lightbox-720.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/bel-n-reflejo-01-b/lightbox.avif",
+          "jpeg": "/generated/images/bel-n-reflejo-01-b/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/bel-n-reflejo-01-b/lightbox-preview.avif",
+        "jpeg": "/generated/images/bel-n-reflejo-01-b/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/bel-n-reflejo-01-b/original.jpg",
+      "width": 2592,
+      "height": 3888,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

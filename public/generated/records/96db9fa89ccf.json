@@ -1,0 +1,108 @@
+{
+  "id": "96db9fa89ccf",
+  "filename": "20190531-berlinBonetti-043.jpg",
+  "slug": "20190531-berlinbonetti-043",
+  "width": 5773,
+  "height": 3849,
+  "aspectRatio": 1.4999,
+  "tags": [
+    "art",
+    "black-and-white",
+    "composition",
+    "geomerty",
+    "object",
+    "people",
+    "portrait",
+    "street-photography",
+    "style",
+    "subject",
+    "type",
+    "vanishing-point"
+  ],
+  "alt": "20190531 berlinBonetti 043",
+  "sourceHash": "0af5db22d00dea0c4317bd1729ad82e65128334a",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/20190531-berlinbonetti-043/grid-1600.avif",
+      "jpeg": "/generated/images/20190531-berlinbonetti-043/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/20190531-berlinbonetti-043/grid-preview.avif",
+        "jpeg": "/generated/images/20190531-berlinbonetti-043/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/grid-360.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/grid-640.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/grid-960.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/grid-1280.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/grid-1600.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/20190531-berlinbonetti-043/lightbox.avif",
+      "jpeg": "/generated/images/20190531-berlinbonetti-043/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/lightbox-720.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/lightbox-1080.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/20190531-berlinbonetti-043/lightbox.avif",
+          "jpeg": "/generated/images/20190531-berlinbonetti-043/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/20190531-berlinbonetti-043/lightbox-preview.avif",
+        "jpeg": "/generated/images/20190531-berlinbonetti-043/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/20190531-berlinbonetti-043/original.jpg",
+      "width": 5773,
+      "height": 3849,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

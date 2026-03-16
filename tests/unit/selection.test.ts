@@ -28,6 +28,10 @@ function createImage(id: string, tags: string[]): ImageRecord {
         jpeg: `/${id}-l.jpg`,
         width: 100,
         height: 100,
+        sources: [
+          { avif: `/${id}-l-64.avif`, jpeg: `/${id}-l-64.jpg`, width: 64, height: 64 },
+          { avif: `/${id}-l.avif`, jpeg: `/${id}-l.jpg`, width: 100, height: 100 },
+        ],
         preview: { avif: `/${id}-l-preview.avif`, jpeg: `/${id}-l-preview.jpg`, width: 24, height: 24 },
       },
       original: { url: `/${id}-original.jpg`, width: 100, height: 100, mimeType: 'image/jpeg' },

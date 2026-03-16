@@ -1,0 +1,107 @@
+{
+  "id": "7f3eb97f9c76",
+  "filename": "IMG_1939.jpg",
+  "slug": "img-1939",
+  "width": 3101,
+  "height": 1938,
+  "aspectRatio": 1.6001,
+  "tags": [
+    "composition",
+    "elderly",
+    "nature",
+    "people",
+    "plant",
+    "portrait",
+    "shadows",
+    "silhouette",
+    "subject",
+    "tree",
+    "type"
+  ],
+  "alt": "IMG 1939",
+  "sourceHash": "9f020ee870247f7c55ab12e8b10e43ed26bcf5b6",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/img-1939/grid-1600.avif",
+      "jpeg": "/generated/images/img-1939/grid-1600.jpg",
+      "width": 1600,
+      "height": 1000,
+      "preview": {
+        "avif": "/generated/images/img-1939/grid-preview.avif",
+        "jpeg": "/generated/images/img-1939/grid-preview.jpg",
+        "width": 32,
+        "height": 20
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/img-1939/grid-360.avif",
+          "jpeg": "/generated/images/img-1939/grid-360.jpg",
+          "width": 360,
+          "height": 225
+        },
+        {
+          "avif": "/generated/images/img-1939/grid-640.avif",
+          "jpeg": "/generated/images/img-1939/grid-640.jpg",
+          "width": 640,
+          "height": 400
+        },
+        {
+          "avif": "/generated/images/img-1939/grid-960.avif",
+          "jpeg": "/generated/images/img-1939/grid-960.jpg",
+          "width": 960,
+          "height": 600
+        },
+        {
+          "avif": "/generated/images/img-1939/grid-1280.avif",
+          "jpeg": "/generated/images/img-1939/grid-1280.jpg",
+          "width": 1280,
+          "height": 800
+        },
+        {
+          "avif": "/generated/images/img-1939/grid-1600.avif",
+          "jpeg": "/generated/images/img-1939/grid-1600.jpg",
+          "width": 1600,
+          "height": 1000
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/img-1939/lightbox.avif",
+      "jpeg": "/generated/images/img-1939/lightbox.jpg",
+      "width": 1600,
+      "height": 1000,
+      "sources": [
+        {
+          "avif": "/generated/images/img-1939/lightbox-720.avif",
+          "jpeg": "/generated/images/img-1939/lightbox-720.jpg",
+          "width": 720,
+          "height": 450
+        },
+        {
+          "avif": "/generated/images/img-1939/lightbox-1080.avif",
+          "jpeg": "/generated/images/img-1939/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 675
+        },
+        {
+          "avif": "/generated/images/img-1939/lightbox.avif",
+          "jpeg": "/generated/images/img-1939/lightbox.jpg",
+          "width": 1600,
+          "height": 1000
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/img-1939/lightbox-preview.avif",
+        "jpeg": "/generated/images/img-1939/lightbox-preview.jpg",
+        "width": 40,
+        "height": 25
+      }
+    },
+    "original": {
+      "url": "/generated/images/img-1939/original.jpg",
+      "width": 3101,
+      "height": 1938,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

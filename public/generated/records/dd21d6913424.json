@@ -1,0 +1,103 @@
+{
+  "id": "dd21d6913424",
+  "filename": "Mirror legs D.jpg",
+  "slug": "mirror-legs-d",
+  "width": 1912,
+  "height": 2548,
+  "aspectRatio": 0.7504,
+  "tags": [
+    "black-and-white",
+    "composition",
+    "legs",
+    "people",
+    "reflection",
+    "style",
+    "subject"
+  ],
+  "alt": "Mirror legs D",
+  "sourceHash": "25486397cd3fdb54db3accebc84f77f7564aec26",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/mirror-legs-d/grid-1201.avif",
+      "jpeg": "/generated/images/mirror-legs-d/grid-1201.jpg",
+      "width": 1201,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/mirror-legs-d/grid-preview.avif",
+        "jpeg": "/generated/images/mirror-legs-d/grid-preview.jpg",
+        "width": 24,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/mirror-legs-d/grid-270.avif",
+          "jpeg": "/generated/images/mirror-legs-d/grid-270.jpg",
+          "width": 270,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/mirror-legs-d/grid-480.avif",
+          "jpeg": "/generated/images/mirror-legs-d/grid-480.jpg",
+          "width": 480,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/mirror-legs-d/grid-720.avif",
+          "jpeg": "/generated/images/mirror-legs-d/grid-720.jpg",
+          "width": 720,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/mirror-legs-d/grid-961.avif",
+          "jpeg": "/generated/images/mirror-legs-d/grid-961.jpg",
+          "width": 961,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/mirror-legs-d/grid-1201.avif",
+          "jpeg": "/generated/images/mirror-legs-d/grid-1201.jpg",
+          "width": 1201,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/mirror-legs-d/lightbox.avif",
+      "jpeg": "/generated/images/mirror-legs-d/lightbox.jpg",
+      "width": 1201,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/mirror-legs-d/lightbox-540.avif",
+          "jpeg": "/generated/images/mirror-legs-d/lightbox-540.jpg",
+          "width": 540,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/mirror-legs-d/lightbox-810.avif",
+          "jpeg": "/generated/images/mirror-legs-d/lightbox-810.jpg",
+          "width": 810,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/mirror-legs-d/lightbox.avif",
+          "jpeg": "/generated/images/mirror-legs-d/lightbox.jpg",
+          "width": 1201,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/mirror-legs-d/lightbox-preview.avif",
+        "jpeg": "/generated/images/mirror-legs-d/lightbox-preview.jpg",
+        "width": 30,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/mirror-legs-d/original.jpg",
+      "width": 1912,
+      "height": 2548,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

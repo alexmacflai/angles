@@ -1,0 +1,107 @@
+{
+  "id": "b380e88810d2",
+  "filename": "Hombre andando_14.jpg",
+  "slug": "hombre-andando-14",
+  "width": 3726,
+  "height": 531,
+  "aspectRatio": 7.0169,
+  "tags": [
+    "beach",
+    "cityscape",
+    "fog",
+    "landscape",
+    "outdoors",
+    "panoramic",
+    "people",
+    "person",
+    "place",
+    "subject",
+    "type"
+  ],
+  "alt": "Hombre andando 14",
+  "sourceHash": "67106311a375d1580bf135cc82069605c1be9ee2",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/hombre-andando-14/grid-1600.avif",
+      "jpeg": "/generated/images/hombre-andando-14/grid-1600.jpg",
+      "width": 1600,
+      "height": 228,
+      "preview": {
+        "avif": "/generated/images/hombre-andando-14/grid-preview.avif",
+        "jpeg": "/generated/images/hombre-andando-14/grid-preview.jpg",
+        "width": 32,
+        "height": 5
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/hombre-andando-14/grid-360.avif",
+          "jpeg": "/generated/images/hombre-andando-14/grid-360.jpg",
+          "width": 360,
+          "height": 51
+        },
+        {
+          "avif": "/generated/images/hombre-andando-14/grid-640.avif",
+          "jpeg": "/generated/images/hombre-andando-14/grid-640.jpg",
+          "width": 640,
+          "height": 91
+        },
+        {
+          "avif": "/generated/images/hombre-andando-14/grid-960.avif",
+          "jpeg": "/generated/images/hombre-andando-14/grid-960.jpg",
+          "width": 960,
+          "height": 137
+        },
+        {
+          "avif": "/generated/images/hombre-andando-14/grid-1280.avif",
+          "jpeg": "/generated/images/hombre-andando-14/grid-1280.jpg",
+          "width": 1280,
+          "height": 182
+        },
+        {
+          "avif": "/generated/images/hombre-andando-14/grid-1600.avif",
+          "jpeg": "/generated/images/hombre-andando-14/grid-1600.jpg",
+          "width": 1600,
+          "height": 228
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/hombre-andando-14/lightbox.avif",
+      "jpeg": "/generated/images/hombre-andando-14/lightbox.jpg",
+      "width": 1600,
+      "height": 228,
+      "sources": [
+        {
+          "avif": "/generated/images/hombre-andando-14/lightbox-720.avif",
+          "jpeg": "/generated/images/hombre-andando-14/lightbox-720.jpg",
+          "width": 720,
+          "height": 103
+        },
+        {
+          "avif": "/generated/images/hombre-andando-14/lightbox-1080.avif",
+          "jpeg": "/generated/images/hombre-andando-14/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 154
+        },
+        {
+          "avif": "/generated/images/hombre-andando-14/lightbox.avif",
+          "jpeg": "/generated/images/hombre-andando-14/lightbox.jpg",
+          "width": 1600,
+          "height": 228
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/hombre-andando-14/lightbox-preview.avif",
+        "jpeg": "/generated/images/hombre-andando-14/lightbox-preview.jpg",
+        "width": 40,
+        "height": 6
+      }
+    },
+    "original": {
+      "url": "/generated/images/hombre-andando-14/original.jpg",
+      "width": 3726,
+      "height": 531,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

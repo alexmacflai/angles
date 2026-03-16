@@ -1,0 +1,108 @@
+{
+  "id": "ad8e171c1fce",
+  "filename": "_DSF5420.jpg",
+  "slug": "dsf5420",
+  "width": 3808,
+  "height": 5712,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "architecture",
+    "composition",
+    "light",
+    "nature",
+    "object",
+    "people",
+    "person",
+    "plant",
+    "stairs",
+    "subject",
+    "tree",
+    "umbrella"
+  ],
+  "alt": "DSF5420",
+  "sourceHash": "614bd5c07d6c07895568b2d551addfddfb40b92e",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf5420/grid-1067.avif",
+      "jpeg": "/generated/images/dsf5420/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/dsf5420/grid-preview.avif",
+        "jpeg": "/generated/images/dsf5420/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5420/grid-240.avif",
+          "jpeg": "/generated/images/dsf5420/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/dsf5420/grid-427.avif",
+          "jpeg": "/generated/images/dsf5420/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf5420/grid-640.avif",
+          "jpeg": "/generated/images/dsf5420/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/dsf5420/grid-853.avif",
+          "jpeg": "/generated/images/dsf5420/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/dsf5420/grid-1067.avif",
+          "jpeg": "/generated/images/dsf5420/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf5420/lightbox.avif",
+      "jpeg": "/generated/images/dsf5420/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf5420/lightbox-480.avif",
+          "jpeg": "/generated/images/dsf5420/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf5420/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf5420/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/dsf5420/lightbox.avif",
+          "jpeg": "/generated/images/dsf5420/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf5420/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf5420/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf5420/original.jpg",
+      "width": 3808,
+      "height": 5712,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

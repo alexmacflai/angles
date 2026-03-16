@@ -1,0 +1,99 @@
+{
+  "id": "3e0a970e9517",
+  "filename": "Escaleras 6.jpg",
+  "slug": "escaleras-6",
+  "width": 2448,
+  "height": 3264,
+  "aspectRatio": 0.75,
+  "tags": [
+    "architecture",
+    "stairs",
+    "subject"
+  ],
+  "alt": "Escaleras 6",
+  "sourceHash": "597d459b341f74c174f146f7aea9e58df86484b3",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/escaleras-6/grid-1200.avif",
+      "jpeg": "/generated/images/escaleras-6/grid-1200.jpg",
+      "width": 1200,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/escaleras-6/grid-preview.avif",
+        "jpeg": "/generated/images/escaleras-6/grid-preview.jpg",
+        "width": 24,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/escaleras-6/grid-270.avif",
+          "jpeg": "/generated/images/escaleras-6/grid-270.jpg",
+          "width": 270,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/escaleras-6/grid-480.avif",
+          "jpeg": "/generated/images/escaleras-6/grid-480.jpg",
+          "width": 480,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/escaleras-6/grid-720.avif",
+          "jpeg": "/generated/images/escaleras-6/grid-720.jpg",
+          "width": 720,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/escaleras-6/grid-960.avif",
+          "jpeg": "/generated/images/escaleras-6/grid-960.jpg",
+          "width": 960,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/escaleras-6/grid-1200.avif",
+          "jpeg": "/generated/images/escaleras-6/grid-1200.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/escaleras-6/lightbox.avif",
+      "jpeg": "/generated/images/escaleras-6/lightbox.jpg",
+      "width": 1200,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/escaleras-6/lightbox-540.avif",
+          "jpeg": "/generated/images/escaleras-6/lightbox-540.jpg",
+          "width": 540,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/escaleras-6/lightbox-810.avif",
+          "jpeg": "/generated/images/escaleras-6/lightbox-810.jpg",
+          "width": 810,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/escaleras-6/lightbox.avif",
+          "jpeg": "/generated/images/escaleras-6/lightbox.jpg",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/escaleras-6/lightbox-preview.avif",
+        "jpeg": "/generated/images/escaleras-6/lightbox-preview.jpg",
+        "width": 30,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/escaleras-6/original.jpg",
+      "width": 2448,
+      "height": 3264,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "id": "fe1ae3672823",
+  "filename": "20180922_Budapest-020.jpg",
+  "slug": "20180922-budapest-020",
+  "width": 5139,
+  "height": 3426,
+  "aspectRatio": 1.5,
+  "tags": [
+    "architecture",
+    "ceiling",
+    "composition",
+    "detail",
+    "geomerty",
+    "indoors",
+    "pattern",
+    "place",
+    "silhouette",
+    "subject",
+    "symmetry",
+    "type",
+    "window"
+  ],
+  "alt": "20180922 Budapest 020",
+  "sourceHash": "ff67e283cacfd7def7ae186045cc6f3ef62828f5",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/20180922-budapest-020/grid-1600.avif",
+      "jpeg": "/generated/images/20180922-budapest-020/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/20180922-budapest-020/grid-preview.avif",
+        "jpeg": "/generated/images/20180922-budapest-020/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/20180922-budapest-020/grid-360.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/20180922-budapest-020/grid-640.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/20180922-budapest-020/grid-960.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/20180922-budapest-020/grid-1280.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/20180922-budapest-020/grid-1600.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/20180922-budapest-020/lightbox.avif",
+      "jpeg": "/generated/images/20180922-budapest-020/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/20180922-budapest-020/lightbox-720.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/20180922-budapest-020/lightbox-1080.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/20180922-budapest-020/lightbox.avif",
+          "jpeg": "/generated/images/20180922-budapest-020/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/20180922-budapest-020/lightbox-preview.avif",
+        "jpeg": "/generated/images/20180922-budapest-020/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/20180922-budapest-020/original.jpg",
+      "width": 5139,
+      "height": 3426,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "17c16f64fdec",
+  "filename": "20180601_London-031-Edit.jpg",
+  "slug": "20180601-london-031-edit",
+  "width": 2073,
+  "height": 3109,
+  "aspectRatio": 0.6668,
+  "tags": [
+    "architecture",
+    "cityscape",
+    "composition",
+    "detail",
+    "geomerty",
+    "landscape",
+    "type",
+    "urban"
+  ],
+  "alt": "20180601 London 031 Edit",
+  "sourceHash": "1dac468599c87f995a8529f815edecf7abbfb4c7",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/20180601-london-031-edit/grid-1067.avif",
+      "jpeg": "/generated/images/20180601-london-031-edit/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/20180601-london-031-edit/grid-preview.avif",
+        "jpeg": "/generated/images/20180601-london-031-edit/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/20180601-london-031-edit/grid-240.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/20180601-london-031-edit/grid-427.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/20180601-london-031-edit/grid-640.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/20180601-london-031-edit/grid-853.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/20180601-london-031-edit/grid-1067.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/20180601-london-031-edit/lightbox.avif",
+      "jpeg": "/generated/images/20180601-london-031-edit/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/20180601-london-031-edit/lightbox-480.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/20180601-london-031-edit/lightbox-720.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/20180601-london-031-edit/lightbox.avif",
+          "jpeg": "/generated/images/20180601-london-031-edit/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/20180601-london-031-edit/lightbox-preview.avif",
+        "jpeg": "/generated/images/20180601-london-031-edit/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/20180601-london-031-edit/original.jpg",
+      "width": 2073,
+      "height": 3109,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

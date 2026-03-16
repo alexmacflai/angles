@@ -1,0 +1,108 @@
+{
+  "id": "94aed463e928",
+  "filename": "20180601_London-055.jpg",
+  "slug": "20180601-london-055",
+  "width": 4752,
+  "height": 3168,
+  "aspectRatio": 1.5,
+  "tags": [
+    "action",
+    "black-and-white",
+    "group",
+    "indoors",
+    "people",
+    "place",
+    "playing-music",
+    "portrait",
+    "style",
+    "subject",
+    "transport",
+    "type"
+  ],
+  "alt": "20180601 London 055",
+  "sourceHash": "2d2a02c4c8e8a0c1d3ec4f650b66654a175ce752",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/20180601-london-055/grid-1600.avif",
+      "jpeg": "/generated/images/20180601-london-055/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/20180601-london-055/grid-preview.avif",
+        "jpeg": "/generated/images/20180601-london-055/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/20180601-london-055/grid-360.avif",
+          "jpeg": "/generated/images/20180601-london-055/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/20180601-london-055/grid-640.avif",
+          "jpeg": "/generated/images/20180601-london-055/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/20180601-london-055/grid-960.avif",
+          "jpeg": "/generated/images/20180601-london-055/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/20180601-london-055/grid-1280.avif",
+          "jpeg": "/generated/images/20180601-london-055/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/20180601-london-055/grid-1600.avif",
+          "jpeg": "/generated/images/20180601-london-055/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/20180601-london-055/lightbox.avif",
+      "jpeg": "/generated/images/20180601-london-055/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/20180601-london-055/lightbox-720.avif",
+          "jpeg": "/generated/images/20180601-london-055/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/20180601-london-055/lightbox-1080.avif",
+          "jpeg": "/generated/images/20180601-london-055/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/20180601-london-055/lightbox.avif",
+          "jpeg": "/generated/images/20180601-london-055/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/20180601-london-055/lightbox-preview.avif",
+        "jpeg": "/generated/images/20180601-london-055/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/20180601-london-055/original.jpg",
+      "width": 4752,
+      "height": 3168,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

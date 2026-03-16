@@ -1,0 +1,107 @@
+{
+  "id": "949dbd408ca7",
+  "filename": "_MG_4017.jpg",
+  "slug": "mg-4017",
+  "width": 2592,
+  "height": 3888,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "architecture",
+    "black-and-white",
+    "building",
+    "cityscape",
+    "clouds",
+    "landscape",
+    "nature",
+    "skyscraper",
+    "style",
+    "subject",
+    "type"
+  ],
+  "alt": "MG 4017",
+  "sourceHash": "92d6211924e3b2ae44ca89b02d413d6562eca087",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/mg-4017/grid-1067.avif",
+      "jpeg": "/generated/images/mg-4017/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/mg-4017/grid-preview.avif",
+        "jpeg": "/generated/images/mg-4017/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/mg-4017/grid-240.avif",
+          "jpeg": "/generated/images/mg-4017/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/mg-4017/grid-427.avif",
+          "jpeg": "/generated/images/mg-4017/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/mg-4017/grid-640.avif",
+          "jpeg": "/generated/images/mg-4017/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/mg-4017/grid-853.avif",
+          "jpeg": "/generated/images/mg-4017/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/mg-4017/grid-1067.avif",
+          "jpeg": "/generated/images/mg-4017/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/mg-4017/lightbox.avif",
+      "jpeg": "/generated/images/mg-4017/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/mg-4017/lightbox-480.avif",
+          "jpeg": "/generated/images/mg-4017/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/mg-4017/lightbox-720.avif",
+          "jpeg": "/generated/images/mg-4017/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/mg-4017/lightbox.avif",
+          "jpeg": "/generated/images/mg-4017/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/mg-4017/lightbox-preview.avif",
+        "jpeg": "/generated/images/mg-4017/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/mg-4017/original.jpg",
+      "width": 2592,
+      "height": 3888,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

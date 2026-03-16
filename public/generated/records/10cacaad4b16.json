@@ -1,0 +1,106 @@
+{
+  "id": "10cacaad4b16",
+  "filename": "clouds of dementia 2.jpg",
+  "slug": "clouds-of-dementia-2",
+  "width": 3264,
+  "height": 2448,
+  "aspectRatio": 1.3333,
+  "tags": [
+    "architecture",
+    "black-and-white",
+    "composition",
+    "detail",
+    "portrait",
+    "silhouette",
+    "style",
+    "subject",
+    "type",
+    "window"
+  ],
+  "alt": "clouds of dementia 2",
+  "sourceHash": "14839df5a77bd4f3a24418d6281b1f7f1daff181",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/clouds-of-dementia-2/grid-1600.avif",
+      "jpeg": "/generated/images/clouds-of-dementia-2/grid-1600.jpg",
+      "width": 1600,
+      "height": 1200,
+      "preview": {
+        "avif": "/generated/images/clouds-of-dementia-2/grid-preview.avif",
+        "jpeg": "/generated/images/clouds-of-dementia-2/grid-preview.jpg",
+        "width": 32,
+        "height": 24
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/grid-360.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/grid-360.jpg",
+          "width": 360,
+          "height": 270
+        },
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/grid-640.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/grid-640.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/grid-960.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/grid-960.jpg",
+          "width": 960,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/grid-1280.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/grid-1280.jpg",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/grid-1600.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/grid-1600.jpg",
+          "width": 1600,
+          "height": 1200
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/clouds-of-dementia-2/lightbox.avif",
+      "jpeg": "/generated/images/clouds-of-dementia-2/lightbox.jpg",
+      "width": 1600,
+      "height": 1200,
+      "sources": [
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/lightbox-720.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/lightbox-720.jpg",
+          "width": 720,
+          "height": 540
+        },
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/lightbox-1080.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 810
+        },
+        {
+          "avif": "/generated/images/clouds-of-dementia-2/lightbox.avif",
+          "jpeg": "/generated/images/clouds-of-dementia-2/lightbox.jpg",
+          "width": 1600,
+          "height": 1200
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/clouds-of-dementia-2/lightbox-preview.avif",
+        "jpeg": "/generated/images/clouds-of-dementia-2/lightbox-preview.jpg",
+        "width": 40,
+        "height": 30
+      }
+    },
+    "original": {
+      "url": "/generated/images/clouds-of-dementia-2/original.jpg",
+      "width": 3264,
+      "height": 2448,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

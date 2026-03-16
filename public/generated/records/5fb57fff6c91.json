@@ -1,0 +1,101 @@
+{
+  "id": "5fb57fff6c91",
+  "filename": "Nubes_03.jpg",
+  "slug": "nubes-03",
+  "width": 3888,
+  "height": 2592,
+  "aspectRatio": 1.5,
+  "tags": [
+    "clouds",
+    "composition",
+    "nature",
+    "silhouette",
+    "subject"
+  ],
+  "alt": "Nubes 03",
+  "sourceHash": "5af762db792fe882b879b48250643f29817257c5",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/nubes-03/grid-1600.avif",
+      "jpeg": "/generated/images/nubes-03/grid-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "preview": {
+        "avif": "/generated/images/nubes-03/grid-preview.avif",
+        "jpeg": "/generated/images/nubes-03/grid-preview.jpg",
+        "width": 32,
+        "height": 21
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/nubes-03/grid-360.avif",
+          "jpeg": "/generated/images/nubes-03/grid-360.jpg",
+          "width": 360,
+          "height": 240
+        },
+        {
+          "avif": "/generated/images/nubes-03/grid-640.avif",
+          "jpeg": "/generated/images/nubes-03/grid-640.jpg",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "avif": "/generated/images/nubes-03/grid-960.avif",
+          "jpeg": "/generated/images/nubes-03/grid-960.jpg",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/nubes-03/grid-1280.avif",
+          "jpeg": "/generated/images/nubes-03/grid-1280.jpg",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "avif": "/generated/images/nubes-03/grid-1600.avif",
+          "jpeg": "/generated/images/nubes-03/grid-1600.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/nubes-03/lightbox.avif",
+      "jpeg": "/generated/images/nubes-03/lightbox.jpg",
+      "width": 1600,
+      "height": 1067,
+      "sources": [
+        {
+          "avif": "/generated/images/nubes-03/lightbox-720.avif",
+          "jpeg": "/generated/images/nubes-03/lightbox-720.jpg",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "avif": "/generated/images/nubes-03/lightbox-1080.avif",
+          "jpeg": "/generated/images/nubes-03/lightbox-1080.jpg",
+          "width": 1080,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/nubes-03/lightbox.avif",
+          "jpeg": "/generated/images/nubes-03/lightbox.jpg",
+          "width": 1600,
+          "height": 1067
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/nubes-03/lightbox-preview.avif",
+        "jpeg": "/generated/images/nubes-03/lightbox-preview.jpg",
+        "width": 40,
+        "height": 27
+      }
+    },
+    "original": {
+      "url": "/generated/images/nubes-03/original.jpg",
+      "width": 3888,
+      "height": 2592,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

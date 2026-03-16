@@ -1,0 +1,109 @@
+{
+  "id": "8b1f6d8a4681",
+  "filename": "_DSF4526.jpg",
+  "slug": "dsf4526",
+  "width": 3833,
+  "height": 5749,
+  "aspectRatio": 0.6667,
+  "tags": [
+    "architecture",
+    "blue",
+    "color",
+    "composition",
+    "light",
+    "night",
+    "style",
+    "subject",
+    "symmetry",
+    "time",
+    "tower",
+    "type",
+    "urban"
+  ],
+  "alt": "DSF4526",
+  "sourceHash": "1b8756ae118447c8f1726f7e0db7eed8107d714c",
+  "variants": {
+    "grid": {
+      "avif": "/generated/images/dsf4526/grid-1067.avif",
+      "jpeg": "/generated/images/dsf4526/grid-1067.jpg",
+      "width": 1067,
+      "height": 1600,
+      "preview": {
+        "avif": "/generated/images/dsf4526/grid-preview.avif",
+        "jpeg": "/generated/images/dsf4526/grid-preview.jpg",
+        "width": 21,
+        "height": 32
+      },
+      "sources": [
+        {
+          "avif": "/generated/images/dsf4526/grid-240.avif",
+          "jpeg": "/generated/images/dsf4526/grid-240.jpg",
+          "width": 240,
+          "height": 360
+        },
+        {
+          "avif": "/generated/images/dsf4526/grid-427.avif",
+          "jpeg": "/generated/images/dsf4526/grid-427.jpg",
+          "width": 427,
+          "height": 640
+        },
+        {
+          "avif": "/generated/images/dsf4526/grid-640.avif",
+          "jpeg": "/generated/images/dsf4526/grid-640.jpg",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "avif": "/generated/images/dsf4526/grid-853.avif",
+          "jpeg": "/generated/images/dsf4526/grid-853.jpg",
+          "width": 853,
+          "height": 1280
+        },
+        {
+          "avif": "/generated/images/dsf4526/grid-1067.avif",
+          "jpeg": "/generated/images/dsf4526/grid-1067.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    "lightbox": {
+      "avif": "/generated/images/dsf4526/lightbox.avif",
+      "jpeg": "/generated/images/dsf4526/lightbox.jpg",
+      "width": 1067,
+      "height": 1600,
+      "sources": [
+        {
+          "avif": "/generated/images/dsf4526/lightbox-480.avif",
+          "jpeg": "/generated/images/dsf4526/lightbox-480.jpg",
+          "width": 480,
+          "height": 720
+        },
+        {
+          "avif": "/generated/images/dsf4526/lightbox-720.avif",
+          "jpeg": "/generated/images/dsf4526/lightbox-720.jpg",
+          "width": 720,
+          "height": 1080
+        },
+        {
+          "avif": "/generated/images/dsf4526/lightbox.avif",
+          "jpeg": "/generated/images/dsf4526/lightbox.jpg",
+          "width": 1067,
+          "height": 1600
+        }
+      ],
+      "preview": {
+        "avif": "/generated/images/dsf4526/lightbox-preview.avif",
+        "jpeg": "/generated/images/dsf4526/lightbox-preview.jpg",
+        "width": 27,
+        "height": 40
+      }
+    },
+    "original": {
+      "url": "/generated/images/dsf4526/original.jpg",
+      "width": 3833,
+      "height": 5749,
+      "mimeType": "image/jpeg"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import type { ImageRecord } from '../types';
+import type { SelectionIndexRecord } from '../types';
 import { shuffleItems } from './random';
 
 interface SelectionOptions {
@@ -7,18 +7,18 @@ interface SelectionOptions {
   random?: () => number;
 }
 
-function scoreOverlap(baseTags: ReadonlySet<string>, image: ImageRecord) {
+function scoreOverlap(baseTags: ReadonlySet<string>, image: SelectionIndexRecord) {
   return image.tags.reduce((count, tag) => count + Number(baseTags.has(tag)), 0);
 }
 
-function scoreCohesion(pool: readonly ImageRecord[], candidate: ImageRecord) {
+function scoreCohesion<T extends SelectionIndexRecord>(pool: readonly T[], candidate: T) {
   return pool.reduce((total, image) => total + scoreOverlap(new Set(image.tags), candidate), 0);
 }
 
-export function selectImageCluster(
-  images: readonly ImageRecord[],
+export function selectImageCluster<T extends SelectionIndexRecord>(
+  images: readonly T[],
   { limit = 6, poolSize = 18, random = Math.random }: SelectionOptions = {}
-): ImageRecord[] {
+): T[] {
   if (images.length <= limit) {
     return [...images];
   }
