@@ -10,20 +10,49 @@ function escapeHtml(value: string) {
     .replaceAll("'", '&#39;');
 }
 
+function getGridSizes(image: DecoratedImage, mode: PageMode) {
+  if (mode === 'selection') {
+    return '(max-width: 500px) 100vw, (max-width: 767px) 50vw, 33vw';
+  }
+
+  switch (image.sizeClass) {
+    case 'tres':
+      return '(max-width: 767px) 100vw, (max-width: 1279px) 75vw, 60vw';
+    case 'dos':
+      return '(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 40vw';
+    default:
+      return '(max-width: 500px) 50vw, (max-width: 767px) 100vw, (max-width: 1279px) 25vw, 20vw';
+  }
+}
+
 function renderPicture(
   image: DecoratedImage,
   variantKey: 'grid' | 'lightbox',
-  loading: 'lazy' | 'eager'
+  loading: 'lazy' | 'eager',
+  sizes?: string
 ) {
   const variant = image.variants[variantKey];
   const alt = escapeHtml(image.alt || '');
+  const avifSrcset =
+    variantKey === 'grid'
+      ? image.variants.grid.sources.map((source) => `${source.avif} ${source.width}w`).join(', ')
+      : variant.avif;
+  const webpSrcset =
+    variantKey === 'grid'
+      ? image.variants.grid.sources.map((source) => `${source.webp} ${source.width}w`).join(', ')
+      : variant.webp;
+  const jpegSrcset =
+    variantKey === 'grid'
+      ? image.variants.grid.sources.map((source) => `${source.jpeg} ${source.width}w`).join(', ')
+      : variant.jpeg;
 
   return `
     <picture>
-      <source srcset="${variant.avif}" type="image/avif" />
-      <source srcset="${variant.webp}" type="image/webp" />
+      <source srcset="${avifSrcset}" ${sizes ? `sizes="${sizes}"` : ''} type="image/avif" />
+      <source srcset="${webpSrcset}" ${sizes ? `sizes="${sizes}"` : ''} type="image/webp" />
       <img
         src="${variant.jpeg}"
+        ${variantKey === 'grid' ? `srcset="${jpegSrcset}" sizes="${sizes}"` : ''}
         alt="${alt}"
         loading="${loading}"
         width="${variant.width}"
@@ -34,7 +63,7 @@ function renderPicture(
   `;
 }
 
-function renderGrid(images: readonly DecoratedImage[]) {
+function renderGrid(images: readonly DecoratedImage[], mode: PageMode) {
   if (images.length === 0) {
     return `<p class="status-message">No images available yet.</p>`;
   }
@@ -48,7 +77,7 @@ function renderGrid(images: readonly DecoratedImage[]) {
             data-image-index="${index}"
             aria-label="Open image ${index + 1} in lightbox"
           >
-            ${renderPicture(image, 'grid', index < 6 ? 'eager' : 'lazy')}
+            ${renderPicture(image, 'grid', index < 6 ? 'eager' : 'lazy', getGridSizes(image, mode))}
           </button>
         `
       )
@@ -109,7 +138,7 @@ export function createPageMarkup({
       </div>
     </header>
     <main class="grid" id="imageGrid">
-      <div class="inner">${renderGrid(images)}</div>
+      <div class="inner">${renderGrid(images, mode)}</div>
     </main>
     <div class="lightbox-carousel" aria-hidden="true">
       <div class="carousel">${renderLightbox(images)}</div>

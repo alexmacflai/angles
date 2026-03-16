@@ -12,7 +12,14 @@ const fixtureImages: ImageRecord[] = [
     tags: ['window'],
     alt: 'One',
     variants: {
-      grid: { avif: '/one.avif', webp: '/one.webp', jpeg: '/one.jpg', width: 100, height: 100 },
+      grid: {
+        avif: '/one-100.avif',
+        webp: '/one-100.webp',
+        jpeg: '/one-100.jpg',
+        width: 100,
+        height: 100,
+        sources: [{ avif: '/one-100.avif', webp: '/one-100.webp', jpeg: '/one-100.jpg', width: 100, height: 100 }],
+      },
       lightbox: { avif: '/one-l.avif', webp: '/one-l.webp', jpeg: '/one-l.jpg', width: 100, height: 100 },
       original: { url: '/one-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
     },
@@ -27,7 +34,14 @@ const fixtureImages: ImageRecord[] = [
     tags: ['shadow'],
     alt: 'Two',
     variants: {
-      grid: { avif: '/two.avif', webp: '/two.webp', jpeg: '/two.jpg', width: 100, height: 100 },
+      grid: {
+        avif: '/two-100.avif',
+        webp: '/two-100.webp',
+        jpeg: '/two-100.jpg',
+        width: 100,
+        height: 100,
+        sources: [{ avif: '/two-100.avif', webp: '/two-100.webp', jpeg: '/two-100.jpg', width: 100, height: 100 }],
+      },
       lightbox: { avif: '/two-l.avif', webp: '/two-l.webp', jpeg: '/two-l.jpg', width: 100, height: 100 },
       original: { url: '/two-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
     },
@@ -42,7 +56,16 @@ const fixtureImages: ImageRecord[] = [
     tags: ['geometry'],
     alt: 'Three',
     variants: {
-      grid: { avif: '/three.avif', webp: '/three.webp', jpeg: '/three.jpg', width: 100, height: 100 },
+      grid: {
+        avif: '/three-100.avif',
+        webp: '/three-100.webp',
+        jpeg: '/three-100.jpg',
+        width: 100,
+        height: 100,
+        sources: [
+          { avif: '/three-100.avif', webp: '/three-100.webp', jpeg: '/three-100.jpg', width: 100, height: 100 },
+        ],
+      },
       lightbox: { avif: '/three-l.avif', webp: '/three-l.webp', jpeg: '/three-l.jpg', width: 100, height: 100 },
       original: { url: '/three-original.jpg', width: 100, height: 100, mimeType: 'image/jpeg' },
     },

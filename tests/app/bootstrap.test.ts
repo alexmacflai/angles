@@ -67,11 +67,16 @@ function createImage(id: string): ImageRecord {
     alt: `Image ${id}`,
     variants: {
       grid: {
-        avif: `/${id}/grid.avif`,
-        webp: `/${id}/grid.webp`,
-        jpeg: `/${id}/grid.jpg`,
-        width: 900,
-        height: 900,
+        avif: `/${id}/grid-1200.avif`,
+        webp: `/${id}/grid-1200.webp`,
+        jpeg: `/${id}/grid-1200.jpg`,
+        width: 1200,
+        height: 960,
+        sources: [
+          { avif: `/${id}/grid-480.avif`, webp: `/${id}/grid-480.webp`, jpeg: `/${id}/grid-480.jpg`, width: 480, height: 384 },
+          { avif: `/${id}/grid-800.avif`, webp: `/${id}/grid-800.webp`, jpeg: `/${id}/grid-800.jpg`, width: 800, height: 640 },
+          { avif: `/${id}/grid-1200.avif`, webp: `/${id}/grid-1200.webp`, jpeg: `/${id}/grid-1200.jpg`, width: 1200, height: 960 },
+        ],
       },
       lightbox: {
         avif: `/${id}/lightbox.avif`,

@@ -206,7 +206,7 @@ header {
 
 .text-animation .letter {
   display: inline-block;
-  line-height: 1rem;
+  line-height: 1.2rem;
   transform: translateY(50px);
   opacity: 0;
 }
@@ -434,11 +434,11 @@ body.page-archive #cursor .dark {
   .intro-copy strong,
   .intro-copy em,
   .intro-copy a {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   main .inner {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   body.page-selection main .inner {
