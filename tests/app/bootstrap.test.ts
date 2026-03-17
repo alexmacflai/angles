@@ -291,11 +291,12 @@ describe('bootstrapPage', () => {
 
     grid.style.gridTemplateColumns = 'repeat(3, minmax(0, 1fr))';
     grid.style.rowGap = '0px';
+    main.style.padding = '0px 16px 16px';
 
     window.dispatchEvent(new Event('resize'));
 
     expect(main.style.height).toBe(`${window.innerHeight - headerHeight}px`);
-    expect(grid.style.getPropertyValue('--grid-row-unit')).toBe('402px');
+    expect(grid.style.getPropertyValue('--grid-row-unit')).toBe(`${(window.innerHeight - headerHeight - 16) / 2}px`);
   });
 
   it('lets the selection grid fall back to natural mobile height', async () => {

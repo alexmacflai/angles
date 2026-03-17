@@ -157,13 +157,17 @@ function initGrid(root: ParentNode, mode: PageMode) {
       }
 
       const styles = window.getComputedStyle(grid);
+      const mainStyles = window.getComputedStyle(main);
       const columns = countGridTracks(styles.gridTemplateColumns);
       const gap = parseFloat(styles.rowGap || styles.gap || '0');
       const viewportHeight = window.innerHeight;
       const headerHeight = header?.getBoundingClientRect().height ?? 0;
       const mainHeight = Math.max(viewportHeight - headerHeight, 0);
+      const mainPaddingTop = parseFloat(mainStyles.paddingTop || '0');
+      const mainPaddingBottom = parseFloat(mainStyles.paddingBottom || '0');
+      const gridHeight = Math.max(mainHeight - mainPaddingTop - mainPaddingBottom, 0);
       const rows = Math.ceil(grid.children.length / Math.max(columns, 1));
-      const availableHeight = mainHeight - gap * Math.max(rows - 1, 0);
+      const availableHeight = gridHeight - gap * Math.max(rows - 1, 0);
       const rowUnit = availableHeight / Math.max(rows, 1);
 
       main.style.height = `${mainHeight}px`;
